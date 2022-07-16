@@ -12,6 +12,9 @@ export default defineComponent({
     RKStormBlast: defineAsyncComponent(
       () => import("@/components/ro-skills/RKStormBlast.vue")
     ),
+    RKCrushStrike: defineAsyncComponent(
+      () => import("@/components/ro-skills/RKCrushStrike.vue")
+    ),
   },
 });
 </script>
@@ -31,6 +34,10 @@ export default defineComponent({
 
   <div class="space">
     <RKStormBlast />
+  </div>
+
+  <div class="space">
+    <RKCrushStrike />
   </div>
 </template>
 
