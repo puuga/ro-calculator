@@ -9,6 +9,9 @@ export default defineComponent({
     RKSonicWave: defineAsyncComponent(
       () => import("@/components/ro-skills/RKSonicWave.vue")
     ),
+    RKStormBlast: defineAsyncComponent(
+      () => import("@/components/ro-skills/RKStormBlast.vue")
+    ),
   },
 });
 </script>
@@ -16,7 +19,6 @@ export default defineComponent({
 <template>
   <div class="main">
     <h1>RuneKnight View</h1>
-    Scroll down to see the skills.
   </div>
 
   <div class="space">
@@ -25,6 +27,10 @@ export default defineComponent({
 
   <div class="space">
     <RKSonicWave />
+  </div>
+
+  <div class="space">
+    <RKStormBlast />
   </div>
 </template>
 
@@ -35,9 +41,9 @@ export default defineComponent({
     display: flex;
     align-items: center;
   }
+}
 
-  .space {
-    margin: 2rem;
-  }
+.space {
+  margin: 2rem;
 }
 </style>
