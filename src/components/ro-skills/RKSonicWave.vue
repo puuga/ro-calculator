@@ -93,9 +93,9 @@ export default defineComponent({
     <div>Damage = ATK {((Skill level + 7)x100) x (1+[(BaseLV-100)/100])} %</div>
 
     <div>
-      +ATK% = <strong>{{ newCalculation.atk }}</strong>
+      ATK% = <strong>{{ newCalculation.atk }}</strong>
       <br />
-      bonus Hit = <strong>{{ newCalculation.hit }}</strong>
+      Bonus Hit = <strong>{{ newCalculation.hit }}</strong>
     </div>
   </div>
 </template>
