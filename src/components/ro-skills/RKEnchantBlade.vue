@@ -62,7 +62,7 @@ export default {
     <h3>New</h3>
 
     <div>
-      <label for="base-level">Base Level: </label>
+      <label for="base-level">Base Level (100-185): </label>
       <input
         type="number"
         id="base-level"
@@ -74,7 +74,7 @@ export default {
     </div>
 
     <div>
-      <label for="skill-level">Skill Level: </label>
+      <label for="skill-level">Skill Level (1-10): </label>
       <input
         type="number"
         id="skill-level"
@@ -86,7 +86,7 @@ export default {
     </div>
 
     <div>
-      <label for="int">Int: </label>
+      <label for="int">Int (1-130): </label>
       <input
         type="number"
         id="int"

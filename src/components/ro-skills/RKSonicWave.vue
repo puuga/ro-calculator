@@ -2,7 +2,7 @@
 export default {
   mounted() {
     console.log("RKSonicWave mounted");
-    this.newCalculationMATK();
+    this.newCalculationATK();
   },
 
   data() {
@@ -18,15 +18,19 @@ export default {
         baseLevel: 100,
         skillLevel: 1,
         atk: 0,
+        hit: 0,
       },
     };
   },
 
   methods: {
-    newCalculationMATK() {
+    newCalculationATK() {
       const { baseLevel, skillLevel } = this.newCalculation;
-      const atk = (skillLevel * 20 + 100) * (baseLevel / 150);
+      const atk = (skillLevel + 7) * 100 * (1 + (baseLevel - 100) / 100);
       this.newCalculation.atk = atk;
+
+      const hit = skillLevel * 7;
+      this.newCalculation.hit = hit;
     },
   },
 };
@@ -61,26 +65,26 @@ export default {
     <h3>New</h3>
 
     <div>
-      <label for="base-level">Base Level: </label>
+      <label for="base-level">Base Level (100-185): </label>
       <input
         type="number"
         id="base-level"
         v-model="newCalculation.baseLevel"
         min="100"
         max="185"
-        @input="newCalculationMATK()"
+        @input="newCalculationATK()"
       />
     </div>
 
     <div>
-      <label for="skill-level">Skill Level: </label>
+      <label for="skill-level">Skill Level (1-10): </label>
       <input
         type="number"
         id="skill-level"
         v-model="newCalculation.skillLevel"
         min="1"
         max="10"
-        @input="newCalculationMATK()"
+        @input="newCalculationATK()"
       />
     </div>
 
@@ -88,6 +92,8 @@ export default {
 
     <div>
       +ATK% = <strong>{{ newCalculation.atk }}</strong>
+      <br />
+      bonus Hit = <strong>{{ newCalculation.hit }}</strong>
     </div>
   </div>
 </template>
