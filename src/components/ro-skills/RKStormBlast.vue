@@ -3,7 +3,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   mounted() {
-    console.log("RKSonicWave mounted");
+    console.log("RKStormBlast mounted");
     this.newCalculationATK();
   },
 
@@ -28,7 +28,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <h2>RK Storm Blast</h2>
+  <h2>RK Storm Blast (Pertz Runestone)</h2>
 
   <hr />
 
@@ -43,6 +43,7 @@ export default defineComponent({
         v-model="newCalculation.str"
         min="1"
         max="130"
+        step="1"
         @input="newCalculationATK()"
       />
     </div>
@@ -55,6 +56,7 @@ export default defineComponent({
         v-model="newCalculation.skillLevel"
         min="1"
         max="10"
+        step="1"
         @input="newCalculationATK()"
       />
     </div>
