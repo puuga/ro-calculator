@@ -16,6 +16,7 @@ export default defineComponent({
 <template>
   <div class="main">
     <h1>RuneKnight View</h1>
+    Scroll down to see the skills.
   </div>
 
   <div class="space">
