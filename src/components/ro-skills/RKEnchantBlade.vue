@@ -1,5 +1,7 @@
 <script lang="ts">
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   mounted() {
     console.log("RuneKnightView mounted");
     this.newCalculationMATK();
@@ -30,7 +32,7 @@ export default {
       this.newCalculation.matk = matk;
     },
   },
-};
+});
 </script>
 
 <template>

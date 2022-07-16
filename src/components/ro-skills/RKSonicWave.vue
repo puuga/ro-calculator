@@ -1,5 +1,7 @@
 <script lang="ts">
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   mounted() {
     console.log("RKSonicWave mounted");
     this.newCalculationATK();
@@ -33,7 +35,7 @@ export default {
       this.newCalculation.hit = hit;
     },
   },
-};
+});
 </script>
 
 <template>

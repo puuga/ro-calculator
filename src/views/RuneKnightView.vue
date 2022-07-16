@@ -1,7 +1,7 @@
 <script lang="ts">
-import { defineAsyncComponent } from "vue";
+import { defineComponent, defineAsyncComponent } from "vue";
 
-export default {
+export default defineComponent({
   components: {
     RKEnchantBlade: defineAsyncComponent(
       () => import("@/components/ro-skills/RKEnchantBlade.vue")
@@ -10,7 +10,7 @@ export default {
       () => import("@/components/ro-skills/RKSonicWave.vue")
     ),
   },
-};
+});
 </script>
 
 <template>
