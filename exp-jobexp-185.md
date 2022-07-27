@@ -1,4 +1,6 @@
-# EXP, JOB EXP for Lv 185/65
+# RO-GGT | EXP, JOB EXP for Lv 185/65
+
+Update 2022-07-27
 
 ## EXP
 
