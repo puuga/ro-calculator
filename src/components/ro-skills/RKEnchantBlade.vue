@@ -1,10 +1,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 export default defineComponent({
+  name: "RKEnchantBlade",
+
   mounted() {
     console.log("RuneKnightView mounted");
-    this.newCalculationMATK();
+    // this.newCalculationMATK();
   },
 
   data() {
@@ -30,6 +33,14 @@ export default defineComponent({
       const { baseLevel, skillLevel, int } = this.newCalculation;
       const matk = (skillLevel * 20 + 100) * (baseLevel / 150) + int;
       this.newCalculation.matk = matk;
+
+      const analytics = getAnalytics(this.$firebaseApp);
+      logEvent(analytics, "RKEnchantBlade_newCalculationMATK", {
+        baseLevel: baseLevel,
+        skillLevel: skillLevel,
+        int: int,
+        value: matk,
+      });
     },
   },
 });
@@ -72,7 +83,6 @@ export default defineComponent({
         min="100"
         max="185"
         step="1"
-        @input="newCalculationMATK()"
       />
     </div>
 
@@ -85,7 +95,6 @@ export default defineComponent({
         min="1"
         max="10"
         step="1"
-        @input="newCalculationMATK()"
       />
     </div>
 
@@ -98,11 +107,16 @@ export default defineComponent({
         min="1"
         max="130"
         step="1"
-        @input="newCalculationMATK()"
       />
     </div>
 
-    <div>+MATK = [(Skill level x 20 + 100) x (BaseLv/150)] + INT</div>
+    <div>
+      <strong>+MATK = [(Skill level x 20 + 100) x (BaseLv/150)] + INT</strong>
+    </div>
+
+    <div>
+      <button @click="newCalculationMATK()">Calculate</button>
+    </div>
 
     <div>
       +MATK = <strong>{{ newCalculation.matk }}</strong>
