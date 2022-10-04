@@ -2,6 +2,8 @@
 import { defineComponent } from "vue";
 import { getAnalytics, logEvent } from "firebase/analytics";
 
+import { firebaseApp } from "@/plugins/firebase";
+
 export default defineComponent({
   name: "RKEnchantBlade",
 
@@ -34,7 +36,7 @@ export default defineComponent({
       const matk = (skillLevel * 20 + 100) * (baseLevel / 150) + int;
       this.newCalculation.matk = matk;
 
-      const analytics = getAnalytics(this.$firebaseApp);
+      const analytics = getAnalytics(firebaseApp);
       logEvent(analytics, "RKEnchantBlade_newCalculationMATK", {
         baseLevel: baseLevel,
         skillLevel: skillLevel,

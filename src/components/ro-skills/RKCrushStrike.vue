@@ -1,7 +1,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-// import consola from "consola";
 import { getAnalytics, logEvent } from "firebase/analytics";
+
+import { firebaseApp } from "@/plugins/firebase";
 
 export default defineComponent({
   name: "RKCrushStrike",
@@ -33,7 +34,7 @@ export default defineComponent({
         weaponWeight;
       this.newCalculation.atk = atk;
 
-      const analytics = getAnalytics(this.$firebaseApp);
+      const analytics = getAnalytics(firebaseApp);
       logEvent(analytics, "RKCrushStrike_newCalculationATK", {
         weaponLevel: weaponLevel,
         weaponAttack: weaponAttack,

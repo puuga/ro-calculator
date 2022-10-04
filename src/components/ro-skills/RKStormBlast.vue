@@ -2,6 +2,8 @@
 import { defineComponent } from "vue";
 import { getAnalytics, logEvent } from "firebase/analytics";
 
+import { firebaseApp } from "@/plugins/firebase";
+
 export default defineComponent({
   name: "RKStormBlast",
 
@@ -26,7 +28,7 @@ export default defineComponent({
       const atk = (skillLevel + str / 8) * 100;
       this.newCalculation.atk = atk;
 
-      const analytics = getAnalytics(this.$firebaseApp);
+      const analytics = getAnalytics(firebaseApp);
       logEvent(analytics, "RKStormBlast_newCalculationATK", {
         str: str,
         skillLevel: skillLevel,
