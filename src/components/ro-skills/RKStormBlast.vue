@@ -1,10 +1,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import { getAnalytics, logEvent } from "firebase/analytics";
+
+import { firebaseApp } from "@/plugins/firebase";
 
 export default defineComponent({
+  name: "RKStormBlast",
+
   mounted() {
     console.log("RKStormBlast mounted");
-    this.newCalculationATK();
+    // this.newCalculationATK();
   },
 
   data() {
@@ -22,6 +27,13 @@ export default defineComponent({
       const { str, skillLevel } = this.newCalculation;
       const atk = (skillLevel + str / 8) * 100;
       this.newCalculation.atk = atk;
+
+      const analytics = getAnalytics(firebaseApp);
+      logEvent(analytics, "RKStormBlast_newCalculationATK", {
+        str: str,
+        skillLevel: skillLevel,
+        value: atk,
+      });
     },
   },
 });
@@ -44,7 +56,6 @@ export default defineComponent({
         min="1"
         max="130"
         step="1"
-        @input="newCalculationATK()"
       />
     </div>
 
@@ -57,11 +68,18 @@ export default defineComponent({
         min="1"
         max="10"
         step="1"
-        @input="newCalculationATK()"
       />
     </div>
 
-    <div>Damage = ATK [{Rune Mastery Skill Level + (STR / 8)} x 100] %</div>
+    <div>
+      <strong>
+        Damage = ATK [{Rune Mastery Skill Level + (STR / 8)} x 100] %
+      </strong>
+    </div>
+
+    <div>
+      <button @click="newCalculationATK()">Calculate</button>
+    </div>
 
     <div>
       ATK% = <strong>{{ newCalculation.atk }}</strong>

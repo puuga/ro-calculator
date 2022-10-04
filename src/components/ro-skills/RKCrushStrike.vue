@@ -1,10 +1,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import { getAnalytics, logEvent } from "firebase/analytics";
+
+import { firebaseApp } from "@/plugins/firebase";
 
 export default defineComponent({
+  name: "RKCrushStrike",
+
   mounted() {
     console.log("RKCrushStrike mounted");
-    this.newCalculationATK();
+    // this.newCalculationATK();
   },
 
   data() {
@@ -28,6 +33,14 @@ export default defineComponent({
         weaponAttack +
         weaponWeight;
       this.newCalculation.atk = atk;
+
+      const analytics = getAnalytics(firebaseApp);
+      logEvent(analytics, "RKCrushStrike_newCalculationATK", {
+        weaponLevel: weaponLevel,
+        weaponAttack: weaponAttack,
+        weaponWeight: weaponWeight,
+        value: atk,
+      });
     },
   },
 });
@@ -50,7 +63,6 @@ export default defineComponent({
         min="1"
         max="4"
         step="1"
-        @input="newCalculationATK()"
       />
     </div>
 
@@ -63,7 +75,6 @@ export default defineComponent({
         min="0"
         max="20"
         step="1"
-        @input="newCalculationATK()"
       />
     </div>
 
@@ -75,7 +86,6 @@ export default defineComponent({
         v-model="newCalculation.weaponAttack"
         min="0"
         step="1"
-        @input="newCalculationATK()"
       />
     </div>
 
@@ -87,13 +97,18 @@ export default defineComponent({
         v-model="newCalculation.weaponWeight"
         min="0"
         step="1"
-        @input="newCalculationATK()"
       />
     </div>
 
     <div>
-      Damage = ATK [{Weapon Level * (Weapon Enhancement + 6) * 100} + (Weapon
-      Attack) + (Weapon Weight)] %
+      <strong>
+        Damage = ATK [{Weapon Level * (Weapon Enhancement + 6) * 100} + (Weapon
+        Attack) + (Weapon Weight)] %
+      </strong>
+    </div>
+
+    <div>
+      <button @click="newCalculationATK()">Calculate</button>
     </div>
 
     <div>

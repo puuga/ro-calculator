@@ -1,10 +1,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import { getAnalytics, logEvent } from "firebase/analytics";
+
+import { firebaseApp } from "@/plugins/firebase";
 
 export default defineComponent({
+  name: "RKEnchantBlade",
+
   mounted() {
     console.log("RKSonicWave mounted");
-    this.newCalculationATK();
+    // this.newCalculationATK();
   },
 
   data() {
@@ -33,6 +38,14 @@ export default defineComponent({
 
       const hit = skillLevel * 7;
       this.newCalculation.hit = hit;
+
+      const analytics = getAnalytics(firebaseApp);
+      logEvent(analytics, "RKEnchantBlade_newCalculationATK", {
+        baseLevel: baseLevel,
+        skillLevel: skillLevel,
+        hit: hit,
+        value: atk,
+      });
     },
   },
 });
@@ -75,7 +88,6 @@ export default defineComponent({
         min="100"
         max="185"
         step="1"
-        @input="newCalculationATK()"
       />
     </div>
 
@@ -88,11 +100,18 @@ export default defineComponent({
         min="1"
         max="10"
         step="1"
-        @input="newCalculationATK()"
       />
     </div>
 
-    <div>Damage = ATK {((Skill level + 7)x100) x (1+[(BaseLV-100)/100])} %</div>
+    <div>
+      <strong>
+        Damage = ATK {((Skill level + 7)x100) x (1+[(BaseLV-100)/100])}%
+      </strong>
+    </div>
+
+    <div>
+      <button @click="newCalculationATK()">Calculate</button>
+    </div>
 
     <div>
       ATK% = <strong>{{ newCalculation.atk }}</strong>
