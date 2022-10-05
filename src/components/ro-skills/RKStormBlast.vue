@@ -40,49 +40,65 @@ export default defineComponent({
 </script>
 
 <template>
-  <h2>RK Storm Blast (Pertz Runestone)</h2>
-
-  <hr />
-
-  <div>
-    <h3>New</h3>
+  <div
+    class="container p-3 bg-slate-100 rounded-xl divide-y divide-solid shadow-xl"
+  >
+    <h2 class="text-2xl font-bold">RK Storm Blast (Pertz Runestone)</h2>
 
     <div>
-      <label for="str">STR (1-130): </label>
-      <input
-        type="number"
-        id="str"
-        v-model="newCalculation.str"
-        min="1"
-        max="130"
-        step="1"
-      />
-    </div>
+      <h3 class="text-xl font-bold">New</h3>
 
-    <div>
-      <label for="skill-level">Rune Mastery Skill Level (1-10): </label>
-      <input
-        type="number"
-        id="skill-level"
-        v-model="newCalculation.skillLevel"
-        min="1"
-        max="10"
-        step="1"
-      />
-    </div>
+      <div>
+        <label for="str" class="block text-sm font-medium text-gray-700">
+          STR (1-130):
+        </label>
+        <input
+          type="number"
+          id="str"
+          v-model="newCalculation.str"
+          min="1"
+          max="130"
+          step="1"
+          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+        />
+      </div>
 
-    <div>
-      <strong>
-        Damage = ATK [{Rune Mastery Skill Level + (STR / 8)} x 100] %
-      </strong>
-    </div>
+      <div>
+        <label
+          for="skill-level"
+          class="block text-sm font-medium text-gray-700"
+        >
+          Rune Mastery Skill Level (1-10):
+        </label>
+        <input
+          type="number"
+          id="skill-level"
+          v-model="newCalculation.skillLevel"
+          min="1"
+          max="10"
+          step="1"
+          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+        />
+      </div>
 
-    <div>
-      <button @click="newCalculationATK()">Calculate</button>
-    </div>
+      <div>
+        <strong>
+          Damage = ATK [{Rune Mastery Skill Level + (STR / 8)} x 100] %
+        </strong>
+      </div>
 
-    <div>
-      ATK% = <strong>{{ newCalculation.atk }}</strong>
+      <div>
+        <button
+          class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          @click="newCalculationATK()"
+        >
+          Calculate
+        </button>
+      </div>
+
+      <div>
+        ATK% = <strong>{{ newCalculation.atk }}</strong>
+      </div>
     </div>
   </div>
 </template>

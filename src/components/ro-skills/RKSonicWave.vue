@@ -52,71 +52,89 @@ export default defineComponent({
 </script>
 
 <template>
-  <h2>RK Sonic Wave</h2>
+  <div
+    class="container p-3 bg-slate-100 rounded-xl divide-y divide-solid shadow-xl"
+  >
+    <h2 class="text-2xl font-bold">RK Sonic Wave</h2>
 
-  <hr />
-
-  <div>
-    <h3>Old</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Level</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="skill in skills" :key="skill.level">
-          <td>{{ skill.level }}</td>
-          <td>{{ skill.desc }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <hr />
-
-  <div>
-    <h3>New</h3>
+    <hr />
 
     <div>
-      <label for="base-level">Base Level (100-185): </label>
-      <input
-        type="number"
-        id="base-level"
-        v-model="newCalculation.baseLevel"
-        min="100"
-        max="185"
-        step="1"
-      />
+      <h3 class="text-xl font-bold">Old</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="skill in skills" :key="skill.level">
+            <td>{{ skill.level }}</td>
+            <td>{{ skill.desc }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <div>
-      <label for="skill-level">Skill Level (1-10): </label>
-      <input
-        type="number"
-        id="skill-level"
-        v-model="newCalculation.skillLevel"
-        min="1"
-        max="10"
-        step="1"
-      />
-    </div>
+    <hr />
 
     <div>
-      <strong>
-        Damage = ATK {((Skill level + 7)x100) x (1+[(BaseLV-100)/100])}%
-      </strong>
-    </div>
+      <h3 class="text-xl font-bold">New</h3>
 
-    <div>
-      <button @click="newCalculationATK()">Calculate</button>
-    </div>
+      <div>
+        <label for="base-level" class="block text-sm font-medium text-gray-700">
+          Base Level (100-185):
+        </label>
+        <input
+          type="number"
+          id="base-level"
+          v-model="newCalculation.baseLevel"
+          min="100"
+          max="185"
+          step="1"
+          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+        />
+      </div>
 
-    <div>
-      ATK% = <strong>{{ newCalculation.atk }}</strong>
-      <br />
-      Bonus Hit = <strong>{{ newCalculation.hit }}</strong>
+      <div>
+        <label
+          for="skill-level"
+          class="block text-sm font-medium text-gray-700"
+        >
+          Skill Level (1-10):
+        </label>
+        <input
+          type="number"
+          id="skill-level"
+          v-model="newCalculation.skillLevel"
+          min="1"
+          max="10"
+          step="1"
+          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+        />
+      </div>
+
+      <div>
+        <strong>
+          Damage = ATK {((Skill level + 7)x100) x (1+[(BaseLV-100)/100])}%
+        </strong>
+      </div>
+
+      <div>
+        <button
+          class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          @click="newCalculationATK()"
+        >
+          Calculate
+        </button>
+      </div>
+
+      <div>
+        ATK% = <strong>{{ newCalculation.atk }}</strong>
+        <br />
+        Bonus Hit = <strong>{{ newCalculation.hit }}</strong>
+      </div>
     </div>
   </div>
 </template>
