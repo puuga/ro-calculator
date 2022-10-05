@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 import { getAnalytics, logEvent } from "firebase/analytics";
 
-import { firebaseApp } from "@/plugins/firebase";
+import { firebaseApp } from "@/nv-plugins/firebase";
 
 export default defineComponent({
   name: "RKCrushStrike",
