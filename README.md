@@ -44,3 +44,12 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## Firebase Command
+
+Build and Deploy
+
+```sh
+npm run build
+firebase deploy --only hosting:ro-calculator
+```
