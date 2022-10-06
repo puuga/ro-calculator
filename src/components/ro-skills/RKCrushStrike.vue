@@ -9,12 +9,12 @@ export default defineComponent({
 
   mounted() {
     console.log("RKCrushStrike mounted");
-    // this.newCalculationATK();
+    // this.calculation20220721ATK();
   },
 
   data() {
     return {
-      newCalculation: {
+      calculation20220721: {
         weaponLevel: 1,
         weaponEnhancement: 0,
         weaponAttack: 0,
@@ -25,17 +25,17 @@ export default defineComponent({
   },
 
   methods: {
-    newCalculationATK() {
+    calculation20220721ATK() {
       const { weaponLevel, weaponEnhancement, weaponAttack, weaponWeight } =
-        this.newCalculation;
+        this.calculation20220721;
       const atk =
         weaponLevel * (weaponEnhancement + 6) * 100 +
         weaponAttack +
         weaponWeight;
-      this.newCalculation.atk = atk;
+      this.calculation20220721.atk = atk;
 
       const analytics = getAnalytics(firebaseApp);
-      logEvent(analytics, "RKCrushStrike_newCalculationATK", {
+      logEvent(analytics, "RKCrushStrike_calculation20220721ATK", {
         weaponLevel: weaponLevel,
         weaponAttack: weaponAttack,
         weaponWeight: weaponWeight,
@@ -47,99 +47,85 @@ export default defineComponent({
 </script>
 
 <template>
-  <div
-    class="container p-3 bg-slate-100 rounded-xl divide-y divide-solid shadow-xl"
-  >
+  <div class="c-skill-card">
     <h2 class="text-2xl font-bold">RK CrushStrike (Rhydo Runestone)</h2>
 
-    <div>
+    <div class="p-1">
       <div>
-        <label
-          for="weapon-level"
-          class="block text-sm font-medium text-gray-700"
-        >
+        <span class="c-badge">Update 2022-07-21</span>
+      </div>
+
+      <div>
+        <label for="weapon-level" class="c-input-label">
           Weapon Level (1-4):
         </label>
         <input
           type="number"
           id="weapon-level"
-          v-model="newCalculation.weaponLevel"
+          v-model="calculation20220721.weaponLevel"
           min="1"
           max="4"
           step="1"
-          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          class="c-input-number"
         />
       </div>
 
       <div>
-        <label
-          for="weapon-enhancement"
-          class="block text-sm font-medium text-gray-700"
-        >
+        <label for="weapon-enhancement" class="c-input-label">
           Weapon Enhancement (0-20):
         </label>
         <input
           type="number"
           id="weapon-enhancement"
-          v-model="newCalculation.weaponEnhancement"
+          v-model="calculation20220721.weaponEnhancement"
           min="0"
           max="20"
           step="1"
-          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          class="c-input-number"
         />
       </div>
 
       <div>
-        <label
-          for="weapon-attack"
-          class="block text-sm font-medium text-gray-700"
-          >Weapon Attack:
-        </label>
+        <label for="weapon-attack" class="c-input-label">Weapon Attack: </label>
         <input
           type="number"
           id="weapon-attack"
-          v-model="newCalculation.weaponAttack"
+          v-model="calculation20220721.weaponAttack"
           min="0"
           step="1"
-          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          class="c-input-number"
         />
       </div>
 
       <div>
-        <label
-          for="weapon-weight"
-          class="block text-sm font-medium text-gray-700"
-        >
+        <label for="weapon-weight" class="c-input-label">
           Weapon Weight:
         </label>
         <input
           type="number"
           id="weapon-weight"
-          v-model="newCalculation.weaponWeight"
+          v-model="calculation20220721.weaponWeight"
           min="0"
           step="1"
-          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          class="c-input-number"
         />
       </div>
 
       <div>
-        <strong>
-          Damage = ATK [{Weapon Level * (Weapon Enhancement + 6) * 100} +
-          (Weapon Attack) + (Weapon Weight)] %
-        </strong>
-      </div>
-
-      <div>
-        <button
-          class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          @click="newCalculationATK()"
-        >
+        <button class="c-btn-primary" @click="calculation20220721ATK()">
           Calculate
         </button>
       </div>
 
       <div>
-        ATK% = <strong>{{ newCalculation.atk }}</strong>
+        <strong>
+          ATK% = ATK [{Weapon Level * (Weapon Enhancement + 6) * 100} + (Weapon
+          Attack) + (Weapon Weight)] %
+        </strong>
+      </div>
+
+      <div>
+        <strong>ATK% = {{ calculation20220721.atk }}</strong>
       </div>
     </div>
   </div>

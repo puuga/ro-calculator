@@ -9,7 +9,7 @@ export default defineComponent({
 
   mounted() {
     console.log("RuneKnightView mounted");
-    // this.newCalculationMATK();
+    // this.calculation20220721MATK();
   },
 
   data() {
@@ -21,7 +21,7 @@ export default defineComponent({
         { level: 4, desc: "+180 MATK" },
         { level: 5, desc: "+200 MATK" },
       ],
-      newCalculation: {
+      calculation20220721: {
         baseLevel: 100,
         skillLevel: 1,
         int: 1,
@@ -31,13 +31,13 @@ export default defineComponent({
   },
 
   methods: {
-    newCalculationMATK() {
-      const { baseLevel, skillLevel, int } = this.newCalculation;
+    calculation20220721MATK() {
+      const { baseLevel, skillLevel, int } = this.calculation20220721;
       const matk = (skillLevel * 20 + 100) * (baseLevel / 150) + int;
-      this.newCalculation.matk = matk;
+      this.calculation20220721.matk = matk;
 
       const analytics = getAnalytics(firebaseApp);
-      logEvent(analytics, "RKEnchantBlade_newCalculationMATK", {
+      logEvent(analytics, "RKEnchantBlade_calculation20220721MATK", {
         baseLevel: baseLevel,
         skillLevel: skillLevel,
         int: int,
@@ -49,78 +49,81 @@ export default defineComponent({
 </script>
 
 <template>
-  <div
-    class="container p-3 bg-slate-100 rounded-xl divide-y divide-solid shadow-xl"
-  >
+  <div class="c-skill-card">
     <h2 class="text-2xl font-bold">RK Enchant Blade</h2>
 
-    <div>
+    <div class="p-1">
       <h3 class="text-xl font-bold">Old</h3>
-      <table>
+      <table class="c-table">
         <thead>
           <tr>
-            <th>Level</th>
-            <th>Description</th>
+            <th class="c-table-th">Level</th>
+            <th class="c-table-th">Description</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="skill in skills" :key="skill.level">
-            <td>{{ skill.level }}</td>
-            <td>{{ skill.desc }}</td>
+            <td class="c-table-td">{{ skill.level }}</td>
+            <td class="c-table-td">{{ skill.desc }}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div>
+    <div class="p-1">
       <h3 class="text-xl font-bold">New</h3>
 
       <div>
-        <label for="base-level" class="block text-sm font-medium text-gray-700">
+        <span class="c-badge">Update 2022-07-21</span>
+      </div>
+
+      <div>
+        <label for="base-level" class="c-input-label">
           Base Level (100-185):
         </label>
         <input
           type="number"
           id="base-level"
-          v-model="newCalculation.baseLevel"
+          v-model="calculation20220721.baseLevel"
           min="100"
           max="185"
           step="1"
-          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          class="c-input-number"
         />
       </div>
 
       <div>
-        <label
-          for="skill-level"
-          class="block text-sm font-medium text-gray-700"
-        >
+        <label for="skill-level" class="c-input-label">
           Skill Level (1-10):
         </label>
         <input
           type="number"
           id="skill-level"
-          v-model="newCalculation.skillLevel"
+          v-model="calculation20220721.skillLevel"
           min="1"
           max="10"
           step="1"
-          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          class="c-input-number"
         />
       </div>
 
       <div>
-        <label for="int" class="block text-sm font-medium text-gray-700">
-          Int (1-130):
-        </label>
+        <label for="int" class="c-input-label"> Int (1-130): </label>
         <input
           type="number"
           id="int"
-          v-model="newCalculation.int"
+          v-model="calculation20220721.int"
           min="1"
           max="130"
           step="1"
-          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          class="c-input-number"
         />
+      </div>
+
+      <div>
+        <button class="c-btn-primary" @click="calculation20220721MATK()">
+          Calculate
+        </button>
       </div>
 
       <div>
@@ -128,16 +131,7 @@ export default defineComponent({
       </div>
 
       <div>
-        <button
-          class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          @click="newCalculationMATK()"
-        >
-          Calculate
-        </button>
-      </div>
-
-      <div>
-        +MATK = <strong>{{ newCalculation.matk }}</strong>
+        <strong>+MATK = {{ calculation20220721.matk }}</strong>
       </div>
     </div>
   </div>
