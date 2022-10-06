@@ -24,6 +24,15 @@ const router = createRouter({
       component: () => import("@/views/RuneKnightView.vue"),
     },
     {
+      path: "/exp-and-job-exp-table",
+      name: "expandjobexptable",
+      meta: {
+        title: "EXP & Job EXP",
+      },
+      component: () =>
+        import("@/views/ExperienceAndJobExperienceTableView.vue"),
+    },
+    {
       path: "/about",
       name: "about",
       meta: {
