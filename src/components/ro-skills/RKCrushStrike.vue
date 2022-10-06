@@ -47,17 +47,12 @@ export default defineComponent({
 </script>
 
 <template>
-  <div
-    class="container p-3 bg-slate-100 rounded-xl divide-y divide-solid shadow-xl"
-  >
+  <div class="c-skill-card">
     <h2 class="text-2xl font-bold">RK CrushStrike (Rhydo Runestone)</h2>
 
     <div>
       <div>
-        <label
-          for="weapon-level"
-          class="block text-sm font-medium text-gray-700"
-        >
+        <label for="weapon-level" class="c-input-label">
           Weapon Level (1-4):
         </label>
         <input
@@ -67,15 +62,12 @@ export default defineComponent({
           min="1"
           max="4"
           step="1"
-          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          class="c-input-number"
         />
       </div>
 
       <div>
-        <label
-          for="weapon-enhancement"
-          class="block text-sm font-medium text-gray-700"
-        >
+        <label for="weapon-enhancement" class="c-input-label">
           Weapon Enhancement (0-20):
         </label>
         <input
@@ -85,31 +77,24 @@ export default defineComponent({
           min="0"
           max="20"
           step="1"
-          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          class="c-input-number"
         />
       </div>
 
       <div>
-        <label
-          for="weapon-attack"
-          class="block text-sm font-medium text-gray-700"
-          >Weapon Attack:
-        </label>
+        <label for="weapon-attack" class="c-input-label">Weapon Attack: </label>
         <input
           type="number"
           id="weapon-attack"
           v-model="newCalculation.weaponAttack"
           min="0"
           step="1"
-          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          class="c-input-number"
         />
       </div>
 
       <div>
-        <label
-          for="weapon-weight"
-          class="block text-sm font-medium text-gray-700"
-        >
+        <label for="weapon-weight" class="c-input-label">
           Weapon Weight:
         </label>
         <input
@@ -118,7 +103,7 @@ export default defineComponent({
           v-model="newCalculation.weaponWeight"
           min="0"
           step="1"
-          class="block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          class="c-input-number"
         />
       </div>
 
@@ -130,10 +115,7 @@ export default defineComponent({
       </div>
 
       <div>
-        <button
-          class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          @click="newCalculationATK()"
-        >
+        <button class="c-btn-primary" @click="newCalculationATK()">
           Calculate
         </button>
       </div>
