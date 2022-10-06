@@ -43,7 +43,7 @@ export default defineComponent({
   <div class="c-skill-card">
     <h2 class="text-2xl font-bold">RK Storm Blast (Pertz Runestone)</h2>
 
-    <div>
+    <div class="p-1">
       <h3 class="text-xl font-bold">New</h3>
 
       <div>
@@ -75,19 +75,19 @@ export default defineComponent({
       </div>
 
       <div>
-        <strong>
-          Damage = ATK [{Rune Mastery Skill Level + (STR / 8)} x 100] %
-        </strong>
-      </div>
-
-      <div>
         <button class="c-btn-primary" @click="newCalculationATK()">
           Calculate
         </button>
       </div>
 
       <div>
-        ATK% = <strong>{{ newCalculation.atk }}</strong>
+        <strong>
+          Damage = ATK [{Rune Mastery Skill Level + (STR / 8)} x 100] %
+        </strong>
+      </div>
+
+      <div>
+        <strong>ATK% = {{ newCalculation.atk }}</strong>
       </div>
     </div>
   </div>

@@ -52,25 +52,25 @@ export default defineComponent({
   <div class="c-skill-card">
     <h2 class="text-2xl font-bold">RK Enchant Blade</h2>
 
-    <div>
+    <div class="p-1">
       <h3 class="text-xl font-bold">Old</h3>
-      <table>
+      <table class="c-table">
         <thead>
           <tr>
-            <th>Level</th>
-            <th>Description</th>
+            <th class="c-table-th">Level</th>
+            <th class="c-table-th">Description</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="skill in skills" :key="skill.level">
-            <td>{{ skill.level }}</td>
-            <td>{{ skill.desc }}</td>
+            <td class="c-table-td">{{ skill.level }}</td>
+            <td class="c-table-td">{{ skill.desc }}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div>
+    <div class="p-1">
       <h3 class="text-xl font-bold">New</h3>
 
       <div>
@@ -117,17 +117,17 @@ export default defineComponent({
       </div>
 
       <div>
-        <strong>+MATK = [(Skill level x 20 + 100) x (BaseLv/150)] + INT</strong>
-      </div>
-
-      <div>
         <button class="c-btn-primary" @click="newCalculationMATK()">
           Calculate
         </button>
       </div>
 
       <div>
-        +MATK = <strong>{{ newCalculation.matk }}</strong>
+        <strong>+MATK = [(Skill level x 20 + 100) x (BaseLv/150)] + INT</strong>
+      </div>
+
+      <div>
+        <strong>+MATK = {{ newCalculation.matk }}</strong>
       </div>
     </div>
   </div>

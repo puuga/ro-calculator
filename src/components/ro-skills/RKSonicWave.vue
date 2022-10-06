@@ -55,29 +55,25 @@ export default defineComponent({
   <div class="c-skill-card">
     <h2 class="text-2xl font-bold">RK Sonic Wave</h2>
 
-    <hr />
-
-    <div>
+    <div class="p-1">
       <h3 class="text-xl font-bold">Old</h3>
-      <table>
+      <table class="c-table">
         <thead>
           <tr>
-            <th>Level</th>
-            <th>Description</th>
+            <th class="c-table-th">Level</th>
+            <th class="c-table-th">Description</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="skill in skills" :key="skill.level">
-            <td>{{ skill.level }}</td>
-            <td>{{ skill.desc }}</td>
+            <td class="c-table-td">{{ skill.level }}</td>
+            <td class="c-table-td">{{ skill.desc }}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <hr />
-
-    <div>
+    <div class="p-1">
       <h3 class="text-xl font-bold">New</h3>
 
       <div>
@@ -111,21 +107,21 @@ export default defineComponent({
       </div>
 
       <div>
-        <strong>
-          Damage = ATK {((Skill level + 7)x100) x (1+[(BaseLV-100)/100])}%
-        </strong>
-      </div>
-
-      <div>
         <button class="c-btn-primary" @click="newCalculationATK()">
           Calculate
         </button>
       </div>
 
       <div>
-        ATK% = <strong>{{ newCalculation.atk }}</strong>
+        <strong>
+          Damage = ATK {((Skill level + 7)x100) x (1+[(BaseLV-100)/100])}%
+        </strong>
+      </div>
+
+      <div>
+        <strong>ATK% = {{ newCalculation.atk }}</strong>
         <br />
-        Bonus Hit = <strong>{{ newCalculation.hit }}</strong>
+        <strong>Bonus Hit = {{ newCalculation.hit }}</strong>
       </div>
     </div>
   </div>

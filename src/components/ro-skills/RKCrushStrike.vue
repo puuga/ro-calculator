@@ -50,7 +50,7 @@ export default defineComponent({
   <div class="c-skill-card">
     <h2 class="text-2xl font-bold">RK CrushStrike (Rhydo Runestone)</h2>
 
-    <div>
+    <div class="p-1">
       <div>
         <label for="weapon-level" class="c-input-label">
           Weapon Level (1-4):
@@ -108,20 +108,20 @@ export default defineComponent({
       </div>
 
       <div>
-        <strong>
-          Damage = ATK [{Weapon Level * (Weapon Enhancement + 6) * 100} +
-          (Weapon Attack) + (Weapon Weight)] %
-        </strong>
-      </div>
-
-      <div>
         <button class="c-btn-primary" @click="newCalculationATK()">
           Calculate
         </button>
       </div>
 
       <div>
-        ATK% = <strong>{{ newCalculation.atk }}</strong>
+        <strong>
+          ATK% = ATK [{Weapon Level * (Weapon Enhancement + 6) * 100} + (Weapon
+          Attack) + (Weapon Weight)] %
+        </strong>
+      </div>
+
+      <div>
+        <strong>ATK% = {{ newCalculation.atk }}</strong>
       </div>
     </div>
   </div>
