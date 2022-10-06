@@ -9,7 +9,6 @@ export default defineComponent({
 
   mounted() {
     console.log("RKSonicWave mounted");
-    // this.newCalculationATK();
   },
 
   data() {
@@ -21,7 +20,7 @@ export default defineComponent({
         { level: 4, desc: "+900 % ATK" },
         { level: 5, desc: "+1000 % ATK" },
       ],
-      newCalculation: {
+      calculation20220721: {
         baseLevel: 100,
         skillLevel: 1,
         atk: 0,
@@ -31,16 +30,16 @@ export default defineComponent({
   },
 
   methods: {
-    newCalculationATK() {
-      const { baseLevel, skillLevel } = this.newCalculation;
+    calculation20220721ATK() {
+      const { baseLevel, skillLevel } = this.calculation20220721;
       const atk = (skillLevel + 7) * 100 * (1 + (baseLevel - 100) / 100);
-      this.newCalculation.atk = atk;
+      this.calculation20220721.atk = atk;
 
       const hit = skillLevel * 7;
-      this.newCalculation.hit = hit;
+      this.calculation20220721.hit = hit;
 
       const analytics = getAnalytics(firebaseApp);
-      logEvent(analytics, "RKEnchantBlade_newCalculationATK", {
+      logEvent(analytics, "RKEnchantBlade_calculation20220721ATK", {
         baseLevel: baseLevel,
         skillLevel: skillLevel,
         hit: hit,
@@ -77,13 +76,17 @@ export default defineComponent({
       <h3 class="text-xl font-bold">New</h3>
 
       <div>
+        <span class="c-badge">Update 2022-07-21</span>
+      </div>
+
+      <div>
         <label for="base-level" class="c-input-label">
           Base Level (100-185):
         </label>
         <input
           type="number"
           id="base-level"
-          v-model="newCalculation.baseLevel"
+          v-model="calculation20220721.baseLevel"
           min="100"
           max="185"
           step="1"
@@ -98,7 +101,7 @@ export default defineComponent({
         <input
           type="number"
           id="skill-level"
-          v-model="newCalculation.skillLevel"
+          v-model="calculation20220721.skillLevel"
           min="1"
           max="10"
           step="1"
@@ -107,7 +110,7 @@ export default defineComponent({
       </div>
 
       <div>
-        <button class="c-btn-primary" @click="newCalculationATK()">
+        <button class="c-btn-primary" @click="calculation20220721ATK()">
           Calculate
         </button>
       </div>
@@ -119,9 +122,9 @@ export default defineComponent({
       </div>
 
       <div>
-        <strong>ATK% = {{ newCalculation.atk }}</strong>
+        <strong>ATK% = {{ calculation20220721.atk }}</strong>
         <br />
-        <strong>Bonus Hit = {{ newCalculation.hit }}</strong>
+        <strong>Bonus Hit = {{ calculation20220721.hit }}</strong>
       </div>
     </div>
   </div>

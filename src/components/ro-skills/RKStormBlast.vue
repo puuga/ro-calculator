@@ -9,12 +9,12 @@ export default defineComponent({
 
   mounted() {
     console.log("RKStormBlast mounted");
-    // this.newCalculationATK();
+    // this.calculation20220721ATK();
   },
 
   data() {
     return {
-      newCalculation: {
+      calculation20220721: {
         str: 1,
         skillLevel: 1,
         atk: 0,
@@ -23,13 +23,13 @@ export default defineComponent({
   },
 
   methods: {
-    newCalculationATK() {
-      const { str, skillLevel } = this.newCalculation;
+    calculation20220721ATK() {
+      const { str, skillLevel } = this.calculation20220721;
       const atk = (skillLevel + str / 8) * 100;
-      this.newCalculation.atk = atk;
+      this.calculation20220721.atk = atk;
 
       const analytics = getAnalytics(firebaseApp);
-      logEvent(analytics, "RKStormBlast_newCalculationATK", {
+      logEvent(analytics, "RKStormBlast_calculation20220721ATK", {
         str: str,
         skillLevel: skillLevel,
         value: atk,
@@ -47,11 +47,15 @@ export default defineComponent({
       <h3 class="text-xl font-bold">New</h3>
 
       <div>
+        <span class="c-badge">Update 2022-07-21</span>
+      </div>
+
+      <div>
         <label for="str" class="c-input-label"> STR (1-130): </label>
         <input
           type="number"
           id="str"
-          v-model="newCalculation.str"
+          v-model="calculation20220721.str"
           min="1"
           max="130"
           step="1"
@@ -66,7 +70,7 @@ export default defineComponent({
         <input
           type="number"
           id="skill-level"
-          v-model="newCalculation.skillLevel"
+          v-model="calculation20220721.skillLevel"
           min="1"
           max="10"
           step="1"
@@ -75,7 +79,7 @@ export default defineComponent({
       </div>
 
       <div>
-        <button class="c-btn-primary" @click="newCalculationATK()">
+        <button class="c-btn-primary" @click="calculation20220721ATK()">
           Calculate
         </button>
       </div>
@@ -87,7 +91,7 @@ export default defineComponent({
       </div>
 
       <div>
-        <strong>ATK% = {{ newCalculation.atk }}</strong>
+        <strong>ATK% = {{ calculation20220721.atk }}</strong>
       </div>
     </div>
   </div>

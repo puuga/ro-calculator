@@ -9,7 +9,7 @@ export default defineComponent({
 
   mounted() {
     console.log("RuneKnightView mounted");
-    // this.newCalculationMATK();
+    // this.calculation20220721MATK();
   },
 
   data() {
@@ -21,7 +21,7 @@ export default defineComponent({
         { level: 4, desc: "+180 MATK" },
         { level: 5, desc: "+200 MATK" },
       ],
-      newCalculation: {
+      calculation20220721: {
         baseLevel: 100,
         skillLevel: 1,
         int: 1,
@@ -31,13 +31,13 @@ export default defineComponent({
   },
 
   methods: {
-    newCalculationMATK() {
-      const { baseLevel, skillLevel, int } = this.newCalculation;
+    calculation20220721MATK() {
+      const { baseLevel, skillLevel, int } = this.calculation20220721;
       const matk = (skillLevel * 20 + 100) * (baseLevel / 150) + int;
-      this.newCalculation.matk = matk;
+      this.calculation20220721.matk = matk;
 
       const analytics = getAnalytics(firebaseApp);
-      logEvent(analytics, "RKEnchantBlade_newCalculationMATK", {
+      logEvent(analytics, "RKEnchantBlade_calculation20220721MATK", {
         baseLevel: baseLevel,
         skillLevel: skillLevel,
         int: int,
@@ -74,13 +74,17 @@ export default defineComponent({
       <h3 class="text-xl font-bold">New</h3>
 
       <div>
+        <span class="c-badge">Update 2022-07-21</span>
+      </div>
+
+      <div>
         <label for="base-level" class="c-input-label">
           Base Level (100-185):
         </label>
         <input
           type="number"
           id="base-level"
-          v-model="newCalculation.baseLevel"
+          v-model="calculation20220721.baseLevel"
           min="100"
           max="185"
           step="1"
@@ -95,7 +99,7 @@ export default defineComponent({
         <input
           type="number"
           id="skill-level"
-          v-model="newCalculation.skillLevel"
+          v-model="calculation20220721.skillLevel"
           min="1"
           max="10"
           step="1"
@@ -108,7 +112,7 @@ export default defineComponent({
         <input
           type="number"
           id="int"
-          v-model="newCalculation.int"
+          v-model="calculation20220721.int"
           min="1"
           max="130"
           step="1"
@@ -117,7 +121,7 @@ export default defineComponent({
       </div>
 
       <div>
-        <button class="c-btn-primary" @click="newCalculationMATK()">
+        <button class="c-btn-primary" @click="calculation20220721MATK()">
           Calculate
         </button>
       </div>
@@ -127,7 +131,7 @@ export default defineComponent({
       </div>
 
       <div>
-        <strong>+MATK = {{ newCalculation.matk }}</strong>
+        <strong>+MATK = {{ calculation20220721.matk }}</strong>
       </div>
     </div>
   </div>
