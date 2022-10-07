@@ -25,26 +25,22 @@ export default defineComponent({
       <h1 class="text-4xl font-bold">RuneKnight View</h1>
     </div>
 
-    <div class="space">
+    <div class="p-3">
       <RKEnchantBlade />
     </div>
 
-    <div class="space">
+    <div class="p-3">
       <RKSonicWave />
     </div>
 
-    <div class="space">
+    <div class="p-3">
       <RKStormBlast />
     </div>
 
-    <div class="space">
+    <div class="p-3">
       <RKCrushStrike />
     </div>
   </main>
 </template>
 
-<style scoped>
-.space {
-  margin: 2rem;
-}
-</style>
+<style scoped></style>
