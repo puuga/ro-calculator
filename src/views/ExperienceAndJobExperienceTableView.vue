@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // variable
-const tableEXP = [
+const tableEXPs = [
   [100, 7_070_000, 1_272_747],
   [101, 7_400_000, 1_354_980],
   [102, 7_770_000, 1_442_526],
@@ -88,7 +88,7 @@ const tableEXP = [
   [184, 0, 4_075_258_593],
   [185, 0, 5_281_855_746],
 ];
-const tableJOB = [
+const tableJOBs = [
   [1, 106_000, 10_000],
   [2, 112_000, 12_800],
   [3, 355_000, 16_384],
@@ -156,7 +156,7 @@ const tableJOB = [
   [65, 0, 559_396_372],
 ];
 
-function formatNumber(num: number) {
+function formatNumber(num: number): string {
   return new Intl.NumberFormat().format(num);
 }
 </script>
@@ -164,6 +164,9 @@ function formatNumber(num: number) {
 <template>
   <main class="container mx-auto">
     <h1 class="text-4xl font-bold">EXP &amp; Job EXP</h1>
+
+    <h3 class="">SEO: RO-GGT 2022 ตาราง EXP, RO-GGT 2022 ตาราง Job EXP</h3>
+
     <div class="p-3">
       <div class="c-skill-card">
         <h3 class="text-xl font-bold">EXP</h3>
@@ -176,7 +179,7 @@ function formatNumber(num: number) {
             </tr>
           </thead>
           <tbody>
-            <tr v-for="exp in tableEXP" :key="exp[0]">
+            <tr v-for="exp in tableEXPs" :key="exp[0]">
               <td class="c-table-td text-right tabular-nums">
                 {{ formatNumber(exp[0]) }}
               </td>
@@ -191,6 +194,7 @@ function formatNumber(num: number) {
         </table>
       </div>
     </div>
+
     <div class="p-3">
       <div class="c-skill-card">
         <h3 class="text-xl font-bold">Job EXP</h3>
@@ -203,7 +207,7 @@ function formatNumber(num: number) {
             </tr>
           </thead>
           <tbody>
-            <tr v-for="exp in tableJOB" :key="exp[0]">
+            <tr v-for="exp in tableJOBs" :key="exp[0]">
               <td class="c-table-td text-right tabular-nums">
                 {{ formatNumber(exp[0]) }}
               </td>
