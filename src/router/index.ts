@@ -33,6 +33,22 @@ const router = createRouter({
         import("@/views/ExperienceAndJobExperienceTableView.vue"),
     },
     {
+      path: "/lab-5-headgear-enchantment",
+      name: "lab-5-headgear-enchantment",
+      meta: {
+        title: "Lab 5 Headgear Enchantment",
+      },
+      component: () => import("@/views/Lab5HeadgearEnchantmentView.vue"),
+    },
+    {
+      path: "/enchantment",
+      name: "enchantment",
+      meta: {
+        title: "Enchantment",
+      },
+      component: () => import("@/views/EnchantmentView.vue"),
+    },
+    {
       path: "/about",
       name: "about",
       meta: {

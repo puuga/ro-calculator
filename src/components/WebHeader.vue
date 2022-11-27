@@ -53,6 +53,18 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
             EXP &amp; Job EXP
           </RouterLink>
           <RouterLink
+            to="/lab-5-headgear-enchantment"
+            class="text-base font-medium text-gray-500 hover:text-gray-900"
+          >
+            Lab 5 Headgear Enchantment
+          </RouterLink>
+          <RouterLink
+            to="/enchantment"
+            class="text-base font-medium text-gray-500 hover:text-gray-900"
+          >
+            Enchantment
+          </RouterLink>
+          <RouterLink
             to="/about"
             class="text-base font-medium text-gray-500 hover:text-gray-900"
           >
