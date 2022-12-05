@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { getAnalytics, logEvent } from "firebase/analytics";
+import consola from "consola";
 
 import { firebaseApp } from "@/nv-plugins/firebase";
 
@@ -8,7 +9,7 @@ export default defineComponent({
   name: "RKEnchantBlade",
 
   mounted() {
-    console.log("RKSonicWave mounted");
+    consola.log("RKSonicWave mounted");
   },
 
   data() {

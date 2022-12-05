@@ -56,6 +56,14 @@ const router = createRouter({
       },
       component: () => import("@/views/AboutView.vue"),
     },
+    {
+      path: "/episode171-enchantment",
+      name: "episode171enchantment",
+      meta: {
+        title: "Episode171Enchantment",
+      },
+      component: () => import("@/views/Episode171Enchantment.vue"),
+    },
   ],
 });
 

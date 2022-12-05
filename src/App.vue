@@ -2,7 +2,7 @@
 import { RouterView } from "vue-router";
 
 // import HelloWorld from "@/components/HelloWorld.vue";
-import WebHeader from '@/components/WebHeader.vue'
+import WebHeader from "@/components/WebHeader.vue";
 </script>
 
 <template>
