@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { getAnalytics, logEvent } from "firebase/analytics";
+import consola from "consola";
 
 import { firebaseApp } from "@/nv-plugins/firebase";
 
@@ -8,7 +9,7 @@ export default defineComponent({
   name: "RKCrushStrike",
 
   mounted() {
-    console.log("RKCrushStrike mounted");
+    consola.log("RKCrushStrike mounted");
     // this.calculation20220721ATK();
   },
 
