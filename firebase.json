@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "ro-calculator",
-    "public": "dist",
+    "public": ".output/public",
     "ignore": [
       "firebase.json",
       "**/.*",
