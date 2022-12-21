@@ -11,7 +11,7 @@ import {
 useHead({
   title: 'EXP Table & Job EXP Table | RO-Calculator',
   meta: [
-    { name: 'description', content: 'EXP Table & Job EXP Table' }
+    { name: 'description', content: 'RO-GGT, EXP Table & Job EXP Table' }
   ],
 })
 
