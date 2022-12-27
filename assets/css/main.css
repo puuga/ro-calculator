@@ -7,8 +7,16 @@
     @apply container p-3 bg-slate-100 rounded-xl divide-y divide-solid shadow-xl;
   }
 
+  .c-card {
+    @apply container p-3 bg-slate-100 rounded-xl shadow-xl;
+  }
+
   .c-btn-primary {
     @apply inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+  }
+
+  .c-btn-secondary {
+    @apply inline-flex justify-center rounded-md border border-transparent bg-slate-300 py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-slate-500 focus:outline-none focus:ring-2 focus:bg-slate-700 focus:ring-offset-2;
   }
 
   .c-input-number {
