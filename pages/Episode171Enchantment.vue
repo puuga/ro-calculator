@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IllusionArmorAtypeViewV1 from "@/components/equipments/illusion171/IllusionArmorAtypeViewV1.vue";
+import IllusionArmorAtypeViewV1 from '@/components/equipments/illusion171/IllusionArmorAtypeViewV1.vue';
 import IllusionArmorBtypeViewV1 from "@/components/equipments/illusion171/IllusionArmorBtypeViewV1.vue";
 import IllusionEngineWingAtypeViewV1 from "@/components/equipments/illusion171/IllusionEngineWingAtypeViewV1.vue";
 import IllusionEngineWingBtypeViewV1 from "@/components/equipments/illusion171/IllusionEngineWingBtypeViewV1.vue";
@@ -765,11 +765,11 @@ const tableEquipmentEnchantments: {
   level: string;
   table: EquipmentEnchantment[];
 }[] = [
-  { level: "Common Enchants", table: tableCommonEquipmentEnchantments },
-  { level: "Rare Enchants", table: tableRareEquipmentEnchantments },
-  { level: "Unique Enchants", table: tableUniqueEquipmentEnchantments },
-  { level: "Legendary Enchants", table: tableLegendaryEquipmentEnchantments },
-];
+    { level: "Common Enchants", table: tableCommonEquipmentEnchantments },
+    { level: "Rare Enchants", table: tableRareEquipmentEnchantments },
+    { level: "Unique Enchants", table: tableUniqueEquipmentEnchantments },
+    { level: "Legendary Enchants", table: tableLegendaryEquipmentEnchantments },
+  ];
 
 const tableWeaponPhysicalNormalEnchantmentsCollapse = ref(true);
 const tableWeaponPhysicalAdvancedEnchantmentsCollapse = ref(true);
@@ -840,19 +840,11 @@ function getComponent(equipment: Equipment) {
         <h3 class="text-xl font-bold">Weapon Enchantments</h3>
 
         <div class="my-3">
-          <a
-            href="#"
-            class="text-blue-600"
-            @click.prevent="toggleCollapseAllWeaponTable()"
-          >
+          <a href="#" class="text-blue-600" @click.prevent="toggleCollapseAllWeaponTable()">
             [Callapse All]
           </a>
           /
-          <a
-            href="#"
-            class="text-blue-600"
-            @click.prevent="toggleUncollapseAllWeaponTable()"
-          >
+          <a href="#" class="text-blue-600" @click.prevent="toggleUncollapseAllWeaponTable()">
             [Uncallapse All]
           </a>
         </div>
@@ -861,23 +853,16 @@ function getComponent(equipment: Equipment) {
         <div class="mb-5">
           <h4 class="text-l font-bold">
             Physical - Normal
-            <a
-              href="#"
-              class="text-blue-600"
-              @click.prevent="
-                tableWeaponPhysicalNormalEnchantmentsCollapse =
-                  !tableWeaponPhysicalNormalEnchantmentsCollapse
-              "
-            >
+            <a href="#" class="text-blue-600" @click.prevent="
+              tableWeaponPhysicalNormalEnchantmentsCollapse =
+              !tableWeaponPhysicalNormalEnchantmentsCollapse
+            ">
               [Collapse]
             </a>
           </h4>
-          <table
-            :class="
-              tableWeaponPhysicalNormalEnchantmentsCollapse ? '' : 'collapse'
-            "
-            class="c-table"
-          >
+          <table :class="
+            tableWeaponPhysicalNormalEnchantmentsCollapse ? '' : 'collapse'
+          " class="c-table">
             <thead>
               <tr>
                 <th class="c-table-th">1st Enchant</th>
@@ -888,20 +873,14 @@ function getComponent(equipment: Equipment) {
               <tr>
                 <td class="c-table-td pl-6 align-top">
                   <ul class="list-disc">
-                    <li
-                      v-for="enchantment in tableWeaponPhysicalNormalEnchantments[0]"
-                      :key="enchantment"
-                    >
+                    <li v-for="enchantment in tableWeaponPhysicalNormalEnchantments[0]" :key="enchantment">
                       {{ enchantment }}
                     </li>
                   </ul>
                 </td>
                 <td class="c-table-td pl-6 align-top">
                   <ul class="list-disc">
-                    <li
-                      v-for="enchantment in tableWeaponPhysicalNormalEnchantments[1]"
-                      :key="enchantment"
-                    >
+                    <li v-for="enchantment in tableWeaponPhysicalNormalEnchantments[1]" :key="enchantment">
                       {{ enchantment }}
                     </li>
                   </ul>
@@ -915,23 +894,16 @@ function getComponent(equipment: Equipment) {
         <!-- #region Physical - Advanced table -->
         <h4 class="text-l font-bold">
           Physical - Advanced
-          <a
-            href="#"
-            class="text-blue-600"
-            @click.prevent="
-              tableWeaponPhysicalAdvancedEnchantmentsCollapse =
-                !tableWeaponPhysicalAdvancedEnchantmentsCollapse
-            "
-          >
+          <a href="#" class="text-blue-600" @click.prevent="
+            tableWeaponPhysicalAdvancedEnchantmentsCollapse =
+            !tableWeaponPhysicalAdvancedEnchantmentsCollapse
+          ">
             [Collapse]
           </a>
         </h4>
-        <table
-          :class="
-            tableWeaponPhysicalAdvancedEnchantmentsCollapse ? '' : 'collapse'
-          "
-          class="c-table"
-        >
+        <table :class="
+          tableWeaponPhysicalAdvancedEnchantmentsCollapse ? '' : 'collapse'
+        " class="c-table">
           <thead>
             <tr>
               <th class="c-table-th">1st Enchant</th>
@@ -942,20 +914,14 @@ function getComponent(equipment: Equipment) {
             <tr>
               <td class="c-table-td pl-6 align-top">
                 <ul class="list-disc">
-                  <li
-                    v-for="enchantment in tableWeaponPhysicalAdvancedEnchantments[0]"
-                    :key="enchantment"
-                  >
+                  <li v-for="enchantment in tableWeaponPhysicalAdvancedEnchantments[0]" :key="enchantment">
                     {{ enchantment }}
                   </li>
                 </ul>
               </td>
               <td class="c-table-td pl-6 align-top">
                 <ul class="list-disc">
-                  <li
-                    v-for="enchantment in tableWeaponPhysicalAdvancedEnchantments[1]"
-                    :key="enchantment"
-                  >
+                  <li v-for="enchantment in tableWeaponPhysicalAdvancedEnchantments[1]" :key="enchantment">
                     {{ enchantment }}
                   </li>
                 </ul>
@@ -970,23 +936,16 @@ function getComponent(equipment: Equipment) {
         <!-- #region Physical - Special table -->
         <h4 class="text-l font-bold">
           Physical - Special
-          <a
-            href="#"
-            class="text-blue-600"
-            @click.prevent="
-              tableWeaponPhysicalSpecialEnchantmentsCollapse =
-                !tableWeaponPhysicalSpecialEnchantmentsCollapse
-            "
-          >
+          <a href="#" class="text-blue-600" @click.prevent="
+            tableWeaponPhysicalSpecialEnchantmentsCollapse =
+            !tableWeaponPhysicalSpecialEnchantmentsCollapse
+          ">
             [Collapse]
           </a>
         </h4>
-        <table
-          :class="
-            tableWeaponPhysicalSpecialEnchantmentsCollapse ? '' : 'collapse'
-          "
-          class="c-table"
-        >
+        <table :class="
+          tableWeaponPhysicalSpecialEnchantmentsCollapse ? '' : 'collapse'
+        " class="c-table">
           <thead>
             <tr>
               <th class="c-table-th">1st Enchant</th>
@@ -997,10 +956,7 @@ function getComponent(equipment: Equipment) {
             <tr>
               <td class="c-table-td pl-6 align-top">
                 <ul class="list-disc">
-                  <li
-                    v-for="enchantment in tableWeaponPhysicalSpecialEnchantments[0]"
-                    :key="enchantment"
-                  >
+                  <li v-for="enchantment in tableWeaponPhysicalSpecialEnchantments[0]" :key="enchantment">
                     {{ enchantment }}
                   </li>
                 </ul>
@@ -1039,23 +995,16 @@ function getComponent(equipment: Equipment) {
         <!-- #region Magical - Normal table -->
         <h4 class="text-l font-bold">
           Magical - Normal
-          <a
-            href="#"
-            class="text-blue-600"
-            @click.prevent="
-              tableWeaponMagicalNormalEnchantmentsCollapse =
-                !tableWeaponMagicalNormalEnchantmentsCollapse
-            "
-          >
+          <a href="#" class="text-blue-600" @click.prevent="
+            tableWeaponMagicalNormalEnchantmentsCollapse =
+            !tableWeaponMagicalNormalEnchantmentsCollapse
+          ">
             [Collapse]
           </a>
         </h4>
-        <table
-          :class="
-            tableWeaponMagicalNormalEnchantmentsCollapse ? '' : 'collapse'
-          "
-          class="c-table"
-        >
+        <table :class="
+          tableWeaponMagicalNormalEnchantmentsCollapse ? '' : 'collapse'
+        " class="c-table">
           <thead>
             <tr>
               <th class="c-table-th">1st Enchant</th>
@@ -1066,20 +1015,14 @@ function getComponent(equipment: Equipment) {
             <tr>
               <td class="c-table-td pl-6 align-top">
                 <ul class="list-disc">
-                  <li
-                    v-for="enchantment in tableWeaponMagicalNormalEnchantments[0]"
-                    :key="enchantment"
-                  >
+                  <li v-for="enchantment in tableWeaponMagicalNormalEnchantments[0]" :key="enchantment">
                     {{ enchantment }}
                   </li>
                 </ul>
               </td>
               <td class="c-table-td pl-6 align-top">
                 <ul class="list-disc">
-                  <li
-                    v-for="enchantment in tableWeaponMagicalNormalEnchantments[1]"
-                    :key="enchantment"
-                  >
+                  <li v-for="enchantment in tableWeaponMagicalNormalEnchantments[1]" :key="enchantment">
                     {{ enchantment }}
                   </li>
                 </ul>
@@ -1094,23 +1037,16 @@ function getComponent(equipment: Equipment) {
         <!-- #region Magical - Advanced table -->
         <h4 class="text-l font-bold">
           Magical - Advanced
-          <a
-            href="#"
-            class="text-blue-600"
-            @click.prevent="
-              tableWeaponMagicalAdvancedEnchantmentsCollapse =
-                !tableWeaponMagicalAdvancedEnchantmentsCollapse
-            "
-          >
+          <a href="#" class="text-blue-600" @click.prevent="
+            tableWeaponMagicalAdvancedEnchantmentsCollapse =
+            !tableWeaponMagicalAdvancedEnchantmentsCollapse
+          ">
             [Collapse]
           </a>
         </h4>
-        <table
-          :class="
-            tableWeaponMagicalAdvancedEnchantmentsCollapse ? '' : 'collapse'
-          "
-          class="c-table"
-        >
+        <table :class="
+          tableWeaponMagicalAdvancedEnchantmentsCollapse ? '' : 'collapse'
+        " class="c-table">
           <thead>
             <tr>
               <th class="c-table-th">1st Enchant</th>
@@ -1121,20 +1057,14 @@ function getComponent(equipment: Equipment) {
             <tr>
               <td class="c-table-td pl-6 align-top">
                 <ul class="list-disc">
-                  <li
-                    v-for="enchantment in tableWeaponMagicalAdvancedEnchantments[0]"
-                    :key="enchantment"
-                  >
+                  <li v-for="enchantment in tableWeaponMagicalAdvancedEnchantments[0]" :key="enchantment">
                     {{ enchantment }}
                   </li>
                 </ul>
               </td>
               <td class="c-table-td pl-6 align-top">
                 <ul class="list-disc">
-                  <li
-                    v-for="enchantment in tableWeaponMagicalAdvancedEnchantments[1]"
-                    :key="enchantment"
-                  >
+                  <li v-for="enchantment in tableWeaponMagicalAdvancedEnchantments[1]" :key="enchantment">
                     {{ enchantment }}
                   </li>
                 </ul>
@@ -1149,23 +1079,16 @@ function getComponent(equipment: Equipment) {
         <!-- #region Magical - Special table -->
         <h4 class="text-l font-bold">
           Magical - Special
-          <a
-            href="#"
-            class="text-blue-600"
-            @click.prevent="
-              tableWeaponMagicalSpecialEnchantmentsCollapse =
-                !tableWeaponMagicalSpecialEnchantmentsCollapse
-            "
-          >
+          <a href="#" class="text-blue-600" @click.prevent="
+            tableWeaponMagicalSpecialEnchantmentsCollapse =
+            !tableWeaponMagicalSpecialEnchantmentsCollapse
+          ">
             [Collapse]
           </a>
         </h4>
-        <table
-          :class="
-            tableWeaponMagicalSpecialEnchantmentsCollapse ? '' : 'collapse'
-          "
-          class="c-table"
-        >
+        <table :class="
+          tableWeaponMagicalSpecialEnchantmentsCollapse ? '' : 'collapse'
+        " class="c-table">
           <thead>
             <tr>
               <th class="c-table-th">1st Enchant</th>
@@ -1176,20 +1099,14 @@ function getComponent(equipment: Equipment) {
             <tr>
               <td class="c-table-td pl-6 align-top">
                 <ul class="list-disc">
-                  <li
-                    v-for="enchantment in tableWeaponMagicalSpecialEnchantments[0]"
-                    :key="enchantment"
-                  >
+                  <li v-for="enchantment in tableWeaponMagicalSpecialEnchantments[0]" :key="enchantment">
                     {{ enchantment }}
                   </li>
                 </ul>
               </td>
               <td class="c-table-td pl-6 align-top">
                 <ul class="list-disc">
-                  <li
-                    v-for="enchantment in tableWeaponMagicalSpecialEnchantments[1]"
-                    :key="enchantment"
-                  >
+                  <li v-for="enchantment in tableWeaponMagicalSpecialEnchantments[1]" :key="enchantment">
                     {{ enchantment }}
                   </li>
                 </ul>
@@ -1218,45 +1135,26 @@ function getComponent(equipment: Equipment) {
             </tr>
           </thead>
           <tbody>
-            <template
-              v-for="enchantment in tableEquipmentEnchantments"
-              :key="enchantment.level"
-            >
+            <template v-for="enchantment in tableEquipmentEnchantments" :key="enchantment.level">
               <tr>
-                <td
-                  colspan="5"
-                  class="c-table-td align-top text-center font-bold"
-                >
+                <td colspan="5" class="c-table-td align-top text-center font-bold">
                   {{ enchantment.level }}
                 </td>
               </tr>
-              <tr
-                v-for="enchant in enchantment.table"
-                :key="enchant.modificationModule"
-              >
+              <tr v-for="enchant in enchantment.table" :key="enchant.modificationModule">
                 <td class="c-table-td align-top">
                   <picture>
-                    <img
-                      :src="enchant.modificationModuleIcon"
-                      :alt="enchant.modificationModule"
-                      class="inline"
-                    />
+                    <img :src="enchant.modificationModuleIcon" :alt="enchant.modificationModule" class="inline" />
                   </picture>
                   {{ enchant.modificationModule }}
                 </td>
                 <td class="c-table-td align-top">
                   {{ enchant.modificationOrb }}
                 </td>
-                <td
-                  class="c-table-td align-top"
-                  v-html="formatBreakLine(enchant.effect)"
-                ></td>
+                <td class="c-table-td align-top" v-html="formatBreakLine(enchant.effect)"></td>
                 <td class="c-table-td align-top">
-                  <component
-                    v-for="equipment in enchant.equipmentLocation"
-                    :key="equipment"
-                    :is="getComponent(equipment)"
-                  />
+                  <component v-for="equipment in enchant.equipmentLocation" :key="equipment"
+                    :is="getComponent(equipment)" />
                 </td>
                 <td class="c-table-td align-top">{{ enchant.maxCount }}</td>
               </tr>

@@ -24,10 +24,14 @@ onMounted(() => {
       RO-Calculator ❤️ Nuxt 3
     </h1>
 
+    <LazyAllContentViewV1 />
+
+    <hr/>
+
     <div class="text-lg">
       Contents:
-      <LazyAllLinkViewV1 />
     </div>
+    <LazyAllLinkViewV1 />
   </div>
 </template>
   

@@ -1,22 +1,5 @@
-<script lang="ts">
-import { defineComponent, defineAsyncComponent } from "vue";
+<script setup lang="ts">
 
-export default defineComponent({
-  components: {
-    RKEnchantBlade: defineAsyncComponent(
-      () => import("@/components/ro-skills/RKEnchantBlade.vue")
-    ),
-    RKSonicWave: defineAsyncComponent(
-      () => import("@/components/ro-skills/RKSonicWave.vue")
-    ),
-    RKStormBlast: defineAsyncComponent(
-      () => import("@/components/ro-skills/RKStormBlast.vue")
-    ),
-    RKCrushStrike: defineAsyncComponent(
-      () => import("@/components/ro-skills/RKCrushStrike.vue")
-    ),
-  },
-});
 </script>
 
 <template>
@@ -26,19 +9,19 @@ export default defineComponent({
     </div>
 
     <div class="p-3">
-      <RKEnchantBlade />
+      <LazyRoSkillsRKEnchantBlade />
     </div>
 
     <div class="p-3">
-      <RKSonicWave />
+      <LazyRoSkillsRKSonicWave />
     </div>
 
     <div class="p-3">
-      <RKStormBlast />
+      <LazyRoSkillsRKStormBlast />
     </div>
 
     <div class="p-3">
-      <RKCrushStrike />
+      <LazyRoSkillsRKCrushStrike />
     </div>
   </main>
 </template>
