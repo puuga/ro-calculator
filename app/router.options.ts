@@ -12,6 +12,7 @@ export const RN_EXP_AND_JOB_EXP_TABLE = 'exp-and-job-exp-table'
 export const RN_LAB_5_HEADGEAR_ENCHANTMENT = 'lab-5-headgear-enchantment'
 export const RN_ENCHANTMENT = 'enchantment'
 export const RN_EPISODE_171_ENCHANTMENT = 'episode-171-enchantment'
+export const RN_BUFF_COOLDOWN_COUNTER_TOOL = 'buff-cooldown-counter-tool'
 
 export const routeData = [
   {
@@ -66,9 +67,13 @@ export const routeData = [
   },
   {
     path: '/buff-cooldown-counter-tool',
-    name: RN_EPISODE_171_ENCHANTMENT,
-    title: 'Buff Cooldown Counter Tool',
-    description: 'Buff Cooldown Counter Tool',
+    name: RN_BUFF_COOLDOWN_COUNTER_TOOL,
+    title: 'Cooldown Counter | RO-Calculator',
+    description: 'Cooldown Counter Tool',
     component: () => import('@/pages/BuffCooldownCounterView.vue'),
   },
 ]
+
+export function findRouteByName(name: string) {
+  return routeData.find((route) => route.name === name)
+}
