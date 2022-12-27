@@ -1,4 +1,12 @@
 <script setup lang="ts">
+
+useHead({
+  title: 'Enchantment | RO-Calculator',
+  meta: [
+    { name: 'description', content: 'Enchantment' }
+  ],
+})
+
 const tableEnchantments = [
   // ASPD
   {
@@ -113,13 +121,6 @@ const tableEnchantments = [
     },
   },
 ];
-
-useHead({
-  title: 'Enchantment | RO-Calculator',
-  meta: [
-    { name: 'description', content: 'Enchantment' }
-  ],
-})
 </script>
 
 <template>

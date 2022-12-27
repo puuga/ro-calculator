@@ -64,4 +64,11 @@ export const routeData = [
     description: 'Episode 17.1 Enchantment',
     component: () => import('@/pages/Episode171Enchantment.vue'),
   },
+  {
+    path: '/buff-cooldown-counter-tool',
+    name: RN_EPISODE_171_ENCHANTMENT,
+    title: 'Buff Cooldown Counter Tool',
+    description: 'Buff Cooldown Counter Tool',
+    component: () => import('@/pages/BuffCooldownCounterView.vue'),
+  },
 ]
