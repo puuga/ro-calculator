@@ -20,6 +20,8 @@ const { $firebaseApp } = useNuxtApp()
 //#endregion use...
 
 //#region refs
+const notification = ref(false)
+
 const sound = ref('')
 const soundOptions = [
   {
@@ -109,6 +111,7 @@ function onFormSubmit(event: Event) {
 
   consola.log('BuffCooldownCounterView onFormSubmit')
   consola.log('BuffCooldownCounterView onFormSubmit sound', sound.value)
+  consola.log('BuffCooldownCounterView onFormSubmit notification', notification.value)
   consola.log('BuffCooldownCounterView onFormSubmit buffs', buffs.value)
 
   const _buffs = buffs.value as string[]
@@ -151,14 +154,51 @@ function onFormSubmit(event: Event) {
   const analytics = getAnalytics($firebaseApp())
   logEvent(analytics, "CooldownCounter", {
     buffs: _buffs,
+    notification: notification.value,
     sound: sound.value
   });
+}
+
+function onTestNotificationClicked() {
+  consola.log('BuffCooldownCounterView onTestNotificationClicked')
+  fireNotification('Test Notification', 'This is a test notification')
 }
 
 function previewSound(soundPath: string) {
   consola.log('BuffCooldownCounterView previewSound', soundPath)
   const audio = new Audio(soundPath)
   audio.play()
+}
+
+function playSound(soundPath: string) {
+  consola.log('BuffCooldownCounterView playSound', soundPath)
+  if (soundPath === '') {
+    return
+  }
+
+  const audio = new Audio(soundPath)
+  audio.play()
+}
+
+function fireNotification(title: string, message: string) {
+  consola.log('BuffCooldownCounterView fireNotification title', title)
+  consola.log('BuffCooldownCounterView fireNotification message', message)
+  if (!('Notification' in window)) {
+    consola.error('BuffCooldownCounterView fireNotification', 'This browser does not support desktop notification')
+    alert('This browser does not support desktop notification')
+  } else if (Notification.permission === 'granted') {
+    consola.log('BuffCooldownCounterView fireNotification granted')
+    const notification = new Notification(title, { body: message })
+    // …
+  } else if (Notification.permission !== 'denied') {
+    consola.log('BuffCooldownCounterView fireNotification denied')
+    Notification.requestPermission().then((permission) => {
+      if (permission === 'granted') {
+        const notification = new Notification(title, { body: message })
+        // …
+      }
+    });
+  }
 }
 
 function stopCountdown() {
@@ -202,8 +242,10 @@ function clockCooldown30sCountdown(soundPath: string) {
     if (seconds <= 0) {
       clearInterval(clockCooldown30sCountdownInterval)
       clockCooldown30s.value = false
-      const audio = new Audio(soundPath)
-      audio.play()
+      playSound(soundPath)
+      if (notification.value) {
+        fireNotification('Buff Cooldown', '30s Cooldown is ready')
+      }
 
       clockCooldown30sCountdown(soundPath)
     }
@@ -219,8 +261,7 @@ function clockCooldown60sCountdown(soundPath: string) {
     if (seconds <= 0) {
       clearInterval(clockCooldown60sCountdownInterval)
       clockCooldown60s.value = false
-      const audio = new Audio(soundPath)
-      audio.play()
+      playSound(soundPath)
 
       clockCooldown60sCountdown(soundPath)
     }
@@ -236,8 +277,7 @@ function clockCooldown90sCountdown(soundPath: string) {
     if (seconds <= 0) {
       clearInterval(clockCooldown90sCountdownInterval)
       clockCooldown90s.value = false
-      const audio = new Audio(soundPath)
-      audio.play()
+      playSound(soundPath)
 
       clockCooldown90sCountdown(soundPath)
     }
@@ -253,8 +293,7 @@ function clockCooldown120sCountdown(soundPath: string) {
     if (seconds <= 0) {
       clearInterval(clockCooldown120sCountdownInterval)
       clockCooldown120s.value = false
-      const audio = new Audio(soundPath)
-      audio.play()
+      playSound(soundPath)
 
       clockCooldown120sCountdown(soundPath)
     }
@@ -270,8 +309,7 @@ function clockCooldown180sCountdown(soundPath: string) {
     if (seconds <= 0) {
       clearInterval(clockCooldown180sCountdownInterval)
       clockCooldown180s.value = false
-      const audio = new Audio(soundPath)
-      audio.play()
+      playSound(soundPath)
 
       clockCooldown180sCountdown(soundPath)
     }
@@ -287,8 +325,7 @@ function clockCooldown300sCountdown(soundPath: string) {
     if (seconds <= 0) {
       clearInterval(clockCooldown300sCountdownInterval)
       clockCooldown300s.value = false
-      const audio = new Audio(soundPath)
-      audio.play()
+      playSound(soundPath)
 
       clockCooldown300sCountdown(soundPath)
     }
@@ -304,8 +341,7 @@ function clockCooldown600sCountdown(soundPath: string) {
     if (seconds <= 0) {
       clearInterval(clockCooldown600sCountdownInterval)
       clockCooldown600s.value = false
-      const audio = new Audio(soundPath)
-      audio.play()
+      playSound(soundPath)
 
       clockCooldown600sCountdown(soundPath)
     }
@@ -343,12 +379,37 @@ function clockCooldown600sCountdown(soundPath: string) {
                 :value="soundOptions[0].value"
                 name="soundInput" 
                 class="mx-2" 
-                required 
               />
               <label :for="option.id">{{ option.title }}</label>
             </div>
           </div>
           <!-- #endregion input sound -->
+
+          <!-- #region input notification -->
+          <div>
+            <div class="text-xl">Notification</div>
+            <div class="my-1">
+              <button 
+                type="button" 
+                class="c-btn-primary"
+                @click="onTestNotificationClicked()" 
+              >
+                ▶️
+              </button>
+              <input 
+                type="checkbox" 
+                v-model="notification"
+                :true-value="true"
+                :false-value="false"
+                id="checkbox-notification"
+                name="checkbox-notification" 
+                class="mx-2"  
+              />
+              <label for="checkbox-notification">Use native notification</label>
+              <div class="text-slate-500">Please note that, if system is set to do not disturb, you will not see notification</div>
+            </div>
+          </div>
+          <!-- #endregion input notification -->
 
           <!-- #region input buff -->
           <div>
