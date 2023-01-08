@@ -114,10 +114,55 @@ const items: Item[] = [
     ]
   },
   // [Not for Sale] Doram Shield Combination
+  {
+    item: '[Not for Sale] Doram Shield Combination',
+    item_desc_url: 'https://www.divine-pride.net/database/item/28948/doram-shield-1',
+    recipes: [
+      zelumium60,
+      shadowdecon60,
+      { item: 'Darkred Scale Piece', amount: 300, drop_from: 'Nidhoggur\'s Shadow' },
+    ]
+  },
   // [Not for Sale] Inception Ring Combination
+  {
+    item: '[Not for Sale] Inception Ring Combination',
+    item_desc_url: 'https://www.divine-pride.net/database/item/490265/inception-ring-1',
+    recipes: [
+      zelumium60,
+      shadowdecon60,
+      { item: 'Ice Scale', amount: 300, drop_from: 'Ktullanux' },
+    ]
+  },
   // [Not for Sale] Fallen Warrior's Shield Combination
+  {
+    item: '[Not for Sale] Fallen Warrior\'s Shield Combination',
+    item_desc_url: 'https://www.divine-pride.net/database/item/28977/fallen-warriors-shield-1',
+    recipes: [
+      zelumium60,
+      shadowdecon60,
+      { item: 'Gem Stone', amount: 300, drop_from: 'Tao Gunka' },
+    ]
+  },
   // [Not for Sale] Ancient Hero Boots Combination
+  {
+    item: '[Not for Sale] Ancient Hero Boots Combination',
+    item_desc_url: 'https://www.divine-pride.net/database/item/22171/ancient-hero-boots-1',
+    recipes: [
+      zelumium60,
+      shadowdecon60,
+      { item: 'Mother\'s Nightmare', amount: 300, drop_from: 'Maya' },
+    ]
+  },
   // [Not for Sale] Keraunos Combination
+  {
+    item: '[Not for Sale] Keraunos Combination',
+    item_desc_url: 'https://www.divine-pride.net/database/item/28503/keraunos-1',
+    recipes: [
+      zelumium60,
+      shadowdecon60,
+      { item: 'Pocket Watch', amount: 300, drop_from: 'Kiel D-01' },
+    ]
+  },
 
   // [Not for Sale] Subject Cap Combination
   // [Not for Sale] Temporal Armor Combination
