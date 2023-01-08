@@ -13,6 +13,7 @@ export const RN_LAB_5_HEADGEAR_ENCHANTMENT = 'lab-5-headgear-enchantment'
 export const RN_ENCHANTMENT = 'enchantment'
 export const RN_EPISODE_171_ENCHANTMENT = 'episode-171-enchantment'
 export const RN_BUFF_COOLDOWN_COUNTER_TOOL = 'buff-cooldown-counter-tool'
+export const RN_CRAFTING_NFS_ITEMS = 'crafting-nfs-items'
 
 export const routeData = [
   {
@@ -71,6 +72,13 @@ export const routeData = [
     title: 'Cooldown Counter | RO-Calculator',
     description: 'Cooldown Counter Tool',
     component: () => import('@/pages/BuffCooldownCounterView.vue'),
+  },
+  {
+    path: '/crafting-nfs-items',
+    name: RN_ENCHANTMENT,
+    title: 'Crafting Not For Sale Items | RO-Calculator',
+    description: 'Crafting Not For Sale Items',
+    component: () => import('@/pages/CraftingNotForSaleItemsView.vue'),
   },
 ]
 
