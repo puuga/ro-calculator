@@ -11,7 +11,8 @@ const _description = route?.description || 'Cooldown Counter Tool'
 useHead({
   title: _title,
   meta: [
-    { name: 'description', content: _description }
+    { hid: 'description', name: 'description', content: _description },
+    { hid: 'og:description', name: 'og:description', content: _description },
   ],
 })
 

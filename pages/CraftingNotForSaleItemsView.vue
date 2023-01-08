@@ -17,7 +17,8 @@ const _description = route?.description || 'Crafting Not For Sale Items'
 useHead({
   title: _title,
   meta: [
-    { name: 'description', content: _description }
+    { hid: 'description', name: 'description', content: _description },
+    { hid: 'og:description', name: 'og:description', content: _description },
   ],
 })
 
