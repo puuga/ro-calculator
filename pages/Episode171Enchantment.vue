@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { RN_EPISODE_171_ENCHANTMENT, findRouteByName } from '@/app/router.options'
+
 import IllusionArmorAtypeViewV1 from '@/components/equipments/illusion171/IllusionArmorAtypeViewV1.vue';
 import IllusionArmorBtypeViewV1 from "@/components/equipments/illusion171/IllusionArmorBtypeViewV1.vue";
 import IllusionEngineWingAtypeViewV1 from "@/components/equipments/illusion171/IllusionEngineWingAtypeViewV1.vue";
@@ -10,12 +12,20 @@ import IllusionBoosterLViewV1 from "@/components/equipments/illusion171/Illusion
 import IllusionBattleChipRViewV1 from "@/components/equipments/illusion171/IllusionBattleChipRViewV1.vue";
 import IllusionBattleChipLViewV1 from "@/components/equipments/illusion171/IllusionBattleChipLViewV1.vue";
 
+//#region use...
+const route = findRouteByName(RN_EPISODE_171_ENCHANTMENT)
+const _title = route?.title || 'Episode 17.1 Enchantment | RO-Calculator'
+const _description = route?.description || 'Episode 17.1 Enchantment'
 useHead({
-  title: 'Episode 17.1 Enchantment | RO-Calculator',
+  title: _title,
   meta: [
-    { name: 'description', content: 'Episode 17.1 Enchantment' }
+    { hid: 'description', name: 'description', content: _description },
+    { hid: 'og:description', name: 'og:description', content: _description },
   ],
 })
+
+const { $firebaseApp } = useNuxtApp()
+//#endregion use...
 
 const tableWeaponPhysicalNormalEnchantments = [
   [

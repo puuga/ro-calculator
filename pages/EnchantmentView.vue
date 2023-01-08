@@ -1,11 +1,18 @@
 <script setup lang="ts">
+import { RN_ENCHANTMENT, findRouteByName } from '@/app/router.options'
 
+//#region use...
+const route = findRouteByName(RN_ENCHANTMENT)
+const _title = route?.title || 'Enchantment | RO-Calculator'
+const _description = route?.description || 'Enchantment'
 useHead({
-  title: 'Enchantment | RO-Calculator',
+  title: _title,
   meta: [
-    { name: 'description', content: 'Enchantment' }
+    { hid: 'description', name: 'description', content: _description },
+    { hid: 'og:description', name: 'og:description', content: _description },
   ],
 })
+//#endregion use...
 
 const tableEnchantments = [
   // ASPD

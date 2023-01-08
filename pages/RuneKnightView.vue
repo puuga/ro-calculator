@@ -1,5 +1,20 @@
 <script setup lang="ts">
+import { RN_RUNE_KNIGHT, findRouteByName } from '@/app/router.options'
 
+//#region use...
+const route = findRouteByName(RN_RUNE_KNIGHT)
+const _title = route?.title || 'Rune Knight | RO-Calculator'
+const _description = route?.description || 'Rune Knight'
+useHead({
+  title: _title,
+  meta: [
+    { hid: 'description', name: 'description', content: _description },
+    { hid: 'og:description', name: 'og:description', content: _description },
+  ],
+})
+
+const { $firebaseApp } = useNuxtApp()
+//#endregion use...
 </script>
 
 <template>
