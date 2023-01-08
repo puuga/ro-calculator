@@ -3,7 +3,6 @@ import consola from 'consola'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
 import { RN_BUFF_COOLDOWN_COUNTER_TOOL, findRouteByName } from '@/app/router.options'
-import { e } from 'unimport/dist/types-488f6d65';
 
 //#region use...
 const route = findRouteByName(RN_BUFF_COOLDOWN_COUNTER_TOOL)
