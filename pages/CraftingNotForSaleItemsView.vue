@@ -46,7 +46,7 @@ const { $firebaseApp } = useNuxtApp()
     </div>
 
     <!-- #region basic -->
-    <div class="w-full c-card m-1">
+    <div class="w-full c-card my-3">
       <div class="text-2xl">Basic</div>
       <div class="pl-6">
         <ol class="list-decimal">
@@ -61,16 +61,16 @@ const { $firebaseApp } = useNuxtApp()
     <!-- #endregion basic -->
 
     <!-- #region item list -->
-    <div class="w-full c-card m-1">
+    <div class="w-full c-card my-3">
       <div class="text-2xl">Item List</div>
       <table class="c-table">
         <thead>
           <tr>
             <th class="c-table-th" rowspan="2">
-              Item [Ability]
+              Item [คำอธิบาย]
             </th>
             <th class="c-table-th" colspan="3">
-              Recipes
+              Recipes (วัตถุดิบ)
             </th>
           </tr>
           <tr>
@@ -78,7 +78,7 @@ const { $firebaseApp } = useNuxtApp()
               Zelumium
             </th>
             <th class="c-table-th">
-              Shadowdecon
+              Shadow Decon
             </th>
             <th class="c-table-th">
               Others
@@ -94,24 +94,53 @@ const { $firebaseApp } = useNuxtApp()
                 :key="url" 
                 :href="url" 
                 target="_blank" 
+                rel="noopener noreferrer"
                 class="text-blue-600"
               >
-                [Ability]
+                [คำอธิบาย]
               </a>
               <picture v-if="item.item_image_url">
                 <img :src="item.item_image_url" :alt="item.item" loading="lazy">
               </picture>
             </td>
-            <td class="c-table-td tabular-nums align-top">
+            <td class="c-table-td tabular-nums text-center align-top">
               {{ getZelumium(item.recipes) }}
             </td>
-            <td class="c-table-td tabular-nums align-top">
+            <td class="c-table-td tabular-nums text-center align-top">
               {{ getShadowdecon(item.recipes) }}
             </td>
             <td class="c-table-td pl-6 align-top">
               <ul class="list-disc">
                 <li v-for="recipe in recipesExceptZelumiumAndShadowDecon(item.recipes)">
-                  {{ recipe.item }} x <strong>{{ recipe.amount }}</strong> [{{ recipe.drop_from }}]
+                  {{ recipe.item }} 
+                  <span v-if="recipe.item_desc_url">
+                    <a 
+                      :href="recipe.item_desc_url" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="text-blue-600"
+                    >
+                      (Item)
+                    </a>
+                  </span>
+                  x 
+                  <strong>{{ recipe.amount }}</strong>
+                  <ul class="list-circle pl-6">
+                    <li v-for="dropFrom in recipe.drop_from" :key="dropFrom.name">
+                      {{ dropFrom.name }}
+                      <span v-if="dropFrom.desc_url">
+                        -
+                        <a 
+                          :href="dropFrom.desc_url" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          class="text-blue-600"
+                        >
+                          (Monster)
+                        </a>
+                      </span>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </td>
@@ -120,5 +149,26 @@ const { $firebaseApp } = useNuxtApp()
       </table>
     </div>
     <!-- #endregion item list -->
+
+    <!-- #region basic -->
+    <div class="w-full c-card my-3">
+      <div class="text-2xl">References</div>
+      <div class="pl-6">
+        <ul class="list-disc">
+          <li>
+            Facebook MRTRIN: 
+            <a 
+              href="https://www.facebook.com/permalink.php?story_fbid=pfbid0n8xNFr6xGtCcoR6faic7tKdamp46C9cZfz2gXfbW4MJsCyRfFKcMSG6T3zvsLYeWl&id=100063936860154" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-blue-600"
+            >
+              [Link]
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- #endregion basic -->
   </main>
 </template>
