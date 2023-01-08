@@ -1,9 +1,15 @@
+export type Monster = {
+  name: string
+  desc_url?: string
+  image_url?: string
+}
+
 export type Recipe = {
   item: string
+  item_desc_url?: string
   amount: number
   item_image_url?: string
-  drop_from?: string
-  drop_from_image_url?: string
+  drop_from?: Monster[]
 }
 
 export type Item = {
@@ -27,47 +33,255 @@ const shadowdecon25: Recipe = { item: 'Shadowdecon', amount: 25, }
 const shadowdecon15: Recipe = { item: 'Shadowdecon', amount: 15, }
 const shadowdecon10: Recipe = { item: 'Shadowdecon', amount: 10, }
 
-const recipeLokiWhispers200 = { item: 'Loki\'s Whispers', amount: 200, drop_from: 'Loli Ruri' }
+const recipeLokiWhispers200: Recipe = { 
+  item: 'Loki\'s Whispers', 
+  item_desc_url: 'https://www.divine-pride.net/database/item/7019/lokis-whispers',
+  amount: 200, 
+  drop_from: [
+    { 
+      name: 'Loli Ruri',
+      desc_url: 'https://www.divine-pride.net/database/monster/1505/loli-ruri',
+    },
+    { 
+      name: 'Swift Loli Ruri',
+      desc_url: 'https://www.divine-pride.net/database/monster/2774/swift-loli-ruri',
+    },
+    { 
+      name: 'Mysteltainn',
+      desc_url: 'https://www.divine-pride.net/database/monster/1203/mysteltainn',
+    },
+  ],
+}
 
-const recipePocketWatch300 = { item: 'Pocket Watch', amount: 300, drop_from: 'Kiel D-01' }
+const recipePocketWatch300: Recipe = { 
+  item: 'Pocket Watch', 
+  item_desc_url: 'https://www.divine-pride.net/database/item/7513/pocket-watch',
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Kiel D-01',
+      desc_url: 'https://www.divine-pride.net/database/monster/1734/kiel-d-01',
+    }
+  ],
+}
 
-const recipeGemStone300 = { item: 'Gem Stone', amount: 300, drop_from: 'Tao Gunka' }
+const recipeGemStone300: Recipe = { 
+  item: 'Gem Stone', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Tao Gunka' 
+    }
+  ],
+}
 
-const recipeDarkredScalePiece300 = { item: 'Darkred Scale Piece', amount: 300, drop_from: 'Nidhoggur\'s Shadow' }
+const recipeDarkredScalePiece300: Recipe = { 
+  item: 'Darkred Scale Piece', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Nidhoggur\'s Shadow',
+    }
+  ],
+}
 
-const recipeIceScale300 = { item: 'Ice Scale', amount: 300, drop_from: 'Ktullanux' }
+const recipeIceScale300: Recipe = { 
+  item: 'Ice Scale', 
+  item_desc_url: 'https://www.divine-pride.net/database/item/7562/ice-scale',
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Ktullanux',
+      desc_url: 'https://www.divine-pride.net/database/monster/1779/ktullanux',
+    }
+  ],
+}
 
-const recipeFangOfGarm480 = { item: 'Fang of Garm', amount: 480, drop_from: 'Garm' }
+const recipeFangOfGarm480: Recipe = { 
+  item: 'Fang of Garm', 
+  amount: 480, 
+  drop_from: [
+    { 
+      name: 'Garm',
+    }
+  ],
+}
 
-const recipeFragmentOfRossataStone300 = { item: 'Fragment of Rossata Stone', amount: 300, drop_from: 'Amon Ra' }
+const recipeFragmentOfRossataStone300: Recipe = { 
+  item: 'Fragment of Rossata Stone', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Amon Ra',
+    }
+  ],
+}
 
-const recipePieceOfShield300 = { item: 'Piece of Shield', amount: 300, drop_from: 'Lord of the Dead' }
+const recipePieceOfShield300: Recipe = { 
+  item: 'Piece of Shield', 
+  item_desc_url: 'https://www.divine-pride.net/database/item/7108/piece-of-shield',
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Lord of the Dead',
+      desc_url: 'https://www.divine-pride.net/database/monster/1373/lord-of-the-dead',
+    }
+  ],
+}
 
-const recipeBrokenCrown200 = { item: 'Broken Crown', amount: 200, drop_from: 'Beelzebub' }
-const recipeBrokenCrown300 = { item: 'Broken Crown', amount: 300, drop_from: 'Beelzebub' }
+const recipeBrokenCrown200: Recipe = { 
+  item: 'Broken Crown', 
+  amount: 200, 
+  drop_from: [
+    { 
+      name: 'Beelzebub',
+    }
+  ],
+}
+const recipeBrokenCrown300: Recipe = { 
+  item: 'Broken Crown', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Beelzebub',
+    }
+  ],
+}
 
-const recipeYoungTwig300 = { item: 'Young Twig', amount: 300, drop_from: 'Mistress' }
+const recipeYoungTwig300: Recipe = { 
+  item: 'Young Twig', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Mistress',
+    }
+  ],
+}
 
-const recipeMasqueOfTutankhamen300 = { item: 'Masque of Tutankhamen', amount: 300, drop_from: 'Pharaoh' }
+const recipeMasqueOfTutankhamen300 = { 
+  item: 'Masque of Tutankhamen', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Pharaoh',
+    }
+  ],
+}
 
-const recipeKnottedLetter300 = { item: 'Knotted Letter', amount: 300, drop_from: 'Incantation Samurai' }
-const recipeKnottedLetter600 = { item: 'Knotted Letter', amount: 600, drop_from: 'Incantation Samurai' }
+const recipeKnottedLetter300: Recipe = { 
+  item: 'Knotted Letter', 
+  amount: 300,  
+  drop_from: [
+    { 
+      name: 'Incantation Samurai',
+    }
+  ],
+}
+const recipeKnottedLetter600: Recipe = { 
+  item: 'Knotted Letter', 
+  amount: 600, 
+  drop_from: [
+    { 
+      name: 'Incantation Samurai',
+    }
+  ],
+}
 
-const recipeBaGua300 = { item: 'Ba Gua', amount: 300, drop_from: 'Evil Snake Lord' }
+const recipeBaGua300: Recipe = { 
+  item: 'Ba Gua', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Evil Snake Lord',
+    }
+  ],
+}
 
-const recipeScaleOfRedDragon300 = { item: 'Scale Of Red Dragon', amount: 300, drop_from: 'Detardeurus' }
+const recipeScaleOfRedDragon300: Recipe = { 
+  item: 'Scale Of Red Dragon', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Detardeurus' ,
+    }
+  ],
+}
 
-const recipeValhalaFlower300 = { item: 'Valhala\'s Flower', amount: 300, drop_from: 'Valkyrie Randgris' }
-const recipeValhalaFlower600 = { item: 'Valhala\'s Flower', amount: 600, drop_from: 'Valkyrie Randgris' }
+const recipeValhalaFlower300: Recipe = { 
+  item: 'Valhala\'s Flower', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Valkyrie Randgris' ,
+    }
+  ],
+}
+const recipeValhalaFlower600: Recipe = { 
+  item: 'Valhala\'s Flower', 
+  amount: 600, 
+  drop_from: [
+    { 
+      name: 'Valkyrie Randgris' ,
+    }
+  ],
+}
 
-const recipeMotherNightmare300 = { item: 'Mother\'s Nightmare', amount: 300, drop_from: 'Maya' }
-const recipeMotherNightmare600 = { item: 'Mother\'s Nightmare', amount: 600, drop_from: 'Maya' }
+const recipeMotherNightmare300: Recipe = { 
+  item: 'Mother\'s Nightmare', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Maya' ,
+    }
+  ],
+}
+const recipeMotherNightmare600: Recipe = { 
+  item: 'Mother\'s Nightmare', 
+  amount: 600, 
+  drop_from: [
+    { 
+      name: 'Maya' ,
+    }
+  ],
+}
 
-const recipeOrcWarlordToken300 = { item: 'Orc Warlord Token', amount: 300, drop_from: 'Orc Hero' }
-const recipeOrcWarlordToken600 = { item: 'Orc Warlord Token', amount: 600, drop_from: 'Orc Hero' }
+const recipeOrcWarlordToken300: Recipe = { 
+  item: 'Orc Warlord Token', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Orc Hero',
+    }
+  ],
+}
+const recipeOrcWarlordToken600: Recipe = { 
+  item: 'Orc Warlord Token', 
+  amount: 600, 
+  drop_from: [
+    { 
+      name: 'Orc Hero',
+    }
+  ],
+}
 
-const recipePieceOfBoneArmor300 = { item: 'Piece Of Bone Armor', amount: 300, drop_from: 'Thanatos Phantom' }
-const recipePieceOfBoneArmor600 = { item: 'Piece Of Bone Armor', amount: 600, drop_from: 'Thanatos Phantom' }
+const recipePieceOfBoneArmor300: Recipe = { 
+  item: 'Piece Of Bone Armor', 
+  amount: 300, 
+  drop_from: [
+    { 
+      name: 'Thanatos Phantom',
+    }
+  ],
+}
+const recipePieceOfBoneArmor600: Recipe = { 
+  item: 'Piece Of Bone Armor', 
+  amount: 600, 
+  drop_from: [
+    { 
+      name: 'Thanatos Phantom',
+    }
+  ],
+}
 
 export const items: Item[] = [
   // [Not for Sale] Raven Of Tomb Combination
@@ -200,7 +414,11 @@ export const items: Item[] = [
   // [Not for Sale] Subject Cape Combination
   {
     item: '[Not for Sale] Subject Cape Combination',
-    item_desc_urls: ['https://www.divine-pride.net/database/search?q=subject+cape'],
+    item_desc_urls: [
+      'https://www.divine-pride.net/database/item/480234/not-for-sale-subject-cape-magic-1',
+      'https://www.divine-pride.net/database/item/480173/not-for-sale-subject-cape-melee-1',
+      'https://www.divine-pride.net/database/item/480214/not-for-sale-subject-cape-range-1',
+    ],
     recipes: [
       zelumium60,
       shadowdecon60,
