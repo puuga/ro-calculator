@@ -43,19 +43,6 @@ const heroImage = {
       </ul>
     </div>
 
-    <div>
-      <picture>
-        <source srcset="/images/hero-images/hero-image-crafting-nfs-items.avif" type="image/avif">
-        <source srcset="/images/hero-images/hero-image-crafting-nfs-items.webp" type="image/webp">
-        <img
-          src="/images/hero-images/hero-image-crafting-nfs-items.jpg" 
-          class="mx-auto max-h-96"
-          alt="Crafting Not For Sale Items"
-          loading="lazy"
-        >
-      </picture>
-    </div>
-
     <LazySimpleNativeImageViewV1 
       :avif="heroImage.avif"
       :webp="heroImage.webp"

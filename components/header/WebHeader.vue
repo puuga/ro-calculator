@@ -58,7 +58,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
             Lab 5 Headgear Enchantment
           </NuxtLink>
           <NuxtLink
-            to="/enchantment"
+            to="/enchantments"
             class="text-base font-medium text-gray-500 hover:text-gray-900"
           >
             Enchantment
