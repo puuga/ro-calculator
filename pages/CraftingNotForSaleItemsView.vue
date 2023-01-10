@@ -17,6 +17,13 @@ const { $firebaseApp } = useNuxtApp()
 //#endregion use...
 
 //#region refs
+const heroImage = {
+  avif: '/images/hero-images/hero-image-crafting-nfs-items.avif',
+  webp: '/images/hero-images/hero-image-crafting-nfs-items.webp',
+  default: '/images/hero-images/hero-image-crafting-nfs-items.jpg',
+  classHTML: 'mx-auto max-h-96',
+  alt: 'Crafting Not For Sale Items',
+}
 //#endregion refs
 
 //#region methods
@@ -35,6 +42,27 @@ const { $firebaseApp } = useNuxtApp()
         <li>2023-01-08: Initial</li>
       </ul>
     </div>
+
+    <div>
+      <picture>
+        <source srcset="/images/hero-images/hero-image-crafting-nfs-items.avif" type="image/avif">
+        <source srcset="/images/hero-images/hero-image-crafting-nfs-items.webp" type="image/webp">
+        <img
+          src="/images/hero-images/hero-image-crafting-nfs-items.jpg" 
+          class="mx-auto max-h-96"
+          alt="Crafting Not For Sale Items"
+          loading="lazy"
+        >
+      </picture>
+    </div>
+
+    <LazySimpleNativeImageViewV1 
+      :avif="heroImage.avif"
+      :webp="heroImage.webp"
+      :default="heroImage.default"
+      :classHTML="heroImage.classHTML"
+      :alt="heroImage.alt"
+    />
 
     <!-- #region basic -->
     <div class="w-full c-card my-3">
