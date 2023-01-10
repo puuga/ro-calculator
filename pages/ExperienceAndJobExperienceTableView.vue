@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { GChart } from 'vue-google-charts'
 
-import { RN_EXP_AND_JOB_EXP_TABLE, findRouteByName } from '@/app/router.options'
+import { RN_EXP_AND_JOB_EXP_TABLE, getHead } from '@/app/router.options'
 import { 
   dataEXPsHeader as tableEXPsHeader,
   dataEXPs as tableEXPs, 
@@ -10,16 +10,7 @@ import {
 } from '@/repositories/ExperienceAndJobExperienceTable.repo'
 
 //#region use...
-const route = findRouteByName(RN_EXP_AND_JOB_EXP_TABLE)
-const _title = route?.title || 'EXP & Job EXP | RO-Calculator'
-const _description = route?.description || 'EXP & Job EXP'
-useHead({
-  title: _title,
-  meta: [
-    { hid: 'description', name: 'description', content: _description },
-    { hid: 'og:description', name: 'og:description', content: _description },
-  ],
-})
+useHead(getHead(RN_EXP_AND_JOB_EXP_TABLE))
 
 const { $firebaseApp } = useNuxtApp()
 //#endregion use...

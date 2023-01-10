@@ -2,19 +2,10 @@
 import consola from 'consola'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
-import { RN_BUFF_COOLDOWN_COUNTER_TOOL, findRouteByName } from '@/app/router.options'
+import { RN_BUFF_COOLDOWN_COUNTER_TOOL, getHead } from '@/app/router.options'
 
 //#region use...
-const route = findRouteByName(RN_BUFF_COOLDOWN_COUNTER_TOOL)
-const _title = route?.title || 'Cooldown Counter | RO-Calculator'
-const _description = route?.description || 'Cooldown Counter Tool'
-useHead({
-  title: _title,
-  meta: [
-    { hid: 'description', name: 'description', content: _description },
-    { hid: 'og:description', name: 'og:description', content: _description },
-  ],
-})
+useHead(getHead(RN_BUFF_COOLDOWN_COUNTER_TOOL))
 
 const { $firebaseApp } = useNuxtApp()
 //#endregion use...
@@ -352,7 +343,7 @@ function clockCooldown600sCountdown(soundPath: string) {
 
 <template>
   <main class="container mx-auto">
-    <h1 class="text-4xl font-bold">{{ _title }}</h1>
+    <h1 class="text-4xl font-bold">Cooldown Counter | RO-Calculator</h1>
 
     <div>SEO: Cooldown Counter</div>
 

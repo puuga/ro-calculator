@@ -2,7 +2,7 @@
 import consola from 'consola'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
-import { RN_CRAFTING_NFS_ITEMS, findRouteByName } from '@/app/router.options'
+import { RN_CRAFTING_NFS_ITEMS, getHead } from '@/app/router.options'
 import { 
   items, 
   getZelumium, 
@@ -11,16 +11,7 @@ import {
 } from '@/repositories/CraftingItem.repo'
 
 //#region use...
-const route = findRouteByName(RN_CRAFTING_NFS_ITEMS)
-const _title = route?.title || 'Crafting Not For Sale Items | RO-Calculator'
-const _description = route?.description || 'Crafting Not For Sale Items'
-useHead({
-  title: _title,
-  meta: [
-    { hid: 'description', name: 'description', content: _description },
-    { hid: 'og:description', name: 'og:description', content: _description },
-  ],
-})
+useHead(getHead(RN_CRAFTING_NFS_ITEMS))
 
 const { $firebaseApp } = useNuxtApp()
 //#endregion use...
@@ -34,7 +25,7 @@ const { $firebaseApp } = useNuxtApp()
 
 <template>
   <main class="container mx-auto">
-    <h1 class="text-4xl font-bold">{{ _title }}</h1>
+    <h1 class="text-4xl font-bold">Crafting Not For Sale Items | RO-Calculator</h1>
 
     <div>SEO: Crafting Not For Sale Items, Crafting NFS Items</div>
 
