@@ -10,7 +10,7 @@ export const RN_ABOUT = 'about'
 export const RN_RUNE_KNIGHT = 'rune-knight'
 export const RN_EXP_AND_JOB_EXP_TABLE = 'exp-and-job-exp-table'
 export const RN_LAB_5_HEADGEAR_ENCHANTMENT = 'lab-5-headgear-enchantment'
-export const RN_ENCHANTMENT = 'enchantment'
+export const RN_ENCHANTMENTS = 'enchantments'
 export const RN_EPISODE_171_ENCHANTMENT = 'episode-171-enchantment'
 export const RN_BUFF_COOLDOWN_COUNTER_TOOL = 'buff-cooldown-counter-tool'
 export const RN_CRAFTING_NFS_ITEMS = 'crafting-nfs-items'
@@ -53,11 +53,11 @@ export const routeData = [
     component: () => import('@/pages/Lab5HeadgearEnchantmentView.vue'),
   },
   {
-    path: '/enchantment',
-    name: RN_ENCHANTMENT,
-    title: 'Enchantment',
-    description: 'Enchantment',
-    component: () => import('@/pages/EnchantmentView.vue'),
+    path: '/enchantments',
+    name: RN_ENCHANTMENTS,
+    title: 'Enchantments | RO-Calculator',
+    description: 'Enchantments',
+    component: () => import('@/pages/EnchantmentsView.vue'),
   },
   {
     path: '/episode-171-enchantment',
@@ -75,13 +75,27 @@ export const routeData = [
   },
   {
     path: '/crafting-nfs-items',
-    name: RN_ENCHANTMENT,
+    name: RN_CRAFTING_NFS_ITEMS,
     title: 'Crafting Not For Sale Items | RO-Calculator',
-    description: 'Crafting Not For Sale Items',
+    description: 'Crafting Not For Sale Items, ระบบคราฟของ',
     component: () => import('@/pages/CraftingNotForSaleItemsView.vue'),
   },
 ]
 
 export function findRouteByName(name: string) {
   return routeData.find((route) => route.name === name)
+}
+
+export function getHead(name: string) {
+  const route = findRouteByName(name)
+  const _title = route?.title || 'RO-Calculator'
+  const _description = route?.description || 'RO-Calculator'
+
+  return {
+    title: _title,
+    meta: [
+      { hid: 'description', name: 'description', content: _description },
+      { hid: 'og:description', name: 'og:description', content: _description },
+    ],
+  }
 }

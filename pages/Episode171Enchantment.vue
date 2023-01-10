@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RN_EPISODE_171_ENCHANTMENT, findRouteByName } from '@/app/router.options'
+import { RN_EPISODE_171_ENCHANTMENT, getHead } from '@/app/router.options'
 
 import IllusionArmorAtypeViewV1 from '@/components/equipments/illusion171/IllusionArmorAtypeViewV1.vue';
 import IllusionArmorBtypeViewV1 from "@/components/equipments/illusion171/IllusionArmorBtypeViewV1.vue";
@@ -13,16 +13,7 @@ import IllusionBattleChipRViewV1 from "@/components/equipments/illusion171/Illus
 import IllusionBattleChipLViewV1 from "@/components/equipments/illusion171/IllusionBattleChipLViewV1.vue";
 
 //#region use...
-const route = findRouteByName(RN_EPISODE_171_ENCHANTMENT)
-const _title = route?.title || 'Episode 17.1 Enchantment | RO-Calculator'
-const _description = route?.description || 'Episode 17.1 Enchantment'
-useHead({
-  title: _title,
-  meta: [
-    { hid: 'description', name: 'description', content: _description },
-    { hid: 'og:description', name: 'og:description', content: _description },
-  ],
-})
+useHead(getHead(RN_EPISODE_171_ENCHANTMENT))
 
 const { $firebaseApp } = useNuxtApp()
 //#endregion use...

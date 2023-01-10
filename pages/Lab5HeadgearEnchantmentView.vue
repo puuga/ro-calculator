@@ -1,17 +1,8 @@
 <script setup lang="ts">
-import { RN_LAB_5_HEADGEAR_ENCHANTMENT, findRouteByName } from '@/app/router.options'
+import { RN_LAB_5_HEADGEAR_ENCHANTMENT, getHead } from '@/app/router.options'
 
 //#region use...
-const route = findRouteByName(RN_LAB_5_HEADGEAR_ENCHANTMENT)
-const _title = route?.title || 'Lab 5 Headgear Enchantments | RO-Calculator'
-const _description = route?.description || 'Lab 5 Headgear Enchantments'
-useHead({
-  title: _title,
-  meta: [
-    { hid: 'description', name: 'description', content: _description },
-    { hid: 'og:description', name: 'og:description', content: _description },
-  ],
-})
+useHead(getHead(RN_LAB_5_HEADGEAR_ENCHANTMENT))
 
 const { $firebaseApp } = useNuxtApp()
 //#endregion use...
