@@ -121,6 +121,7 @@ const recipePieceOfShield300: Recipe = {
   item: 'Piece of Shield', 
   item_desc_url: 'https://www.divine-pride.net/database/item/7108/piece-of-shield',
   amount: 300, 
+  item_image_url: '/images/crafting-items/recipes/Piece-of-Shield.png',
   drop_from: [
     { 
       name: 'Lord of the Dead',
@@ -203,6 +204,16 @@ const recipeScaleOfRedDragon300: Recipe = {
   drop_from: [
     { 
       name: 'Detardeurus' ,
+    }
+  ],
+}
+
+const recipeValhalaFlower250: Recipe = { 
+  item: 'Valhala\'s Flower', 
+  amount: 250, 
+  drop_from: [
+    { 
+      name: 'Valkyrie Randgris' ,
     }
   ],
 }
@@ -352,7 +363,7 @@ export const items: Item[] = [
   },
   // [Not for Sale] Vassalage Ring Combination
   {
-    item: '[Not for Sale] Hunting Shoes Combination',
+    item: '[Not for Sale] Vassalage Ring Combination',
     item_desc_urls: ['https://www.divine-pride.net/database/item/490246/vassalage-ring-1'],
     recipes: [
       zelumium60,
@@ -439,7 +450,7 @@ export const items: Item[] = [
     recipes: [
       zelumium60,
       shadowdecon60,
-      recipeValhalaFlower300,
+      recipeValhalaFlower250,
     ]
   },
 
@@ -798,6 +809,6 @@ export function getZelumium(recipes: Recipe[]) {
 export function getShadowdecon(recipes: Recipe[]) {
   return recipes.find(recipe => recipe.item === 'Shadowdecon')?.amount || 0
 }
-export function recipesExceptZelumiumAndShadowDecon(recipes: Recipe[]) {
+export function recipesExceptZelumiumAndShadowdecon(recipes: Recipe[]) {
   return recipes.filter(recipe => recipe.item !== 'Zelumium' && recipe.item !== 'Shadowdecon')
 }
