@@ -7,7 +7,7 @@ import {
   items, 
   getZelumium, 
   getShadowdecon, 
-  recipesExceptZelumiumAndShadowDecon
+  recipesExceptZelumiumAndShadowdecon
 } from '@/repositories/CraftingItem.repo'
 
 //#region use...
@@ -39,6 +39,7 @@ const heroImage = {
     <div>Update</div>
     <div class="pl-6">
       <ul class="list-disc">
+        <li>2023-01-12: Update Content from GGT</li>
         <li>2023-01-08: Initial</li>
       </ul>
     </div>
@@ -56,11 +57,11 @@ const heroImage = {
       <div class="text-2xl">Basic</div>
       <div class="pl-6">
         <ol class="list-decimal">
-          <li>ใบคราฟของทั้งหมด สามารถเปิดหา (สุ่ม) จาก MYSTERIOUS COMBINATION BUNDLE ที่ดรอปจาก MVP ที่มีออร่าเขียว (ของเข้าตัวคนได้ MVP ?)</li>
-          <li>รายการไอเท็มเป็น Not for Sale ทั้งหมด และจะอัพเดตปีละครั้ง ?</li>
+          <li>ใบคราฟของทั้งหมด สามารถเปิดหา (สุ่ม) จาก MYSTERIOUS COMBINATION BUNDLE ที่ดรอปจาก MVP ที่มีออร่าเขียว (ของเข้าตัวคนได้ MVP)</li>
+          <li>รายการไอเท็มเป็น Not for Sale ทั้งหมด และจะอัพเดตปีละครั้ง ในเดือนธันวาคม</li>
           <li>ไอเท็มบางอย่างจะเป็นสุ่มในสุ่ม เช่น มัฟดำ ที่มี 3 แบบ ใบคราฟ จะมีแบบเดียว ของจะสุ่มออกมาเป็น 1 ใน 3</li>
-          <li>Zelumium และ Shadowdecon เม็ดเล็กดรอปจาก Monster ปกติ ใช้ 20 เม็ดรวมเป็นเม็ดใหญ่ ส่วนเม็ดใหญ่ดรอปจาก MVP</li>
-          <li>รายการอาจมีการเปลี่ยนแปลง รอดู Official สัปดาห์หน้า (2023-01-12)</li>
+          <li>Zelumium และ Shadowdecon ดรอปจากบอส เม็ดเล็ก (Rough Zelunium และ Rough Shadowdecon) ดรอปจาก Monster ปกติบางตัว ใช้ 20 เม็ดรวมเป็นเม็ดใหญ่ ที่ NPC ใหม่ อยู่แถว ๆ จุดตีบวกในเมือง</li>
+          <li>ข้อมูลในหน้านี้อาจจะมีผิดพลาดบางจุด เพราะข้อมูลเยอะมาก ตาลาย เข้าใจนะ</li>
         </ol>
       </div>
     </div>
@@ -81,9 +82,25 @@ const heroImage = {
           </tr>
           <tr>
             <th class="c-table-th">
+              <picture>
+                <img 
+                  src="/images/crafting-items/recipes/Shadowdecon.png" 
+                  alt="Shadowdecon" 
+                  class="mx-auto"
+                  loading="lazy"
+                >
+              </picture>
               Zelumium
             </th>
             <th class="c-table-th">
+              <picture>
+                <img 
+                  src="/images/crafting-items/recipes/Zelunium.png" 
+                  alt="Zelunium" 
+                  class="mx-auto"
+                  loading="lazy"
+                >
+              </picture>
               Shadow Decon
             </th>
             <th class="c-table-th">
@@ -95,6 +112,7 @@ const heroImage = {
           <tr v-for="item in items" :key="item.item">
             <td class="c-table-td align-top">
               <strong>{{ item.item }}</strong>
+              <br/>
               <a 
                 v-for="url in item.item_desc_urls" 
                 :key="url" 
@@ -117,7 +135,10 @@ const heroImage = {
             </td>
             <td class="c-table-td pl-6 align-top">
               <ul class="list-disc">
-                <li v-for="recipe in recipesExceptZelumiumAndShadowDecon(item.recipes)">
+                <li v-for="recipe in recipesExceptZelumiumAndShadowdecon(item.recipes)">
+                  <picture v-if="recipe.item_image_url">
+                    <img :src="recipe.item_image_url" :alt="recipe.item" class="inline mx-1">
+                  </picture>
                   {{ recipe.item }} 
                   <span v-if="recipe.item_desc_url">
                     <a 
@@ -126,7 +147,7 @@ const heroImage = {
                       rel="noopener noreferrer"
                       class="text-blue-600"
                     >
-                      (Item)
+                      (?)
                     </a>
                   </span>
                   x 
@@ -135,14 +156,13 @@ const heroImage = {
                     <li v-for="dropFrom in recipe.drop_from" :key="dropFrom.name">
                       {{ dropFrom.name }}
                       <span v-if="dropFrom.desc_url">
-                        -
                         <a 
                           :href="dropFrom.desc_url" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           class="text-blue-600"
                         >
-                          (Monster)
+                          (?)
                         </a>
                       </span>
                     </li>
@@ -158,9 +178,43 @@ const heroImage = {
 
     <!-- #region basic -->
     <div class="w-full c-card my-3">
+      <div class="text-2xl">Rough Zelunium, Rough Shadowdecon Exchange NPC</div>
+      <div class="pl-6 mb-6">
+        <ol class="list-disc">
+          <li>ใช้แร่ Rough Zelunium จำนวนละ 20 ชิ้น แลกซื้อเป็น Zelunium ได้ 1 ชิ้น</li>
+          <li>ใช้แร่ Rough Shadowdecon จำนวนละ 20 ชิ้น แลกซื้อเป็น Shadowdecon ได้ 1 ชิ้น</li>
+        </ol>
+      </div>
+      <div class="pl-6 mb-6">
+        <ol class="list-circle">
+          <li>NPC Satana พิกัด alberta_in 24/63</li>
+          <li>NPC Polinn Polath พิกัด prt_in 64/57</li>
+          <li>NPC Marik Meloy พิกัด morocc_in 64/37</li>
+          <li>NPC Jihu Jeyorr พิกัด payon 142/179</li>
+          <li>NPC Dimille Maar พิกัด yuno_in01 164/31</li>
+          <li>NPC Galan Gweniha พิกัด ein_in01 30/88</li>
+          <li>NPC Nemill Newton พิกัด lhz_in02 275/23</li>
+        </ol>
+      </div>
+    </div>
+    <!-- #endregion basic -->
+
+    <!-- #region References -->
+    <div class="w-full c-card my-3">
       <div class="text-2xl">References</div>
       <div class="pl-6">
         <ul class="list-disc">
+          <li>
+            Combination System ระบบคราฟไอเท็มด้วยของบอส: 
+            <a 
+              href="https://ro.gnjoy.in.th/combination-system" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-blue-600"
+            >
+              [Link]
+            </a>
+          </li>
           <li>
             Facebook MRTRIN: 
             <a 
