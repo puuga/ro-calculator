@@ -14,6 +14,7 @@ export const RN_ENCHANTMENTS = 'enchantments'
 export const RN_EPISODE_171_ENCHANTMENT = 'episode-171-enchantment'
 export const RN_BUFF_COOLDOWN_COUNTER_TOOL = 'buff-cooldown-counter-tool'
 export const RN_CRAFTING_NFS_ITEMS = 'crafting-nfs-items'
+export const RN_COMBO_ARCHANGEL_WING_AND_ARCHANGEL_BALLOON = 'combo-archangel-wing-and-archangel-balloon'
 
 export const routeData = [
   {
@@ -79,6 +80,13 @@ export const routeData = [
     title: 'Crafting Not For Sale Items | RO-Calculator',
     description: 'Crafting Not For Sale Items, ระบบคราฟของ',
     component: () => import('@/pages/CraftingNotForSaleItemsView.vue'),
+  },
+  {
+    path: '/combo-archangel-wing-and-archangel-balloon',
+    name: RN_COMBO_ARCHANGEL_WING_AND_ARCHANGEL_BALLOON,
+    title: 'Combo Archangel Wing [1] and Archangel Balloon | RO-Calculator',
+    description: 'Combo Archangel Wing [1] and Archangel Balloon',
+    component: () => import('@/pages/ComboArchangelWingAndArchangelBalloonPage.vue'),
   },
 ]
 
