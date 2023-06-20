@@ -15,6 +15,7 @@ export const RN_EPISODE_171_ENCHANTMENT = 'episode-171-enchantment'
 export const RN_BUFF_COOLDOWN_COUNTER_TOOL = 'buff-cooldown-counter-tool'
 export const RN_CRAFTING_NFS_ITEMS = 'crafting-nfs-items'
 export const RN_COMBO_ARCHANGEL_WING_AND_ARCHANGEL_BALLOON = 'combo-archangel-wing-and-archangel-balloon'
+export const RN_PATENT_WEAPON_ENCHANTMENT = 'patent-weapon-enchantment'
 
 export const routeData = [
   {
@@ -87,6 +88,13 @@ export const routeData = [
     title: 'Combo Archangel Wing [1] and Archangel Balloon | RO-Calculator',
     description: 'Combo Archangel Wing [1] and Archangel Balloon',
     component: () => import('@/pages/ComboArchangelWingAndArchangelBalloonPage.vue'),
+  },
+  {
+    path: '/patent-weapon-enchantment',
+    name: RN_PATENT_WEAPON_ENCHANTMENT,
+    title: 'Patent Weapon Enchantment | RO-Calculator',
+    description: 'Patent Weapon Enchantment',
+    component: () => import('@/pages/PatentWeaponEnchantmentView.vue'),
   },
 ]
 

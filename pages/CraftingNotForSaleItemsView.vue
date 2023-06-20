@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import consola from 'consola'
+import { consola } from 'consola'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
 import { RN_CRAFTING_NFS_ITEMS, getHead } from '@/app/router.options'

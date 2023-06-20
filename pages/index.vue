@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getAnalytics, logEvent } from 'firebase/analytics'
-import consola from 'consola'
+import { consola } from 'consola'
 
 const { $firebaseApp } = useNuxtApp()
 

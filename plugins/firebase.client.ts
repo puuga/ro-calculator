@@ -1,4 +1,4 @@
-import consola from 'consola'
+import { consola } from 'consola'
 import { initializeApp, getApps } from 'firebase/app'
 import type { FirebaseApp } from 'firebase/app'
 
