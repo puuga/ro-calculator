@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import consola from 'consola'
+import { consola } from 'consola'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
 import { RN_BUFF_COOLDOWN_COUNTER_TOOL, getHead } from '@/app/router.options'

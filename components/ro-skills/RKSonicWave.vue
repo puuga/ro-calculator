@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { getAnalytics, logEvent } from "firebase/analytics";
-import consola from "consola";
+import { consola } from 'consola';
 
 
 export default defineComponent({
