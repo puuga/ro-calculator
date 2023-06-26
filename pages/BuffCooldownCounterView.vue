@@ -71,29 +71,35 @@ const buffsOptions = [
   },
 ]
 
-const clockCooldown30s = ref(false)
-const clockCooldown60s = ref(false)
-const clockCooldown90s = ref(false)
-const clockCooldown120s = ref(false)
-const clockCooldown180s = ref(false)
-const clockCooldown300s = ref(false)
-const clockCooldown600s = ref(false)
+const clockCooldown: Record<string, globalThis.Ref<boolean>> = {
+  '30': ref(false),
+  '60': ref(false),
+  '90': ref(false),
+  '120': ref(false),
+  '180': ref(false),
+  '300': ref(false),
+  '600': ref(false),
+}
 
-const clockCooldown30sInterval = ref('')
-const clockCooldown60sInterval = ref('')
-const clockCooldown90sInterval = ref('')
-const clockCooldown120sInterval = ref('')
-const clockCooldown180sInterval = ref('')
-const clockCooldown300sInterval = ref('')
-const clockCooldown600sInterval = ref('')
+const clockCooldownInterval: Record<string, globalThis.Ref<string>> = {
+  '30': ref(''),
+  '60': ref(''),
+  '90': ref(''),
+  '120': ref(''),
+  '180': ref(''),
+  '300': ref(''),
+  '600': ref(''),
+}
 
-let clockCooldown30sCountdownInterval: any
-let clockCooldown60sCountdownInterval: any
-let clockCooldown90sCountdownInterval: any
-let clockCooldown120sCountdownInterval: any
-let clockCooldown180sCountdownInterval: any
-let clockCooldown300sCountdownInterval: any
-let clockCooldown600sCountdownInterval: any
+let clockCooldownCountdownInterval: Record<string, number | undefined> = {
+  '30': undefined,
+  '60': undefined,
+  '90': undefined,
+  '120': undefined,
+  '180': undefined,
+  '300': undefined,
+  '600': undefined,
+}
 //#endregion refs
 
 //#region methods
@@ -107,39 +113,39 @@ function onFormSubmit(event: Event) {
 
   const _buffs = buffs.value as string[]
   if (_buffs.includes('buff_30s')) {
-    clockCooldown30s.value = true
-    consola.log('BuffCooldownCounterView clockCooldown30s')
-    clockCooldown30sCountdown(sound.value)
+    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 30)
+    clockCooldown['30'].value = true
+    clockCooldownCountdown(sound.value, 30)
   }
   if (_buffs.includes('buff_60s')) {
-    clockCooldown60s.value = true
-    consola.log('BuffCooldownCounterView clockCooldown60s')
-    clockCooldown60sCountdown(sound.value)
+    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 60)
+    clockCooldown['60'].value = true
+    clockCooldownCountdown(sound.value, 60)
   }
   if (_buffs.includes('buff_90s')) {
-    clockCooldown90s.value = true
-    consola.log('BuffCooldownCounterView clockCooldown90s')
-    clockCooldown90sCountdown(sound.value)
+    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 90)
+    clockCooldown['90'].value = true
+    clockCooldownCountdown(sound.value, 90)
   }
   if (_buffs.includes('buff_120s')) {
-    clockCooldown120s.value = true
-    consola.log('BuffCooldownCounterView clockCooldown120s')
-    clockCooldown120sCountdown(sound.value)
+    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 120)
+    clockCooldown['120'].value = true
+    clockCooldownCountdown(sound.value, 120)
   }
   if (_buffs.includes('buff_180s')) {
-    clockCooldown180s.value = true
-    consola.log('BuffCooldownCounterView clockCooldown180s')
-    clockCooldown180sCountdown(sound.value)
+    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 180)
+    clockCooldown['180'].value = true
+    clockCooldownCountdown(sound.value, 180)
   }
   if (_buffs.includes('buff_300s')) {
-    clockCooldown300s.value = true
-    consola.log('BuffCooldownCounterView clockCooldown300s')
-    clockCooldown300sCountdown(sound.value)
+    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 300)
+    clockCooldown['300'].value = true
+    clockCooldownCountdown(sound.value, 300)
   }
   if (_buffs.includes('buff_600s')) {
-    clockCooldown600s.value = true
-    consola.log('BuffCooldownCounterView clockCooldown600s')
-    clockCooldown600sCountdown(sound.value)
+    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 600)
+    clockCooldown['600'].value = true
+    clockCooldownCountdown(sound.value, 600)
   }
 
   const analytics = getAnalytics($firebaseApp())
@@ -194,147 +200,34 @@ function fireNotification(title: string, message: string) {
 
 function stopCountdown() {
   consola.log('BuffCooldownCounterView stopCountdown')
-  clearInterval(clockCooldown30sCountdownInterval)
-  clockCooldown30s.value = false
-  clockCooldown30sInterval.value = ''
-
-  clearInterval(clockCooldown60sCountdownInterval)
-  clockCooldown60s.value = false
-  clockCooldown60sInterval.value = ''
-
-  clearInterval(clockCooldown90sCountdownInterval)
-  clockCooldown90s.value = false
-  clockCooldown90sInterval.value = ''
-
-  clearInterval(clockCooldown120sCountdownInterval)
-  clockCooldown120s.value = false
-  clockCooldown120sInterval.value = ''
-
-  clearInterval(clockCooldown180sCountdownInterval)
-  clockCooldown180s.value = false
-  clockCooldown180sInterval.value = ''
-
-  clearInterval(clockCooldown300sCountdownInterval)
-  clockCooldown300s.value = false
-  clockCooldown300sInterval.value = ''
-
-  clearInterval(clockCooldown600sCountdownInterval)
-  clockCooldown600s.value = false
-  clockCooldown600sInterval.value = ''
+  for (const key in clockCooldownCountdownInterval) {
+    clearInterval(clockCooldownCountdownInterval[key])
+    clockCooldownCountdownInterval[key] = undefined
+  }
+  for (const key in clockCooldown) {
+    clockCooldown[key].value = false
+  }
+  for (const key in clockCooldownInterval) {
+    clockCooldownInterval[key].value = ''
+  }
 }
 
-function clockCooldown30sCountdown(soundPath: string) {
-  clockCooldown30s.value = true
-  let seconds = 30
-  clockCooldown30sCountdownInterval = setInterval(() => {
-    seconds--
-    consola.log('BuffCooldownCounterView clockCooldown30sCountdown', seconds)
-    clockCooldown30sInterval.value = seconds.toString()
-    if (seconds <= 0) {
-      clearInterval(clockCooldown30sCountdownInterval)
-      clockCooldown30s.value = false
+function clockCooldownCountdown(soundPath: string, second: number) {
+  clockCooldown[`${second}`].value = true
+  let countdownSecond = second
+  clockCooldownCountdownInterval[`${second}`] = window.setInterval(() => {
+    countdownSecond--
+    consola.log('BuffCooldownCounterView clockCooldownCountdown', countdownSecond)
+    clockCooldownInterval[`${second}`].value = countdownSecond.toString()
+    if (countdownSecond <= 0) {
+      clearInterval(clockCooldownCountdownInterval[`${second}`])
+      clockCooldown[`${second}`].value = false
       playSound(soundPath)
       if (notification.value) {
-        fireNotification('Buff Cooldown', '30s Cooldown is ready')
+        fireNotification('Buff Cooldown', `${second}s Cooldown is ready`)
       }
 
-      clockCooldown30sCountdown(soundPath)
-    }
-  }, 1000)
-}
-function clockCooldown60sCountdown(soundPath: string) {
-  clockCooldown60s.value = true
-  let seconds = 60
-  clockCooldown60sCountdownInterval = setInterval(() => {
-    seconds--
-    consola.log('BuffCooldownCounterView clockCooldown60sCountdown', seconds)
-    clockCooldown60sInterval.value = seconds.toString()
-    if (seconds <= 0) {
-      clearInterval(clockCooldown60sCountdownInterval)
-      clockCooldown60s.value = false
-      playSound(soundPath)
-
-      clockCooldown60sCountdown(soundPath)
-    }
-  }, 1000)
-}
-function clockCooldown90sCountdown(soundPath: string) {
-  clockCooldown90s.value = true
-  let seconds = 90
-  clockCooldown90sCountdownInterval = setInterval(() => {
-    seconds--
-    consola.log('BuffCooldownCounterView clockCooldown90sCountdown', seconds)
-    clockCooldown90sInterval.value = seconds.toString()
-    if (seconds <= 0) {
-      clearInterval(clockCooldown90sCountdownInterval)
-      clockCooldown90s.value = false
-      playSound(soundPath)
-
-      clockCooldown90sCountdown(soundPath)
-    }
-  }, 1000)
-}
-function clockCooldown120sCountdown(soundPath: string) {
-  clockCooldown120s.value = true
-  let seconds = 120
-  clockCooldown120sCountdownInterval = setInterval(() => {
-    seconds--
-    consola.log('BuffCooldownCounterView clockCooldown120sCountdown', seconds)
-    clockCooldown120sInterval.value = seconds.toString()
-    if (seconds <= 0) {
-      clearInterval(clockCooldown120sCountdownInterval)
-      clockCooldown120s.value = false
-      playSound(soundPath)
-
-      clockCooldown120sCountdown(soundPath)
-    }
-  }, 1000)
-}
-function clockCooldown180sCountdown(soundPath: string) {
-  clockCooldown180s.value = true
-  let seconds = 180
-  clockCooldown180sCountdownInterval = setInterval(() => {
-    seconds--
-    consola.log('BuffCooldownCounterView clockCooldown180sCountdown', seconds)
-    clockCooldown180sInterval.value = seconds.toString()
-    if (seconds <= 0) {
-      clearInterval(clockCooldown180sCountdownInterval)
-      clockCooldown180s.value = false
-      playSound(soundPath)
-
-      clockCooldown180sCountdown(soundPath)
-    }
-  }, 1000)
-}
-function clockCooldown300sCountdown(soundPath: string) {
-  clockCooldown300s.value = true
-  let seconds = 300
-  clockCooldown300sCountdownInterval = setInterval(() => {
-    seconds--
-    consola.log('BuffCooldownCounterView clockCooldown300sCountdown', seconds)
-    clockCooldown300sInterval.value = seconds.toString()
-    if (seconds <= 0) {
-      clearInterval(clockCooldown300sCountdownInterval)
-      clockCooldown300s.value = false
-      playSound(soundPath)
-
-      clockCooldown300sCountdown(soundPath)
-    }
-  }, 1000)
-}
-function clockCooldown600sCountdown(soundPath: string) {
-  clockCooldown600s.value = true
-  let seconds = 600
-  clockCooldown600sCountdownInterval = setInterval(() => {
-    seconds--
-    consola.log('BuffCooldownCounterView clockCooldown600sCountdown', seconds)
-    clockCooldown600sInterval.value = seconds.toString()
-    if (seconds <= 0) {
-      clearInterval(clockCooldown600sCountdownInterval)
-      clockCooldown600s.value = false
-      playSound(soundPath)
-
-      clockCooldown600sCountdown(soundPath)
+      clockCooldownCountdown(soundPath, second)
     }
   }, 1000)
 }
@@ -433,39 +326,39 @@ function clockCooldown600sCountdown(soundPath: string) {
       <div class="w-6/12 c-card m-1">
         <div class="text-2xl">Cooldown Counter</div>
         <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown30s"
+          v-if="clockCooldown['30'].value"
           :badge-text="buffsOptions[0].title" 
-          :counter-text="clockCooldown30sInterval"
+          :counter-text="clockCooldownInterval['30'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown60s"
+          v-if="clockCooldown['60'].value"
           :badge-text="buffsOptions[1].title" 
-          :counter-text="clockCooldown60sInterval"
+          :counter-text="clockCooldownInterval['60'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown90s"
-          :badge-text="buffsOptions[2].title" 
-          :counter-text="clockCooldown90sInterval"
+          v-if="clockCooldown['90'].value"
+          :badge-text="buffsOptions[1].title" 
+          :counter-text="clockCooldownInterval['90'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown120s"
-          :badge-text="buffsOptions[3].title" 
-          :counter-text="clockCooldown120sInterval"
+          v-if="clockCooldown['120'].value"
+          :badge-text="buffsOptions[1].title" 
+          :counter-text="clockCooldownInterval['120'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown180s"
-          :badge-text="buffsOptions[4].title" 
-          :counter-text="clockCooldown180sInterval"
+          v-if="clockCooldown['180'].value"
+          :badge-text="buffsOptions[1].title" 
+          :counter-text="clockCooldownInterval['180'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown300s"
-          :badge-text="buffsOptions[5].title" 
-          :counter-text="clockCooldown300sInterval"
+          v-if="clockCooldown['300'].value"
+          :badge-text="buffsOptions[1].title" 
+          :counter-text="clockCooldownInterval['300'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown600s"
-          :badge-text="buffsOptions[6].title" 
-          :counter-text="clockCooldown600sInterval"
+          v-if="clockCooldown['600'].value"
+          :badge-text="buffsOptions[1].title" 
+          :counter-text="clockCooldownInterval['600'].value"
         />
       </div>
       <!-- #region clock cooldown -->
