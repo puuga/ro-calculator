@@ -187,4 +187,5 @@ Update 2022-07-27: 185,65
 ## References
 
 <https://irowiki.org/wiki/Base_EXP_Chart>
+
 <https://irowiki.org/wiki/Job_EXP_Chart>
