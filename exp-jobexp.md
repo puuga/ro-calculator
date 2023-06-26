@@ -1,6 +1,7 @@
-# RO-GGT | EXP, JOB EXP for Lv 185/65
+# RO-GGT | EXP, JOB EXP for Lv 185/65, 200,70
 
-Update 2022-07-27
+Update 2023-06-26: 200,70
+Update 2022-07-27: 185,65
 
 ## EXP Third Class
 
@@ -182,3 +183,8 @@ Update 2022-07-27
 | 68 |  | 778,290,604 |
 | 69 |  | 851,255,348 |
 | 70 |  | 924,220,092 |
+
+## References
+
+<https://irowiki.org/wiki/Base_EXP_Chart>
+<https://irowiki.org/wiki/Job_EXP_Chart>
