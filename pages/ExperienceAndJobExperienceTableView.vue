@@ -52,6 +52,7 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
               <th class="c-table-th">Level</th>
               <th class="c-table-th">EXP (old)</th>
               <th class="c-table-th">EXP (185/65)<br />2022-07-27</th>
+              <th class="c-table-th">EXP (200/70)<br />????-??-??</th>
             </tr>
           </thead>
           <tbody>
@@ -65,6 +66,9 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
               <td class="c-table-td text-right tabular-nums">
                 {{ formatNumber(exp[2]) }}
               </td>
+              <td class="c-table-td text-right tabular-nums">
+                {{ formatNumber(exp[3]) }}
+              </td>
             </tr>
           </tbody>
           <tfoot>
@@ -72,6 +76,7 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
               <th class="c-table-th">Summary</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 1)) }}</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 2)) }}</th>
+              <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 3)) }}</th>
             </tr>
           </tfoot>
         </table>
@@ -90,6 +95,7 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
               <th class="c-table-th">Level</th>
               <th class="c-table-th">Job (old)</th>
               <th class="c-table-th">Job (185/65)<br />2022-07-27</th>
+              <th class="c-table-th">Job (200/70)<br />????-??-??</th>
             </tr>
           </thead>
           <tbody>
@@ -103,6 +109,9 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
               <td class="c-table-td text-right tabular-nums">
                 {{ formatNumber(exp[2]) }}
               </td>
+              <td class="c-table-td text-right tabular-nums">
+                {{ formatNumber(exp[3]) }}
+              </td>
             </tr>
           </tbody>
           <tfoot>
@@ -110,6 +119,7 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
               <th class="c-table-th">Summary</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableJOBs, 1)) }}</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableJOBs, 2)) }}</th>
+              <th class="c-table-th">{{ formatNumber(summaryEXP(tableJOBs, 3)) }}</th>
             </tr>
           </tfoot>
         </table>
