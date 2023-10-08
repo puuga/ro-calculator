@@ -20,4 +20,22 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      failOnError: true,
+      ignore: [
+        '/AboutView',
+        '/BuffCooldownCounterView',
+        '/ComboArchangelWingAndArchangelBalloonPage',
+        '/CraftingNotForSaleItemsView',
+        '/EnchantmentsView',
+        '/Episode171Enchantment',
+        '/ExperienceAndJobExperienceTableView',
+        '/Lab5HeadgearEnchantmentView',
+        '/PatentWeaponEnchantmentView',
+        '/RuneKnightView',
+      ],
+    },
+  },
 })
