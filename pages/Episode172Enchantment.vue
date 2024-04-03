@@ -241,7 +241,15 @@ const MODIFICATION_MODULE_LEGENDARY = "/images/ic-172/ic-legendary-module.png";
 const MODIFICATION_ORB_LEGENDARY = "/images/ic-172/ic-legendary-orb.png";
 
 const MODIFICATION_MODULE_EPIC = "/images/ic-172/ic-epic-module.png";
-const MODIFICATION_ORB_EPIC = "/images/ic-172/ic-epic-orb.png";
+const MODIFICATION_ORB_EPIC_01 = "/images/ic-172/ic-epic-orb-01.png";
+const MODIFICATION_ORB_EPIC_02 = "/images/ic-172/ic-epic-orb-02.png";
+const MODIFICATION_ORB_EPIC_03 = "/images/ic-172/ic-epic-orb-03.png";
+const MODIFICATION_ORB_EPIC_04 = "/images/ic-172/ic-epic-orb-04.png";
+const MODIFICATION_ORB_EPIC_05 = "/images/ic-172/ic-epic-orb-05.png";
+const MODIFICATION_ORB_EPIC_06 = "/images/ic-172/ic-epic-orb-06.png";
+const MODIFICATION_ORB_EPIC_07 = "/images/ic-172/ic-epic-orb-07.png";
+const MODIFICATION_ORB_EPIC_08 = "/images/ic-172/ic-epic-orb-08.png";
+const MODIFICATION_ORB_EPIC_09 = "/images/ic-172/ic-epic-orb-09.png";
 
 const enum ModuleLevel {
   Normal = 0,
@@ -283,7 +291,7 @@ const tableNormalEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (DEF)",
     modificationOrbIcon: MODIFICATION_ORB_NORMAL,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (DEF) effect.\n\nDEF +150.\n[Refine >= 7] Additional DEF +75.\n[Refine >= 11] Additional DEF +75.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (DEF) effect.\n\nDEF +150.\n\n[Refine >= 7]\nAdditional DEF +75.\n\n[Refine >= 11]\nAdditional DEF +75.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -302,7 +310,7 @@ const tableNormalEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (MDEF)",
     modificationOrbIcon: MODIFICATION_ORB_NORMAL,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (MDEF) effect.\n\nMDEF +15.\n[Refine >= 7] Additional MDEF +7.\n[Refine >= 11] Additional MDEF +7.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (MDEF) effect.\n\nMDEF +15.\n\n[Refine >= 7]\nAdditional MDEF +7.\n\n[Refine >= 11]\nAdditional MDEF +7.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -503,7 +511,7 @@ const tableRareEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Health)",
     modificationOrbIcon: MODIFICATION_ORB_RARE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Health) effect.\n\nMaxHP +5%.\nMaxHP +1,500.\n[Refine >= 7] Additional MaxHP +2%.\n[Refine >= 11] Additional MaxHP +3%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Health) effect.\n\nMaxHP +5%.\nMaxHP +1,500.\n\n[Refine >= 7]\nAdditional MaxHP +2%.\n\n[Refine >= 11]\nAdditional MaxHP +3%.",
     equipmentLocation: [Equipment.AutomaticLegAtype, Equipment.AutomaticLegBtype],
     maxCount: 2,
   },
@@ -515,7 +523,7 @@ const tableRareEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (SPR)",
     modificationOrbIcon: MODIFICATION_ORB_RARE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (SPR) effect.\n\nMaxSP +5%.\nMaxSP +300.\n[Refine >= 7] Additional MaxSP +2%.\n[Refine >= 11] Additional MaxSP +3%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (SPR) effect.\n\nMaxSP +5%.\nMaxSP +300.\n\n[Refine >= 7]\nAdditional MaxSP +2%.\n\n[Refine >= 11]\nAdditional MaxSP +3%.",
     equipmentLocation: [Equipment.AutomaticLegAtype, Equipment.AutomaticLegBtype],
     maxCount: 2,
   },
@@ -527,7 +535,7 @@ const tableRareEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Module (Heal)",
     modificationOrbIcon: MODIFICATION_ORB_RARE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Heal) effect.\n\nHealing Recovery +5%.\n[Refine >= 7] Additional Healing Recovery +5%.\n[Refine >= 11] Additional Healing Recovery +7%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Heal) effect.\n\nHealing Recovery +5%.\n\n[Refine >= 7]\nAdditional Healing Recovery +5%.\n\n[Refine >= 11]\nAdditional Healing Recovery +7%.",
     equipmentLocation: [Equipment.AutomaticLegAtype, Equipment.AutomaticLegBtype],
     maxCount: 2,
   },
@@ -539,7 +547,7 @@ const tableRareEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (ATK)",
     modificationOrbIcon: MODIFICATION_ORB_RARE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (ATK) effect.\n\nATK +5%.\nATK +75.\n[Refine >= 7] Additional Melee Physical damage +2%.\n[Refine >= 11] Additional Melee Physical damage +3%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (ATK) effect.\n\nATK +5%.\nATK +75.\n\n[Refine >= 7]\nAdditional Melee Physical damage +2%.\n\n[Refine >= 11]\nAdditional Melee Physical damage +3%.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -554,7 +562,7 @@ const tableRareEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (MATK)",
     modificationOrbIcon: MODIFICATION_ORB_RARE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (MATK) effect.\n\nMATK +5%.\nMATK +75.\n[Refine >= 7] Additional MATK +2%.\n[Refine >= 11] Additional MATK +3%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (MATK) effect.\n\nMATK +5%.\nMATK +75.\n\n[Refine >= 7]\nAdditional MATK +2%.\n\n[Refine >= 11]\nAdditional MATK +3%.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -569,7 +577,7 @@ const tableRareEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Sharpshooter)",
     modificationOrbIcon: MODIFICATION_ORB_RARE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Sharpshooter) effect.\n\nLong-ranged Physical damage +3%.\n[Refine >= 7] Additional Long-ranged Physical damage +3%.\n[Refine >= 11] Additional Long-ranged Physical damage +3%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Sharpshooter) effect.\n\nLong-ranged Physical damage +3%.\n\n[Refine >= 7]\nAdditional Long-ranged Physical damage +3%.\n\n[Refine >= 11]\nAdditional Long-ranged Physical damage +3%.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -584,7 +592,7 @@ const tableRareEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Speed)",
     modificationOrbIcon: MODIFICATION_ORB_RARE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Speed) effect.\n\nASPD +1.\n[Refine >= 7] Additional ASPD +5%.\n[Refine >= 11] Additional ASPD +5%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Speed) effect.\n\nASPD +1.\n\n[Refine >= 7]\nAdditional ASPD +5%.\n\n[Refine >= 11]\nAdditional ASPD +5%.",
     equipmentLocation: [
       Equipment.AutomaticEngineWingAtype,
       Equipment.AutomaticEngineWingBtype,
@@ -599,7 +607,7 @@ const tableRareEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Caster)",
     modificationOrbIcon: MODIFICATION_ORB_RARE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Caster) effect.\n\nVariable Cast Time -5%.\n[Refine >= 7] Additional Variable Cast Time -5%.\n[Refine >= 11] Additional Variable Cast Time -5%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Caster) effect.\n\nVariable Cast Time -5%.\n\n[Refine >= 7]\nAdditional Variable Cast Time -5%.\n\n[Refine >= 11]\nAdditional Variable Cast Time -5%.",
     equipmentLocation: [
       Equipment.AutomaticEngineWingAtype,
       Equipment.AutomaticEngineWingBtype,
@@ -614,7 +622,7 @@ const tableRareEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Critical)",
     modificationOrbIcon: MODIFICATION_ORB_RARE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Critical) effect.\n\nCRIT +10.\n[Refine >= 7] Additional Critical damage +5%.\n[Refine >= 11] Additional Critical damage +7%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Critical) effect.\n\nCRIT +10.\n\n[Refine >= 7]\nAdditional Critical damage +5%.\n\n[Refine >= 11]\nAdditional Critical damage +7%.",
     equipmentLocation: [
       Equipment.AutomaticEngineWingAtype,
       Equipment.AutomaticEngineWingBtype,
@@ -631,7 +639,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Magical Force)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Magical Force) effect.\n\nMATK +20.\nVariable Cast Time -10%.\nAll elemental Magic damage +2%.\n[Refine >= 7] Additional All elemental Magic damage +1%.\n[Refine >= 11] Additional All elemental Magic damage +2%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Magical Force) effect.\n\nMATK +20.\nVariable Cast Time -10%.\nAll elemental Magic damage +2%.\n\n[Refine >= 7]\nAdditional All elemental Magic damage +1%.\n\n[Refine >= 11]\nAdditional All elemental Magic damage +2%.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -646,7 +654,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Attacker Force)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Attacker Force) effect.\n\nATK +20.\nMelee Physical damage +10%.\nPhysical damage +3% on enemies of all sizes.\n[Refine >= 7] Additional Physical damage +1% on enemies of all sizes.\n[Refine >= 11] Additional Physical damage +1% on enemies of all sizes.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Attacker Force) effect.\n\nATK +20.\nMelee Physical damage +10%.\nPhysical damage +3% on enemies of all sizes.\n\n[Refine >= 7]\nAdditional Physical damage +1% on enemies of all sizes.\n\n[Refine >= 11]\nAdditional Physical damage +1% on enemies of all sizes.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -661,7 +669,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "	Automatic Modification Orb (Ranged Force)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Ranged Force) effect.\n\nATK +20.\nLong-ranged Physical damage +10%.\nPhysical damage +3% on enemies of all sizes.\n[Refine >= 7] Additional Physical damage +1% on enemies of all sizes.\n[Refine >= 11] Additional Physical damage +1% on enemies of all sizes.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Ranged Force) effect.\n\nATK +20.\nLong-ranged Physical damage +10%.\nPhysical damage +3% on enemies of all sizes.\n\n[Refine >= 7]\nAdditional Physical damage +1% on enemies of all sizes.\n\n[Refine >= 11]\nAdditional Physical damage +1% on enemies of all sizes.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -676,7 +684,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "	Automatic Modification Orb (Critical Force)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Critical Force) effect.\n\nCRIT +5.\nCritical damage +10%.\nPhysical damage +3% on enemies of all sizes.\n[Refine >= 7] Additional Physical damage +1% on enemies of all sizes.\n[Refine >= 11] Additional Physical damage +1% on enemies of all sizes.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Critical Force) effect.\n\nCRIT +5.\nCritical damage +10%.\nPhysical damage +3% on enemies of all sizes.\n\n[Refine >= 7]\nAdditional Physical damage +1% on enemies of all sizes.\n\n[Refine >= 11]\nAdditional Physical damage +1% on enemies of all sizes.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -691,7 +699,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "	Automatic Modification Orb (Recovery Force)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Recovery Force) effect.\n\nMATK +20.\nVariable Cast Time -10%.\nHealing Recovery +5%.\n[Refine >= 7] Additional Healing Recovery +5%.\n[Refine >= 11] Additional Healing Recovery +5%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Recovery Force) effect.\n\nMATK +20.\nVariable Cast Time -10%.\nHealing Recovery +5%.\n\n[Refine >= 7]\nAdditional Healing Recovery +5%.\n\n[Refine >= 11]\nAdditional Healing Recovery +5%.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -706,7 +714,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Post-skill Delay)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Post-skill Delay) effect.\n\nPost-skill delay -4%.\n[Refine >= 7] Additional Post-skill delay -6%.\n[Refine >= 11] Additional Post-skill delay -6%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Post-skill Delay) effect.\n\nPost-skill delay -4%.\n\n[Refine >= 7]\nAdditional Post-skill delay -6%.\n\n[Refine >= 11]\nAdditional Post-skill delay -6%.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -721,7 +729,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Power Force)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Power Force) effect.\n\nATK +3%.\nMATK +3%.\n[Refine >= 7] Additional ATK +3%. Additional MATK +3%.\n[Refine >= 11] Additional ATK +4%. Additional MATK +4%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Power Force) effect.\n\nATK +3%.\nMATK +3%.\n\n[Refine >= 7]\nAdditional ATK +3%. Additional MATK +3%.\n\n[Refine >= 11]\nAdditional ATK +4%. Additional MATK +4%.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -736,7 +744,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Mirror Counter)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Mirror Counter) effect.\n\nIncoming reflected damage -2%.\n[Refine >= 7] Additional Incoming reflected damage -2%.\n[Refine >= 11] Additional Incoming reflected damage -3%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Mirror Counter) effect.\n\nIncoming reflected damage -2%.\n\n[Refine >= 7]\nAdditional Incoming reflected damage -2%.\n\n[Refine >= 11]\nAdditional Incoming reflected damage -3%.",
     equipmentLocation: [
       Equipment.AutomaticArmorAtype,
       Equipment.AutomaticArmorBtype,
@@ -751,7 +759,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Above All)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Above All) effect.\n\nPhysical/Magic damage -7% from Normal and Boss enemies.\n[Refine >= 7] Additional Physical/Magic damage -7% from enemies of all sizes.\n[Refine >= 11] Additional Physical/Magic damage -7% from monsters of all types (Players excluded).",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Above All) effect.\n\nPhysical/Magic damage -7% from Normal and Boss enemies.\n\n[Refine >= 7]\nAdditional Physical/Magic damage -7% from enemies of all sizes.\n\n[Refine >= 11]\nAdditional Physical/Magic damage -7% from monsters of all types (Players excluded).",
     equipmentLocation: [
       Equipment.AutomaticEngineWingAtype,
       Equipment.AutomaticEngineWingBtype,
@@ -766,7 +774,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Powerful)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Powerful) effect.\n\nMelee/Long-ranged Physical damage +5%.\nAll elemental Magic damage +5%.\n[Refine >= 7]\nAdditional Melee/Long-ranged Physical damage +2%.\nAdditional All elemental Magic damage +2%.\n[Refine >= 11]\nAdditional Melee/Long-ranged Physical damage +3%.\nAdditional All elemental Magic damage +3%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Powerful) effect.\n\nMelee/Long-ranged Physical damage +5%.\nAll elemental Magic damage +5%.\n\n[Refine >= 7]\nAdditional Melee/Long-ranged Physical damage +2%.\nAdditional All elemental Magic damage +2%.\n\n[Refine >= 11]\nAdditional Melee/Long-ranged Physical damage +3%.\nAdditional All elemental Magic damage +3%.",
     equipmentLocation: [
       Equipment.AutomaticEngineWingAtype,
       Equipment.AutomaticEngineWingBtype,
@@ -781,7 +789,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Reflection Reject)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Reflection Reject) effect.\n\nIncoming reflected damage -3%.\n[Refine >= 7]\nAdditional Incoming reflected damage -2%.\n[Refine >= 11]\nAdditional Incoming reflected damage -4%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Reflection Reject) effect.\n\nIncoming reflected damage -3%.\n\n[Refine >= 7]\nAdditional Incoming reflected damage -2%.\n\n[Refine >= 11]\nAdditional Incoming reflected damage -4%.",
     equipmentLocation: [
       Equipment.AutomaticEngineWingAtype,
       Equipment.AutomaticEngineWingBtype,
@@ -796,7 +804,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Fixed Cast Time)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Fixed Cast Time) effect.\n\nFixed Cast Time -0.1 sec.\n[Refine >= 7]\nAdditional Fixed Cast Time -0.2 sec.\n[Refine >= 11]\nAdditional Fixed Cast Time -0.5 sec.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Fixed Cast Time) effect.\n\nFixed Cast Time -0.1 sec.\n\n[Refine >= 7]\nAdditional Fixed Cast Time -0.2 sec.\n\n[Refine >= 11]\nAdditional Fixed Cast Time -0.5 sec.",
     equipmentLocation: [Equipment.AutomaticLegAtype, Equipment.AutomaticLegBtype],
     maxCount: 1,
   },
@@ -808,7 +816,7 @@ const tableUniqueEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationOrb: "Automatic Modification Orb (Robust)",
     modificationOrbIcon: MODIFICATION_ORB_UNIQUE,
     effect:
-      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Robust) effect.\n\nMaxHP +2000.\nMaxSP +300.\nMaxHP +5%.\nMaxSP +5%.\n[Refine >= 7]\nAdditional MaxHP +2%.\nAdditional MaxSP +2%.\n[Refine >= 11]\nAdditional MaxHP +3%.\nAdditional MaxSP +3%.",
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Robust) effect.\n\nMaxHP +2000.\nMaxSP +300.\nMaxHP +5%.\nMaxSP +5%.\n\n[Refine >= 7]\nAdditional MaxHP +2%.\nAdditional MaxSP +2%.\n\n[Refine >= 11]\nAdditional MaxHP +3%.\nAdditional MaxSP +3%.",
     equipmentLocation: [Equipment.AutomaticLegAtype, Equipment.AutomaticLegBtype],
     maxCount: 1,
   },
@@ -971,9 +979,621 @@ const tableEpicEquipmentEnchantments: EquipmentEnchantment[] = [
     modificationModule: "Automatic Modification Module (Draconic Breath)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
     modificationOrb: "Automatic Modification Orb (Draconic Breath)",
-    modificationOrbIcon: MODIFICATION_ORB_EPIC,
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_01,
     effect:
-      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Draconic Breath) effect.<br><br>Dragon Breath and Dragon Water Breath damage +15%.<br>[Refine >= 7] Additional Dragon Breath and Dragon Water Breath damage +3%.<br>[Refine >= 11] Additional Dragon Breath and Dragon Water Breath damage +7%.',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Draconic Breath) effect.\n\nDragon Breath and Dragon Water Breath damage +15%.\n\n[Refine >= 7]\nAdditional Dragon Breath and Dragon Water Breath damage +3%.\n\n[Refine >= 11]\nAdditional Dragon Breath and Dragon Water Breath damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Wave Break)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Wave Break)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Wave Break)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_01,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Wave Break) effect.\n\nSonic Wave and Ignition Break damage +15%.\n\n[Refine >= 7]\nAdditional Sonic Wave and Ignition Break damage +3%.\n\n[Refine >= 11]\nAdditional Sonic Wave damage +7%, Ignition Break cooldown -0.25 sec.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Hundred Spiral)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Hundred Spiral)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Hundred Spiral)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_01,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Hundred Spiral) effect.\n\nClashing Spiral and Hundred Spears damage +15%.\n\n[Refine >= 7]\nAdditional Clashing Spiral and Hundred Spears damage +3%.\n\n[Refine >= 11]\nAdditional Clashing Spiral damage +7% (Additional), Hundred Spears cooldown -0.25 sec.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Drive Press)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Drive Press)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Drive Press)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_01,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Drive Press) effect.\n\nEarth Drive and Shield Press damage +15%.\n\n[Refine >= 7]\nAdditional Earth Drive and Shield Press damage +3%.\n\n[Refine >= 11]\nAdditional Earth Drive and Shield Press damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Vanishing Cannon)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Vanishing Cannon)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Vanishing Cannon)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_01,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Vanishing Cannon) effect.\n\nVanishing Point and Cannon Spear damage +15%.\n\n[Refine >= 7]\nAdditional Vanishing Point and Cannon Spear damage +3%.\n\n[Refine >= 11]\nAdditional Vanishing Point and Cannon Spear damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Genesis Gloria)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Genesis Gloria)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Genesis Gloria)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_01,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Genesis Gloria) effect.\n\nGloria Domini and Genesis Ray damage +15%.\n\n[Refine >= 7]\nAdditional Gloria Domini and Genesis Ray damage +3%.\n\n[Refine >= 11]\nAdditional Gloria Domini and Genesis Ray damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Boost Cannon)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Boost Cannon)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Boost Cannon)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_02,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Boost Cannon) effect.\n\nKnuckle Boost and Arm Cannon damage +15%.\n\n[Refine >= 7]\nAdditional Knuckle Boost and Arm Cannon damage +3%.\n\n[Refine >= 11]\nAdditional Knuckle Boost and Arm Cannon damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Ice Flame)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Ice Flame)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Ice Flame)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_02,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Ice Flame) effect.\n\nIce Launcher and Flame Launcher damage +15%.\n\n[Refine >= 7]\nAdditional Ice Launcher and Flame Launcher damage +3%.\n\n[Refine >= 11]\nAdditional Ice Launcher and Flame Launcher damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Tornado Swing)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Tornado Swing)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Tornado Swing)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_02,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Tornado Swing) effect.\n\nAxe Tornado and Power Swing damage +15%.\n\n[Refine >= 7]\nAdditional Axe Tornado and Power Swing damage +3%.\n\n[Refine >= 11]\nAdditional Axe Tornado and Power Swing damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Cannon Tornado)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Cannon Tornado)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Cannon Tornado)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_02,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Cannon Tornado) effect.\n\nCart Tornado and Cart Cannon damage +15%.\n\n[Refine >= 7]\nAdditional Cart Tornado and Cart Cannon damage +3%.\n\n[Refine >= 11]\nAdditional Cart Tornado and Cart Cannon damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Crazy Mandragora)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Crazy Mandragora)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Crazy Mandragora)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_02,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Crazy Mandragora) effect.\n\nCrazy Vines damage +15%, Mandragora Howling cooldown -0.3 sec.\n\n[Refine >= 7]\nAdditional Crazy Vines damage +3%, Mandragora Howling cooldown -0.3 sec.\n\n[Refine >= 11]\nAdditional Crazy Vines damage +7%, Mandragora Howling cooldown -0.4 sec.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Acid Explosion)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Acid Explosion)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Acid Explosion)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_02,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Acid Explosion) effect.\n\nAcid Bomb and Spore Explosion damage +15%.\n\n[Refine >= 7]\nAdditional Acid Bomb and Spore Explosion damage +3%.\n\n[Refine >= 11]\nAdditional Acid Bomb and Spore Explosion damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // 
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_08,
+    effect:
+      '',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Death Hammer Dance)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Death Hammer Dance)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Module (Death Hammer Dance)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_08,
+    effect:
+      "A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Death Hammer Dance) effect.\n\nDesperado, Fire Dance, God's Hammer damage +15%.\n\n[Refine >= 7]\nAdditional Desperado, Fire Dance, God's Hammer damage +3%.\n\n[Refine >= 11]\nAdditional Desperado, Fire Dance, God's Hammer damage +7%.",
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Fire Howling Tail)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Fire Howling Tail)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Fire Howling Tail)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_08,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Fire Howling Tail) effect.\n\nFire Rain, Howling Mine, Dragon Tail damage +15%.\n\n[Refine >= 7]\nAdditional Fire Rain, Howling Mine, Dragon Tail damage +3%.\n\n[Refine >= 11]\nAdditional Fire Rain, Howling Mine, Dragon Tail damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Storm Buster Trip)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Storm Buster Trip)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Storm Buster Trip)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_08,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Storm Buster Trip) effect.\n\nShattering Storm, Vanishing Buster, Round Trip damage +15%.\n\n[Refine >= 7]\nAdditional Shattering Storm, Vanishing Buster, Round Trip damage +3%.\n\n[Refine >= 11]\nAdditional Shattering Storm, Vanishing Buster, Round Trip damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Petal Spear Blade)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Petal Spear Blade)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Petal Spear Blade)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_08,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Petal Spear Blade) effect.\n\nFlaming Petals, Freezing Spear, Wind Blade damage +15%.\n\n[Refine >= 7]\nAdditional Flaming Petals, Freezing Spear, Wind Blade damage +3%.\n\n[Refine >= 11]\nAdditional Flaming Petals, Freezing Spear, Wind Blade damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Cross Slash)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Cross Slash)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Cross Slash)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_08,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Cross Slash) effect.\n\nCross Slash damage +15%.\n\n[Refine >= 7]\nAdditional Cross Slash damage +3%.\n\n[Refine >= 11]\nAdditional Cross Slash damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Dragon Draft Wind)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Dragon Draft Wind)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Dragon Draft Wind)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_08,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Dragon Draft Wind) effect.\n\nExploding Dragon, Snow Flake Draft, First Wind damage +15%.\n\n[Refine >= 7]\nAdditional Exploding Dragon, Snow Flake Draft, First Wind damage +3%.\n\n[Refine >= 11]\nAdditional Exploding Dragon, Snow Flake Draft, First Wind damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Power of Sea)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Power of Sea)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Power of Sea)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_09,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Power of Sea) effect.\n\nTuna Party, Tasty Shrimp Party cooldown -0.5 sec.\n\n[Refine >= 7]\nAdditional Tuna Party, Tasty Shrimp Party cooldown -1 sec.\n\n[Refine >= 11]\nAdditional Tuna Party, Tasty Shrimp Party cooldown -1.5 sec.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Power of Land)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Power of Land)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Power of Land)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_09,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Power of Land) effect.\n\nSilvervine Stem Spear and Catnip Meteor damage +15%.\n\n[Refine >= 7]\nAdditional Silvervine Stem Spear and Catnip Meteor damage +3%.\n\n[Refine >= 11]\nAdditional Silvervine Stem Spear and Catnip Meteor damage +7%.',
+    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
+    maxCount: 2,
+  },
+  // Automatic Modification Module (Power of Life)
+  {
+    level: ModuleLevel.Legendary,
+    modificationModule: "Automatic Modification Module (Power of Life)",
+    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
+    modificationOrb: "Automatic Modification Orb (Power of Life)",
+    modificationOrbIcon: MODIFICATION_ORB_EPIC_09,
+    effect:
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Power of Life) effect.\n\nPicky Peck and Lunatic Carrot Beat damage +15%.\n\n[Refine >= 7]\nAdditional Picky Peck and Lunatic Carrot Beat damage +3%.\n\n[Refine >= 11]\nAdditional Picky Peck and Lunatic Carrot Beat damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
