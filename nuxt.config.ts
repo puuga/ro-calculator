@@ -31,6 +31,7 @@ export default defineNuxtConfig({
         '/CraftingNotForSaleItemsView',
         '/EnchantmentsView',
         '/Episode171Enchantment',
+        '/Episode172Enchantment',
         '/ExperienceAndJobExperienceTableView',
         '/Lab5HeadgearEnchantmentView',
         '/PatentWeaponEnchantmentView',

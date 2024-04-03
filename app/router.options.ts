@@ -12,6 +12,7 @@ export const RN_EXP_AND_JOB_EXP_TABLE = 'exp-and-job-exp-table'
 export const RN_LAB_5_HEADGEAR_ENCHANTMENT = 'lab-5-headgear-enchantment'
 export const RN_ENCHANTMENTS = 'enchantments'
 export const RN_EPISODE_171_ENCHANTMENT = 'episode-171-enchantment'
+export const RN_EPISODE_172_ENCHANTMENT = 'episode-172-enchantment'
 export const RN_BUFF_COOLDOWN_COUNTER_TOOL = 'buff-cooldown-counter-tool'
 export const RN_CRAFTING_NFS_ITEMS = 'crafting-nfs-items'
 export const RN_COMBO_ARCHANGEL_WING_AND_ARCHANGEL_BALLOON = 'combo-archangel-wing-and-archangel-balloon'
@@ -67,6 +68,13 @@ export const routeData = [
     title: 'Episode 17.1 Enchantment',
     description: 'Episode 17.1 Enchantment',
     component: () => import('@/pages/Episode171Enchantment.vue'),
+  },
+  {
+    path: '/episode-172-enchantment',
+    name: RN_EPISODE_172_ENCHANTMENT,
+    title: 'Episode 17.2 Enchantment',
+    description: 'Episode 17.2 Enchantment',
+    component: () => import('@/pages/Episode172Enchantment.vue'),
   },
   {
     path: '/buff-cooldown-counter-tool',

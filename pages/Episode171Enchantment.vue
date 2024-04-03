@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RN_EPISODE_171_ENCHANTMENT, getHead } from '@/app/router.options'
 
-import IllusionArmorAtypeViewV1 from '@/components/equipments/illusion171/IllusionArmorAtypeViewV1.vue';
+import IllusionArmorAtypeViewV1 from "@/components/equipments/illusion171/IllusionArmorAtypeViewV1.vue";
 import IllusionArmorBtypeViewV1 from "@/components/equipments/illusion171/IllusionArmorBtypeViewV1.vue";
 import IllusionEngineWingAtypeViewV1 from "@/components/equipments/illusion171/IllusionEngineWingAtypeViewV1.vue";
 import IllusionEngineWingBtypeViewV1 from "@/components/equipments/illusion171/IllusionEngineWingBtypeViewV1.vue";
