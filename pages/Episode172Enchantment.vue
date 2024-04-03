@@ -1117,375 +1117,363 @@ const tableEpicEquipmentEnchantments: EquipmentEnchantment[] = [
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Sonic Impact)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Sonic Impact)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Sonic Impact)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Sonic Impact) effect.\n\nSonic Blow and Cross Impact damage +15%.\n\n[Refine >= 7]\nAdditional Sonic Blow and Cross Impact damage +3%.\n\n[Refine >= 11]\nAdditional Sonic Blow and Cross Impact damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Cutter Slasher)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Cutter Slasher)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Cutter Slasher)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Cutter Slasher) effect.\n\nCross Ripper Slasher and Rolling Cutter damage +15%.\n\n[Refine >= 7]\nAdditional Cross Ripper Slasher and Rolling Cutter damage +3%.\n\n[Refine >= 11]\nAdditional Cross Ripper Slasher and Rolling Cutter damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Berserk Slash)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Berserk Slash)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Berserk Slash)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Berserk Slash) effect.\n\nSoul Destroyer and Counter Slash damage +15%.\n\n[Refine >= 7]\nAdditional Soul Destroyer and Counter Slash damage +3%.\n\n[Refine >= 11]\nAdditional Soul Destroyer and Counter Slash damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Fatal Raid)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Fatal Raid)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Fatal Raid)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Fatal Raid) effect.\n\nFatal Menace and Sightless Mind damage +15%.\n\n[Refine >= 7]\nAdditional Fatal Menace and Sightless Mind damage +3%.\n\n[Refine >= 11]\nAdditional Fatal Menace and Sightless Mind damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Shadow Spell)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Shadow Spell)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Shadow Spell)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Shadow Spell) effect.\n\nAll elemental Magic damage +15%.\n\n[Refine >= 7]\nAdditional All elemental Magic damage +3%.\n\n[Refine >= 11]\nAdditional All elemental Magic damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Angle Shot)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Angle Shot)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Angle Shot)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_03,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Angle Shot) effect.\n\nTriangle Shot damage +15%.\nLong-ranged Physical damage +10%.\n\n[Refine >= 7]\nAdditional Triangle Shot damage +3%.\n\n[Refine >= 11]\nAdditional Triangle Shot damage +7%.\nAdditional Long-ranged Physical damage +5%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Crimson Strain)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Crimson Strain)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Crimson Strain)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Crimson Strain) effect.\n\nCrimson Rock and Earth Strain damage +15%.\n\n[Refine >= 7]\nAdditional Crimson Rock and Earth Strain damage +3%.\n\n[Refine >= 11]\nAdditional Crimson Rock and Earth Strain damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Jack Lightning)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Jack Lightning)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Jack Lightning)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Jack Lightning) effect.\n\nJack Frost and Chain Lightning damage +15%.\n\n[Refine >= 7]\nAdditional Jack Frost and Chain Lightning damage +3%.\n\n[Refine >= 11]\nAdditional Jack Frost and Chain Lightning damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Comet Vortex)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Comet Vortex)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Comet Vortex)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Comet Vortex) effect.\n\nComet and Tetra Vortex damage +15%.\n\n[Refine >= 7]\nAdditional Comet and Tetra Vortex damage +3%.\n\n[Refine >= 11]\nAdditional Comet and Tetra Vortex damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Double Bolt)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Double Bolt)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Double Bolt)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Double Bolt) effect.\n\nFire/Cold/Lightning Bolt damage +15%.\n\n[Refine >= 7]\nAdditional Fire/Cold/Lightning Bolt damage +3%.\n\n[Refine >= 11]\nAdditional Fire/Cold/Lightning Bolt damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Warmer Wave)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Warmer Wave)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Warmer Wave)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Warmer Wave) effect.\n\nPsychic Wave damage +15%.\nWarmer cooldown -1 sec.\n\n[Refine >= 7]\nAdditional Psychic Wave damage +3%.\nAdditional Warmer cooldown -2 sec.\n\n[Refine >= 11]\nAdditional Psychic Wave damage +7%.\nAdditional Warmer cooldown -4 sec.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Diamond Grave)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Diamond Grave)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Diamond Grave)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_04,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Diamond Grave) effect.\n\nDiamond Dust and Earth Grave damage +15%.\n\n[Refine >= 7]\nAdditional Diamond Dust and Earth Grave damage +3%.\n\n[Refine >= 11]\nAdditional Diamond Dust and Earth Grave damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Magnusmus)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Magnusmus)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Magnusmus)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Magnusmus) effect.\n\nMagnus Exorcismus and Adoramus damage +15%.\n\n[Refine >= 7]\nAdditional Magnus Exorcismus and Adoramus damage +3%.\n\n[Refine >= 11]\nAdditional Magnus Exorcismus and Adoramus damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Holy Judex)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Holy Judex)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Holy Judex)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Holy Judex) effect.\n\nHoly Light and Judex damage +15%.\n\n[Refine >= 7]\nAdditional Holy Light and Judex damage +3%.\n\n[Refine >= 11]\nAdditional Holy Light and Judex damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Duplelica)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Duplelica)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Duplelica)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Duplelica) effect.\n\nDuple Light damage +15%.\nBasilica cooldown -2 sec.\n\n[Refine >= 7]\nAdditional Duple Light damage +3%.\nAdditional Basilica cooldown -3 sec.\n\n[Refine >= 11]\nAdditional Duple Light damage +7%.\nAdditional Basilica cooldown -5 sec.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Fallen Tiger)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Fallen Tiger)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Fallen Tiger)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Fallen Tiger) effect.\n\nTiger Cannon and Fallen Empire damage +15%.\n\n[Refine >= 7]\nAdditional Tiger Cannon and Fallen Empire damage +3%.\n\n[Refine >= 11]\nAdditional Tiger Cannon and Fallen Empire damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Rampage Arrow)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Rampage Arrow)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Rampage Arrow)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Rampage Arrow) effect.\n\nRampage Blast and Knuckle Arrow damage +15%.\n\n[Refine >= 7]\nAdditional Rampage Blast and Knuckle Arrow damage +3%.\n\n[Refine >= 11]\nAdditional Rampage Blast and Knuckle Arrow damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Raging Crush)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Raging Crush)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Raging Crush)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_05,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Raging Crush) effect.\n\nRaging Thrust and Chain Crush Combo damage +15%.\n\n[Refine >= 7]\nAdditional Raging Thrust and Chain Crush Combo damage +3%.\n\n[Refine >= 11]\nAdditional Raging Thrust and Chain Crush Combo damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Cluster)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Cluster)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Cluster)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Cluster) effect.\n\nBomb Cluster damage +15%.\n\n[Refine >= 7]\nAdditional Bomb Cluster damage +3%.\n\n[Refine >= 11]\nAdditional Bomb Cluster damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Breeze Shooting)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Breeze Shooting)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Breeze Shooting)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Breeze Shooting) effect.\n\nFocused Arrow Strike damage +15%.\nCritical damage +10%.\n[Refine >= 7]\nAdditional Focused Arrow Strike damage +3%.\n\n[Refine >= 11]\nAdditional Focused Arrow Strike damage +7%.\nAdditional Critical damage +5%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Aimed Storm)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Aimed Storm)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Aimed Storm)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Aimed Storm) effect.\n\nAimed Bolt and Arrow Storm damage +15%.\n\n[Refine >= 7]\nAdditional Aimed Bolt and Arrow Storm damage +3%.\n\n[Refine >= 11]\nAdditional Aimed Bolt and Arrow Storm damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Metallic Echo)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Metallic Echo)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Metallic Echo)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Metallic Echo) effect.\n\nMetallic Sound and Great Echo damage +15%.\n\n[Refine >= 7]\nAdditional Metallic Sound and Great Echo damage +3%.\n\n[Refine >= 11]\nAdditional Metallic Sound and Great Echo damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Reverberation)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Reverberation)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Reverberation)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Reverberation) effect.\n\nReverberation damage +15%.\n\n[Refine >= 7]\nAdditional Reverberation damage +3%.\n\n[Refine >= 11]\nAdditional Reverberation damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Vulcan Severe)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Vulcan Severe)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Vulcan Severe)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_06,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Vulcan Severe) effect.\n\nArrow Vulcan and Severe Rainstorm damage +15%.\n\n[Refine >= 7]\nAdditional Arrow Vulcan and Severe Rainstorm damage +3%.\n\n[Refine >= 11]\nAdditional Arrow Vulcan and Severe Rainstorm damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Blaze Explosion)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Blaze Explosion)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Blaze Explosion)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Blaze Explosion) effect.\n\nBlaze Kick and Solar Explosion damage +15%.\n\n[Refine >= 7]\nAdditional Blaze Kick and Solar Explosion damage +3%.\n\n[Refine >= 11]\nAdditional Blaze Kick and Solar Explosion damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Moon Kick)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Moon Kick)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Moon Kick)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Moon Kick) effect.\n\nNew Moon Kick and Full Moon Kick damage +15%.\n\n[Refine >= 7]\nAdditional New Moon Kick and Full Moon Kick damage +3%.\n\n[Refine >= 11]\nAdditional New Moon Kick and Full Moon Kick damage +7%.\nCritical damage +5%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Falling Flash)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Falling Flash)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Falling Flash)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Falling Flash) effect.\n\nFlash Kick and Falling Stars damage +15%.\n\n[Refine >= 7]\nAdditional Flash Kick and Falling Stars damage +3%.\n\n[Refine >= 11]\nAdditional Flash Kick and Falling Stars damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Eswoo)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Eswoo)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Eswoo)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Eswoo) effect.\n\nEsma and Eswoo damage +15%.\n\n[Refine >= 7]\nAdditional Esma and Eswoo damage +3%.\n\n[Refine >= 11]\nAdditional Esma and Eswoo damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Espa)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Espa)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Espa)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
     effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Espa) effect.\n\nEspa damage +15%.\n\n[Refine >= 7]\nAdditional Espa damage +3%.\n\n[Refine >= 11]\nAdditional Espa damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
-  // 
+  // Automatic Modification Module (Curse Explosion)
   {
     level: ModuleLevel.Legendary,
-    modificationModule: "",
+    modificationModule: "Automatic Modification Module (Curse Explosion)",
     modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
+    modificationOrb: "Automatic Modification Orb (Curse Explosion)",
     modificationOrbIcon: MODIFICATION_ORB_EPIC_07,
     effect:
-      '',
-    equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
-    maxCount: 2,
-  },
-  // 
-  {
-    level: ModuleLevel.Legendary,
-    modificationModule: "",
-    modificationModuleIcon: MODIFICATION_MODULE_EPIC,
-    modificationOrb: "",
-    modificationOrbIcon: MODIFICATION_ORB_EPIC_08,
-    effect:
-      '',
+      'A modification module that can be used on Automatic armor. Adds the Automatic Modification Orb (Curse Explosion) effect.\n\nCurse Explosion damage +15%.\n\n[Refine >= 7]\nAdditional Curse Explosion damage +3%.\n\n[Refine >= 11]\nAdditional Curse Explosion damage +7%.',
     equipmentLocation: [Equipment.AutomaticArmorAtype, Equipment.AutomaticArmorBtype],
     maxCount: 2,
   },
