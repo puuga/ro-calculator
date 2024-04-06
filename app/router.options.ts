@@ -17,6 +17,7 @@ export const RN_BUFF_COOLDOWN_COUNTER_TOOL = 'buff-cooldown-counter-tool'
 export const RN_CRAFTING_NFS_ITEMS = 'crafting-nfs-items'
 export const RN_COMBO_ARCHANGEL_WING_AND_ARCHANGEL_BALLOON = 'combo-archangel-wing-and-archangel-balloon'
 export const RN_PATENT_WEAPON_ENCHANTMENT = 'patent-weapon-enchantment'
+export const RN_TOOL_BUILD_RUNE_SUCCESS_RATE = 'tool-build-rune-success-rate'
 
 export const routeData = [
   {
@@ -103,6 +104,13 @@ export const routeData = [
     title: 'Patent Weapon Enchantment | RO-Calculator',
     description: 'Patent Weapon Enchantment',
     component: () => import('@/pages/PatentWeaponEnchantmentView.vue'),
+  },
+  {
+    path: '/tool-build-rune-success-rate',
+    name: RN_TOOL_BUILD_RUNE_SUCCESS_RATE,
+    title: 'Build Rune Success Rate | RO-Calculator',
+    description: 'Build Rune Success Rate Tool',
+    component: () => import('@/pages/ToolBuildRuneSuccessRateView.vue'),
   },
 ]
 
