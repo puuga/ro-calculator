@@ -36,6 +36,7 @@ export default defineNuxtConfig({
         '/Lab5HeadgearEnchantmentView',
         '/PatentWeaponEnchantmentView',
         '/RuneKnightView',
+        '/ToolBuildRuneSuccessRateView',
       ],
     },
   },
