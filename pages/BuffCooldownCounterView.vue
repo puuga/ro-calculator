@@ -69,6 +69,16 @@ const buffsOptions = [
     title: 'Cooldown 600 s (10:00 m)',
     value: 'buff_600s'
   },
+  {
+    id: 'buff_900s',
+    title: 'Cooldown 900 s (15:00 m)',
+    value: 'buff_900s'
+  },
+  {
+    id: 'buff_1800s',
+    title: 'Cooldown 1800 s (30:00 m)',
+    value: 'buff_1800s'
+  },
 ]
 
 const clockCooldown: Record<string, globalThis.Ref<boolean>> = {
@@ -79,6 +89,8 @@ const clockCooldown: Record<string, globalThis.Ref<boolean>> = {
   '180': ref(false),
   '300': ref(false),
   '600': ref(false),
+  '900': ref(false),
+  '1800': ref(false),
 }
 
 const clockCooldownInterval: Record<string, globalThis.Ref<string>> = {
@@ -89,6 +101,8 @@ const clockCooldownInterval: Record<string, globalThis.Ref<string>> = {
   '180': ref(''),
   '300': ref(''),
   '600': ref(''),
+  '900': ref(''),
+  '1800': ref(''),
 }
 
 let clockCooldownCountdownInterval: Record<string, number | undefined> = {
@@ -99,6 +113,8 @@ let clockCooldownCountdownInterval: Record<string, number | undefined> = {
   '180': undefined,
   '300': undefined,
   '600': undefined,
+  '900': undefined,
+  '1800': undefined,
 }
 //#endregion refs
 
@@ -146,6 +162,16 @@ function onFormSubmit(event: Event) {
     consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 600)
     clockCooldown['600'].value = true
     clockCooldownCountdown(sound.value, 600)
+  }
+  if (_buffs.includes('buff_900s')) {
+    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 900)
+    clockCooldown['900'].value = true
+    clockCooldownCountdown(sound.value, 900)
+  }
+  if (_buffs.includes('buff_1800s')) {
+    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 1800)
+    clockCooldown['1800'].value = true
+    clockCooldownCountdown(sound.value, 1800)
   }
 
   const analytics = getAnalytics($firebaseApp())
@@ -313,9 +339,15 @@ function clockCooldownCountdown(soundPath: string, second: number) {
 
           <!-- #region submit -->
           <div>
-            <button type="submit" class="c-btn-primary w-full my-1">Start</button>
-            <button type="button" class="c-btn-secondary w-full my-1" @click="stopCountdown()">Stop</button>
-            <button type="reset" class="c-btn-secondary w-full my-1">Reset</button>
+            <button type="submit" class="c-btn-primary w-full my-1">
+              Start Selected
+            </button>
+            <button type="button" class="c-btn-secondary w-full my-1" @click="stopCountdown()">
+              Stop All
+            </button>
+            <button type="reset" class="c-btn-secondary w-full my-1">
+              Reset
+            </button>
           </div>
           <!-- #endregion submit -->
         </form>
@@ -329,36 +361,64 @@ function clockCooldownCountdown(soundPath: string, second: number) {
           v-if="clockCooldown['30'].value"
           :badge-text="buffsOptions[0].title" 
           :counter-text="clockCooldownInterval['30'].value"
+          :max="30"
+          :value="+clockCooldownInterval['30'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
           v-if="clockCooldown['60'].value"
           :badge-text="buffsOptions[1].title" 
           :counter-text="clockCooldownInterval['60'].value"
+          :max="60"
+          :value="+clockCooldownInterval['60'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
           v-if="clockCooldown['90'].value"
-          :badge-text="buffsOptions[1].title" 
+          :badge-text="buffsOptions[2].title" 
           :counter-text="clockCooldownInterval['90'].value"
+          :max="90"
+          :value="+clockCooldownInterval['90'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
           v-if="clockCooldown['120'].value"
-          :badge-text="buffsOptions[1].title" 
+          :badge-text="buffsOptions[3].title" 
           :counter-text="clockCooldownInterval['120'].value"
+          :max="120"
+          :value="+clockCooldownInterval['120'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
           v-if="clockCooldown['180'].value"
-          :badge-text="buffsOptions[1].title" 
+          :badge-text="buffsOptions[4].title" 
           :counter-text="clockCooldownInterval['180'].value"
+          :max="180"
+          :value="+clockCooldownInterval['180'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
           v-if="clockCooldown['300'].value"
-          :badge-text="buffsOptions[1].title" 
+          :badge-text="buffsOptions[5].title" 
           :counter-text="clockCooldownInterval['300'].value"
+          :max="300"
+          :value="+clockCooldownInterval['300'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
           v-if="clockCooldown['600'].value"
-          :badge-text="buffsOptions[1].title" 
+          :badge-text="buffsOptions[6].title" 
           :counter-text="clockCooldownInterval['600'].value"
+          :max="600"
+          :value="+clockCooldownInterval['600'].value"
+        />
+        <LazyBuffCooldownCounterClockTextViewV1 
+          v-if="clockCooldown['900'].value"
+          :badge-text="buffsOptions[7].title" 
+          :counter-text="clockCooldownInterval['900'].value"
+          :max="900"
+          :value="+clockCooldownInterval['900'].value"
+        />
+        <LazyBuffCooldownCounterClockTextViewV1 
+          v-if="clockCooldown['1800'].value"
+          :badge-text="buffsOptions[8].title" 
+          :counter-text="clockCooldownInterval['1800'].value"
+          :max="1800"
+          :value="+clockCooldownInterval['1800'].value"
         />
       </div>
       <!-- #region clock cooldown -->
