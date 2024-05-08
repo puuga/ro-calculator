@@ -30,6 +30,11 @@ const soundOptions = [
     title: 'Sound 3',
     value: '/sounds/mixkit-software-interface-start-2574.wav'
   },
+  {
+    id: 'sound_4',
+    title: 'Sound 4 - Speech synthesiser',
+    value: 'SPEECH_SYNTHESIZER'
+  },
 ]
 
 const buffs = ref([])
@@ -189,18 +194,34 @@ function onTestNotificationClicked() {
 
 function previewSound(soundPath: string) {
   consola.log('BuffCooldownCounterView previewSound', soundPath)
-  const audio = new Audio(soundPath)
-  audio.play()
+
+  if (window.speechSynthesis && soundPath === 'SPEECH_SYNTHESIZER') {
+    const synth = window.speechSynthesis
+    const utterThis = new SpeechSynthesisUtterance('หมดเวลาแล้ว เธอคงต้องไป')
+    utterThis.lang = 'th-TH'
+    synth.speak(utterThis)
+  } else {
+    const audio = new Audio(soundPath)
+    audio.play()
+  }
 }
 
-function playSound(soundPath: string) {
-  consola.log('BuffCooldownCounterView playSound', soundPath)
+function playSound(soundPath: string, value?: number) {
+  consola.log('BuffCooldownCounterView playSound soundPath', soundPath)
+  consola.log('BuffCooldownCounterView playSound value', value)
   if (soundPath === '') {
     return
   }
 
-  const audio = new Audio(soundPath)
-  audio.play()
+  if (window.speechSynthesis && soundPath === 'SPEECH_SYNTHESIZER') {
+    const synth = window.speechSynthesis
+    const utterThis = new SpeechSynthesisUtterance(`หมดเวลา ${value} วินาที`)
+    utterThis.lang = 'th-TH'
+    synth.speak(utterThis)
+  } else {
+    const audio = new Audio(soundPath)
+    audio.play()
+  }
 }
 
 function fireNotification(title: string, message: string) {
@@ -248,7 +269,7 @@ function clockCooldownCountdown(soundPath: string, second: number) {
     if (countdownSecond <= 0) {
       clearInterval(clockCooldownCountdownInterval[`${second}`])
       clockCooldown[`${second}`].value = false
-      playSound(soundPath)
+      playSound(soundPath, second)
       if (notification.value) {
         fireNotification('Buff Cooldown', `${second}s Cooldown is ready`)
       }
@@ -286,7 +307,7 @@ function clockCooldownCountdown(soundPath: string, second: number) {
                 type="radio" 
                 v-model="sound" 
                 :id="option.id" 
-                :value="soundOptions[0].value"
+                :value="option.value"
                 name="soundInput" 
                 class="mx-2" 
               />
