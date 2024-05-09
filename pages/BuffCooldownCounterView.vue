@@ -70,6 +70,11 @@ const buffsOptions = [
     value: 'buff_300s'
   },
   {
+    id: 'buff_500s',
+    title: 'Cooldown 500 s (8:20 m)',
+    value: 'buff_500s'
+  },
+  {
     id: 'buff_600s',
     title: 'Cooldown 600 s (10:00 m)',
     value: 'buff_600s'
@@ -93,6 +98,7 @@ const clockCooldown: Record<string, globalThis.Ref<boolean>> = {
   '120': ref(false),
   '180': ref(false),
   '300': ref(false),
+  '500': ref(false),
   '600': ref(false),
   '900': ref(false),
   '1800': ref(false),
@@ -105,6 +111,7 @@ const clockCooldownInterval: Record<string, globalThis.Ref<string>> = {
   '120': ref(''),
   '180': ref(''),
   '300': ref(''),
+  '500': ref(''),
   '600': ref(''),
   '900': ref(''),
   '1800': ref(''),
@@ -117,6 +124,7 @@ let clockCooldownCountdownInterval: Record<string, number | undefined> = {
   '120': undefined,
   '180': undefined,
   '300': undefined,
+  '500': undefined,
   '600': undefined,
   '900': undefined,
   '1800': undefined,
@@ -162,6 +170,11 @@ function onFormSubmit(event: Event) {
     consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 300)
     clockCooldown['300'].value = true
     clockCooldownCountdown(sound.value, 300)
+  }
+  if (_buffs.includes('buff_500s')) {
+    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 500)
+    clockCooldown['500'].value = true
+    clockCooldownCountdown(sound.value, 500)
   }
   if (_buffs.includes('buff_600s')) {
     consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 600)
@@ -421,22 +434,29 @@ function clockCooldownCountdown(soundPath: string, second: number) {
           :value="+clockCooldownInterval['300'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown['600'].value"
+          v-if="clockCooldown['500'].value"
           :badge-text="buffsOptions[6].title" 
+          :counter-text="clockCooldownInterval['500'].value"
+          :max="500"
+          :value="+clockCooldownInterval['500'].value"
+        />
+        <LazyBuffCooldownCounterClockTextViewV1 
+          v-if="clockCooldown['600'].value"
+          :badge-text="buffsOptions[7].title" 
           :counter-text="clockCooldownInterval['600'].value"
           :max="600"
           :value="+clockCooldownInterval['600'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
           v-if="clockCooldown['900'].value"
-          :badge-text="buffsOptions[7].title" 
+          :badge-text="buffsOptions[8].title" 
           :counter-text="clockCooldownInterval['900'].value"
           :max="900"
           :value="+clockCooldownInterval['900'].value"
         />
         <LazyBuffCooldownCounterClockTextViewV1 
           v-if="clockCooldown['1800'].value"
-          :badge-text="buffsOptions[8].title" 
+          :badge-text="buffsOptions[9].title" 
           :counter-text="clockCooldownInterval['1800'].value"
           :max="1800"
           :value="+clockCooldownInterval['1800'].value"
