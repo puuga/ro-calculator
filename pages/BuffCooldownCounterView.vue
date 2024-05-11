@@ -10,6 +10,9 @@ useHead(getHead(RN_BUFF_COOLDOWN_COUNTER_TOOL))
 const { $firebaseApp } = useNuxtApp()
 //#endregion use...
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
+let synth: SpeechSynthesis | undefined = undefined
+
 //#region refs
 const notification = ref(false)
 
@@ -42,52 +45,68 @@ const buffsOptions = [
   {
     id: 'buff_30s',
     title: 'Cooldown 30 s (0:30 m)',
-    value: 'buff_30s'
+    value: 'buff_30s',
+    max: 30,
   },
   {
     id: 'buff_60s',
     title: 'Cooldown 60 s (1:00 m)',
-    value: 'buff_60s'
+    value: 'buff_60s',
+    max: 60,
   },
   {
     id: 'buff_90s',
     title: 'Cooldown 90 s (1:30 m)',
-    value: 'buff_90s'
+    value: 'buff_90s',
+    max: 90,
   },
   {
     id: 'buff_120s',
     title: 'Cooldown 120 s (2:00 m)',
-    value: 'buff_120s'
+    value: 'buff_120s',
+    max: 120,
   },
   {
     id: 'buff_180s',
     title: 'Cooldown 180 s (3:00 m)',
-    value: 'buff_180s'
+    value: 'buff_180s',
+    max: 180,
   },
   {
     id: 'buff_300s',
     title: 'Cooldown 300 s (5:00 m)',
-    value: 'buff_300s'
+    value: 'buff_300s',
+    max: 300,
   },
   {
     id: 'buff_500s',
     title: 'Cooldown 500 s (8:20 m)',
-    value: 'buff_500s'
+    value: 'buff_500s',
+    max: 500,
   },
   {
     id: 'buff_600s',
     title: 'Cooldown 600 s (10:00 m)',
-    value: 'buff_600s'
+    value: 'buff_600s',
+    max: 600,
   },
   {
     id: 'buff_900s',
     title: 'Cooldown 900 s (15:00 m)',
-    value: 'buff_900s'
+    value: 'buff_900s',
+    max: 900,
+  },
+  {
+    id: 'buff_1200s',
+    title: 'Cooldown 1200 s (20:00 m)',
+    value: 'buff_1200s',
+    max: 1200,
   },
   {
     id: 'buff_1800s',
     title: 'Cooldown 1800 s (30:00 m)',
-    value: 'buff_1800s'
+    value: 'buff_1800s',
+    max: 1800,
   },
 ]
 
@@ -101,6 +120,7 @@ const clockCooldown: Record<string, globalThis.Ref<boolean>> = {
   '500': ref(false),
   '600': ref(false),
   '900': ref(false),
+  '1200': ref(false),
   '1800': ref(false),
 }
 
@@ -114,10 +134,11 @@ const clockCooldownInterval: Record<string, globalThis.Ref<string>> = {
   '500': ref(''),
   '600': ref(''),
   '900': ref(''),
+  '1200': ref(''),
   '1800': ref(''),
 }
 
-let clockCooldownCountdownInterval: Record<string, number | undefined> = {
+const clockCooldownCountdownInterval: Record<string, number | undefined> = {
   '30': undefined,
   '60': undefined,
   '90': undefined,
@@ -127,9 +148,18 @@ let clockCooldownCountdownInterval: Record<string, number | undefined> = {
   '500': undefined,
   '600': undefined,
   '900': undefined,
+  '1200': undefined,
   '1800': undefined,
 }
 //#endregion refs
+
+//#region vue lifecycle
+onMounted(() => {
+  consola.log('BuffCooldownCounterView onMounted')
+  
+  synth = window.speechSynthesis
+})
+//#endregion vue lifecycle
 
 //#region methods
 function onFormSubmit(event: Event) {
@@ -141,55 +171,13 @@ function onFormSubmit(event: Event) {
   consola.log('BuffCooldownCounterView onFormSubmit buffs', buffs.value)
 
   const _buffs = buffs.value as string[]
-  if (_buffs.includes('buff_30s')) {
-    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 30)
-    clockCooldown['30'].value = true
-    clockCooldownCountdown(sound.value, 30)
-  }
-  if (_buffs.includes('buff_60s')) {
-    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 60)
-    clockCooldown['60'].value = true
-    clockCooldownCountdown(sound.value, 60)
-  }
-  if (_buffs.includes('buff_90s')) {
-    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 90)
-    clockCooldown['90'].value = true
-    clockCooldownCountdown(sound.value, 90)
-  }
-  if (_buffs.includes('buff_120s')) {
-    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 120)
-    clockCooldown['120'].value = true
-    clockCooldownCountdown(sound.value, 120)
-  }
-  if (_buffs.includes('buff_180s')) {
-    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 180)
-    clockCooldown['180'].value = true
-    clockCooldownCountdown(sound.value, 180)
-  }
-  if (_buffs.includes('buff_300s')) {
-    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 300)
-    clockCooldown['300'].value = true
-    clockCooldownCountdown(sound.value, 300)
-  }
-  if (_buffs.includes('buff_500s')) {
-    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 500)
-    clockCooldown['500'].value = true
-    clockCooldownCountdown(sound.value, 500)
-  }
-  if (_buffs.includes('buff_600s')) {
-    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 600)
-    clockCooldown['600'].value = true
-    clockCooldownCountdown(sound.value, 600)
-  }
-  if (_buffs.includes('buff_900s')) {
-    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 900)
-    clockCooldown['900'].value = true
-    clockCooldownCountdown(sound.value, 900)
-  }
-  if (_buffs.includes('buff_1800s')) {
-    consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', 1800)
-    clockCooldown['1800'].value = true
-    clockCooldownCountdown(sound.value, 1800)
+  for (const buff of _buffs) { // buff_30s, buff_60s
+    const buffsOption = buffsOptions.find((option) => option.value === buff)
+    if (buffsOption) {
+      consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', buffsOption.max)
+      clockCooldown[`${buffsOption.max}`].value = true
+      clockCooldownCountdown(sound.value, buffsOption.max)
+    }
   }
 
   const analytics = getAnalytics($firebaseApp())
@@ -208,13 +196,23 @@ function onTestNotificationClicked() {
 function previewSound(soundPath: string) {
   consola.log('BuffCooldownCounterView previewSound', soundPath)
 
-  if (window.speechSynthesis && soundPath === 'SPEECH_SYNTHESIZER') {
-    const synth = window.speechSynthesis
+  if (window.speechSynthesis && soundPath === 'SPEECH_SYNTHESIZER' && synth) {
     const utterThis = new SpeechSynthesisUtterance('หมดเวลาแล้ว เธอคงต้องไป')
     utterThis.lang = 'th-TH'
+
+    utterThis.onerror = (event) => {
+      consola.error('BuffCooldownCounterView previewSound onerror', event)
+    }
+    utterThis.onstart = (event) => {
+      consola.log('BuffCooldownCounterView previewSound onstart', event)
+    }
+    utterThis.onend = (event) => {
+      consola.log('BuffCooldownCounterView previewSound onend', event)
+    }
+
     synth.speak(utterThis)
   } else {
-    const audio = new Audio(soundPath)
+    const audio = new Audio(soundOptions[0].value)
     audio.play()
   }
 }
@@ -232,7 +230,7 @@ function playSound(soundPath: string, value?: number) {
     utterThis.lang = 'th-TH'
     synth.speak(utterThis)
   } else {
-    const audio = new Audio(soundPath)
+    const audio = new Audio(soundOptions[0].value)
     audio.play()
   }
 }
@@ -391,76 +389,15 @@ function clockCooldownCountdown(soundPath: string, second: number) {
       <!-- #region clock cooldown -->
       <div class="w-6/12 c-card m-1">
         <div class="text-2xl">Cooldown Counter</div>
-        <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown['30'].value"
-          :badge-text="buffsOptions[0].title" 
-          :counter-text="clockCooldownInterval['30'].value"
-          :max="30"
-          :value="+clockCooldownInterval['30'].value"
-        />
-        <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown['60'].value"
-          :badge-text="buffsOptions[1].title" 
-          :counter-text="clockCooldownInterval['60'].value"
-          :max="60"
-          :value="+clockCooldownInterval['60'].value"
-        />
-        <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown['90'].value"
-          :badge-text="buffsOptions[2].title" 
-          :counter-text="clockCooldownInterval['90'].value"
-          :max="90"
-          :value="+clockCooldownInterval['90'].value"
-        />
-        <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown['120'].value"
-          :badge-text="buffsOptions[3].title" 
-          :counter-text="clockCooldownInterval['120'].value"
-          :max="120"
-          :value="+clockCooldownInterval['120'].value"
-        />
-        <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown['180'].value"
-          :badge-text="buffsOptions[4].title" 
-          :counter-text="clockCooldownInterval['180'].value"
-          :max="180"
-          :value="+clockCooldownInterval['180'].value"
-        />
-        <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown['300'].value"
-          :badge-text="buffsOptions[5].title" 
-          :counter-text="clockCooldownInterval['300'].value"
-          :max="300"
-          :value="+clockCooldownInterval['300'].value"
-        />
-        <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown['500'].value"
-          :badge-text="buffsOptions[6].title" 
-          :counter-text="clockCooldownInterval['500'].value"
-          :max="500"
-          :value="+clockCooldownInterval['500'].value"
-        />
-        <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown['600'].value"
-          :badge-text="buffsOptions[7].title" 
-          :counter-text="clockCooldownInterval['600'].value"
-          :max="600"
-          :value="+clockCooldownInterval['600'].value"
-        />
-        <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown['900'].value"
-          :badge-text="buffsOptions[8].title" 
-          :counter-text="clockCooldownInterval['900'].value"
-          :max="900"
-          :value="+clockCooldownInterval['900'].value"
-        />
-        <LazyBuffCooldownCounterClockTextViewV1 
-          v-if="clockCooldown['1800'].value"
-          :badge-text="buffsOptions[9].title" 
-          :counter-text="clockCooldownInterval['1800'].value"
-          :max="1800"
-          :value="+clockCooldownInterval['1800'].value"
-        />
+        <template v-for="(cooldown, key, index) in clockCooldown">
+          <LazyBuffCooldownCounterClockTextViewV1 
+            v-if="clockCooldown[key].value"
+            :badge-text="buffsOptions[index].title" 
+            :counter-text="clockCooldownInterval[key].value"
+            :max="buffsOptions[index].max"
+            :value="+clockCooldownInterval[key].value"
+          />
+        </template>
       </div>
       <!-- #region clock cooldown -->
     </div>
