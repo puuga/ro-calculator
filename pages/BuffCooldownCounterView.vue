@@ -35,8 +35,13 @@ const soundOptions = [
   },
   {
     id: 'sound_4',
-    title: 'Sound 4 - Speech synthesiser',
-    value: 'SPEECH_SYNTHESIZER'
+    title: 'Sound 4 - Speech synthesiser TH',
+    value: 'SPEECH_SYNTHESIZER_TH'
+  },
+  {
+    id: 'sound_5',
+    title: 'Sound 5 - Speech synthesiser EN',
+    value: 'SPEECH_SYNTHESIZER_EN'
   },
 ]
 
@@ -196,9 +201,18 @@ function onTestNotificationClicked() {
 function previewSound(soundPath: string) {
   consola.log('BuffCooldownCounterView previewSound', soundPath)
 
-  if (window.speechSynthesis && soundPath === 'SPEECH_SYNTHESIZER' && synth) {
-    const utterThis = new SpeechSynthesisUtterance('หมดเวลาแล้ว เธอคงต้องไป')
-    utterThis.lang = 'th-TH'
+  if (window.speechSynthesis 
+    && synth 
+    && ['SPEECH_SYNTHESIZER_TH', 'SPEECH_SYNTHESIZER_EN'].includes(soundPath)
+  ) {
+    const utterThis = new SpeechSynthesisUtterance()
+    if (soundPath === 'SPEECH_SYNTHESIZER_EN') {
+      utterThis.text = 'Time is up, you have to go'
+      utterThis.lang = 'en-US'
+    } else if (soundPath === 'SPEECH_SYNTHESIZER_TH') {
+      utterThis.text = 'หมดเวลาแล้ว เธอคงต้องไป'
+      utterThis.lang = 'th-TH'
+    }
 
     utterThis.onerror = (event) => {
       consola.error('BuffCooldownCounterView previewSound onerror', event)
@@ -224,10 +238,21 @@ function playSound(soundPath: string, value?: number) {
     return
   }
 
-  if (window.speechSynthesis && soundPath === 'SPEECH_SYNTHESIZER') {
+  if (window.speechSynthesis 
+    && synth 
+    && ['SPEECH_SYNTHESIZER_TH', 'SPEECH_SYNTHESIZER_EN'].includes(soundPath)
+  ) {
     const synth = window.speechSynthesis
-    const utterThis = new SpeechSynthesisUtterance(`หมดเวลา ${value} วินาที`)
+    const utterThis = new SpeechSynthesisUtterance()
     utterThis.lang = 'th-TH'
+    if (soundPath === 'SPEECH_SYNTHESIZER_EN') {
+      utterThis.text = `${value} seconds end`
+      utterThis.lang = 'en-US'
+    } else if (soundPath === 'SPEECH_SYNTHESIZER_TH') {
+      utterThis.text = `หมดเวลา ${value} วินาที`
+      utterThis.lang = 'th-TH'
+    }
+
     synth.speak(utterThis)
   } else {
     const audio = new Audio(soundOptions[0].value)
