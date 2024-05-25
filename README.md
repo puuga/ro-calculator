@@ -53,3 +53,7 @@ Build and Deploy
 npm run build
 firebase deploy --only hosting:ro-calculator
 ```
+
+## CSS
+
+<https://tailwindcss.com/>

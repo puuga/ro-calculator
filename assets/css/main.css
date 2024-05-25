@@ -19,6 +19,10 @@
     @apply inline-flex justify-center rounded-md border border-transparent bg-slate-300 py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-slate-500 focus:outline-none focus:ring-2 focus:bg-slate-700 focus:ring-offset-2;
   }
 
+  .c-btn-disabled {
+    @apply inline-flex justify-center rounded-md border border-transparent bg-gray-300 py-2 px-4 text-sm font-medium text-black shadow-sm cursor-not-allowed;
+  }
+
   .c-input-number {
     @apply block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500;
   }

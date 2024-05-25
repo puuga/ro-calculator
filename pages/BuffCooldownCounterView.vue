@@ -156,6 +156,8 @@ const clockCooldownCountdownInterval: Record<string, number | undefined> = {
   '1200': undefined,
   '1800': undefined,
 }
+
+const btnRequestPIPDisable = ref(true)
 //#endregion refs
 
 //#region vue lifecycle
@@ -184,6 +186,8 @@ function onFormSubmit(event: Event) {
       clockCooldownCountdown(sound.value, buffsOption.max)
     }
   }
+
+  btnRequestPIPDisable.value = false
 
   const analytics = getAnalytics($firebaseApp())
   logEvent(analytics, "CooldownCounter", {
@@ -293,6 +297,8 @@ function stopCountdown() {
   for (const key in clockCooldownInterval) {
     clockCooldownInterval[key].value = ''
   }
+
+  btnRequestPIPDisable.value = true
 }
 
 function clockCooldownCountdown(soundPath: string, second: number) {
@@ -314,6 +320,28 @@ function clockCooldownCountdown(soundPath: string, second: number) {
     }
   }, 1000)
 }
+
+async function requestPIP() {
+  consola.log('BuffCooldownCounterView requestPIP')
+  if ("documentPictureInPicture" in window) {
+    consola.log('BuffCooldownCounterView requestPIP supported')
+    const documentPIPContainer = document.getElementById('documentPIPContainer')
+    const documentPIP = document.getElementById('documentPIP')
+    if (documentPIPContainer && documentPIP) {
+      consola.log('BuffCooldownCounterView requestPIP found documentPIP')
+      // Open a Picture-in-Picture window.
+      const pipWindow = await window.documentPictureInPicture.requestWindow()
+
+      // Move the player to the Picture-in-Picture window.
+      pipWindow.document.body.append(documentPIP)
+
+      pipWindow.addEventListener('pagehide', () => {
+        // inPipMessage.style.display = "none"
+        documentPIPContainer.append(documentPIP)
+      });
+    }
+  }
+} 
 //#endregion methods
 </script>
 
@@ -328,6 +356,8 @@ function clockCooldownCountdown(soundPath: string, second: number) {
       <div class="w-6/12 c-card m-1">
         <div class="text-2xl">Config</div>
         <form @submit="onFormSubmit">
+          <hr>
+
           <!-- #region input sound -->
           <div>
             <div class="text-xl">Sound</div>
@@ -351,6 +381,8 @@ function clockCooldownCountdown(soundPath: string, second: number) {
             </div>
           </div>
           <!-- #endregion input sound -->
+
+          <hr>
 
           <!-- #region input notification -->
           <div>
@@ -377,6 +409,8 @@ function clockCooldownCountdown(soundPath: string, second: number) {
             </div>
           </div>
           <!-- #endregion input notification -->
+          
+          <hr>
 
           <!-- #region input buff -->
           <div>
@@ -393,6 +427,8 @@ function clockCooldownCountdown(soundPath: string, second: number) {
               <label :for="buff.id">{{ buff.title }}</label>
             </div>
           </div>
+
+          <hr>
 
           <!-- #region submit -->
           <div>
@@ -414,17 +450,66 @@ function clockCooldownCountdown(soundPath: string, second: number) {
       <!-- #region clock cooldown -->
       <div class="w-6/12 c-card m-1">
         <div class="text-2xl">Cooldown Counter</div>
-        <template v-for="(cooldown, key, index) in clockCooldown">
-          <LazyBuffCooldownCounterClockTextViewV1 
-            v-if="clockCooldown[key].value"
-            :badge-text="buffsOptions[index].title" 
-            :counter-text="clockCooldownInterval[key].value"
-            :max="buffsOptions[index].max"
-            :value="+clockCooldownInterval[key].value"
-          />
-        </template>
+        <button 
+          id="btnRequestPIP" 
+          type="button" 
+          class="c-btn-primary disabled:c-btn-disabled w-full my-1"
+          :disabled="btnRequestPIPDisable"
+          @click="requestPIP()"
+        >
+          Open Picture-in-Picture window
+        </button>
+        <div id="documentPIPContainer">
+          <div id="documentPIP">
+            <template v-for="(cooldown, key, index) in clockCooldown">
+              <LazyBuffCooldownCounterClockTextViewV1 
+                v-if="clockCooldown[key].value"
+                :badge-text="buffsOptions[index].title" 
+                :counter-text="clockCooldownInterval[key].value"
+                :max="buffsOptions[index].max"
+                :value="+clockCooldownInterval[key].value"
+              />
+            </template>
+          </div>
+        </div>
       </div>
       <!-- #region clock cooldown -->
+    </div>
+
+    <div class="mt-4">
+      <h2 class="text-3xl font-bold">References</h2>
+      <div>
+        <ul class="list-disc pl-6">
+          <li>
+            <a 
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Web Speech API
+            </a>
+          </li>
+          <li>
+            <a 
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Picture-in-Picture_API"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Document Picture-in-Picture API
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://developer.chrome.com/docs/web-platform/document-picture-in-picture"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Picture-in-Picture for any Element, not just video
+            </a>
+          </li>
+        </ul>
+        
+      </div>
     </div>
   </main>
 </template>
