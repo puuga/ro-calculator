@@ -53,24 +53,6 @@ export default defineComponent({
     <h2 class="text-2xl font-bold">RK Enchant Blade</h2>
 
     <div class="p-1">
-      <h3 class="text-xl font-bold">Old</h3>
-      <table class="c-table">
-        <thead>
-          <tr>
-            <th class="c-table-th">Level</th>
-            <th class="c-table-th">Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="skill in skills" :key="skill.level">
-            <td class="c-table-td">{{ skill.level }}</td>
-            <td class="c-table-td">{{ skill.desc }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="p-1">
       <h3 class="text-xl font-bold">New</h3>
 
       <div>
@@ -133,6 +115,24 @@ export default defineComponent({
       <div>
         <strong>+MATK = {{ calculation20220721.matk }}</strong>
       </div>
+    </div>
+
+    <div class="p-1">
+      <h3 class="text-xl font-bold">Old</h3>
+      <table class="c-table">
+        <thead>
+          <tr>
+            <th class="c-table-th">Level</th>
+            <th class="c-table-th">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="skill in skills" :key="skill.level">
+            <td class="c-table-td">{{ skill.level }}</td>
+            <td class="c-table-td">{{ skill.desc }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
