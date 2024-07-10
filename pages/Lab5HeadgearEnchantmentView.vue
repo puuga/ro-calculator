@@ -270,7 +270,7 @@ const table2024Enchantments = [
     <div>
       <h2 class="text-2xl font-bold">Update 20240621</h2>
       <div
-        v-for="enchantment in table2021Enchantments"
+        v-for="enchantment in table2024Enchantments"
         :key="enchantment.name"
         class="p-3"
       >
