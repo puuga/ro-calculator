@@ -24,13 +24,26 @@ onMounted(() => {
       RO-Calculator ❤️ Nuxt 3
     </h1>
 
-    <LazyAllContentViewV1 />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div>
+        <LazyAllContentViewV1 />
+      </div>
+      <div>
+        <div class="text-lg">
+          RO-GGT Portals:
+        </div>
+        <LazyPortalViewV1 />
+      </div>
+      
+      
+    </div>
 
     <hr/>
 
     <div class="text-lg">
-      Contents:
+      All Contents:
     </div>
+
     <LazyAllLinkViewV1 />
   </div>
 </template>
