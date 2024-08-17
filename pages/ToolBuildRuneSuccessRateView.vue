@@ -151,6 +151,229 @@ const inputRadioRuneGrades = [
     label: 'Lux Anima Runestone (Lux Anima) [S]'
   },
 ]
+
+const runestones = [
+  {
+    level: 1,
+    name: 'Turisus Runestone',
+    image_name: 'ic-turisus-runestone.png',
+    ingredients: [
+      {
+        name: 'Elder Branch',
+        image_name: 'ic-elder-branch.png',
+        quantity: 1
+      },
+      {
+        name: 'Blue Hair',
+        image_name: 'ic-blue-hair.png',
+        quantity: 1
+      },
+      {
+        name: 'Claw of Desert Wolf',
+        image_name: 'ic-claw-of-desert-wolf.png',
+        quantity: 1
+      },
+    ],
+  },
+  {
+    level: 2,
+    name: 'Isia Runestone',
+    image_name: 'ic-isia-runestone.png',
+    ingredients: [
+      {
+        name: 'Elder Branch',
+        image_name: 'ic-elder-branch.png',
+        quantity: 1
+      },
+      {
+        name: 'Burning Heart',
+        image_name: 'ic-burning-heart.png',
+        quantity: 1
+      }
+    ],
+  },
+  {
+    level: 3,
+    name: 'Pertz Runestone',
+    image_name: 'ic-pertz-runestone.png',
+    ingredients: [
+      {
+        name: 'Elder Branch',
+        image_name: 'ic-elder-branch.png',
+        quantity: 1
+      },
+      {
+        name: 'Light Granule',
+        image_name: 'ic-light-granule.png',
+        quantity: 1
+      },
+      {
+        name: 'Tangled Chains',
+        image_name: 'ic-tangled-chains.png',
+        quantity: 1
+      },
+      {
+        name: 'Dragon Canine',
+        image_name: 'ic-dragon-canine.png',
+        quantity: 1
+      }
+    ],
+  },
+  {
+    level: 4,
+    name: 'Hagalas Runestone',
+    image_name: 'ic-hagalas-runestone.png',
+    ingredients: [
+      {
+        name: 'Elder Branch',
+        image_name: 'ic-elder-branch.png',
+        quantity: 1
+      },
+      {
+        name: 'Round Shell',
+        image_name: 'ic-round-shell.png',
+        quantity: 1
+      },
+      {
+        name: 'Dragon Skin',
+        image_name: 'ic-dragon-skin.png',
+        quantity: 1
+      }
+    ],
+  },
+  {
+    level: 5,
+    name: 'Asir Runestone',
+    image_name: 'ic-asir-runestone.png',
+    ingredients: [
+      {
+        name: 'Elder Branch',
+        image_name: 'ic-elder-branch.png',
+        quantity: 1
+      },
+      {
+        name: 'Light Granule',
+        image_name: 'ic-light-granule.png',
+        quantity: 1
+      },
+      {
+        name: 'Ogre Tooth',
+        image_name: 'ic-ogre-tooth.png',
+        quantity: 1
+      }
+    ],
+  },
+  {
+    level: 6,
+    name: 'Urj Runestone',
+    image_name: 'ic-urj-runestone.png',
+    ingredients: [
+      {
+        name: 'Elder Branch',
+        image_name: 'ic-elder-branch.png',
+        quantity: 1
+      },
+      {
+        name: 'Horrendous Hair',
+        image_name: 'ic-horrendous-hair.png',
+        quantity: 1
+      },
+      {
+        name: 'Honey',
+        image_name: 'ic-honey.png',
+        quantity: 1
+      }
+    ],
+  },
+  {
+    level: 7,
+    name: 'Rhydo Runestone',
+    image_name: 'ic-rhydo-runestone.png',
+    ingredients: [
+      {
+        name: 'Elder Branch',
+        image_name: 'ic-elder-branch.png',
+        quantity: 1
+      },
+      {
+        name: 'Light Granule',
+        image_name: 'ic-light-granule.png',
+        quantity: 1
+      },
+      {
+        name: 'Red Gemstone',
+        image_name: 'ic-red-gemstone.png',
+        quantity: 1
+      }
+    ],
+  },
+  {
+    level: 8,
+    name: 'Nosiege Runestone',
+    image_name: 'ic-nosiege-runestone.png',
+    ingredients: [
+      {
+        name: 'Elder Branch',
+        image_name: 'ic-elder-branch.png',
+        quantity: 1
+      },
+      {
+        name: 'Light Granule',
+        image_name: 'ic-light-granule.png',
+        quantity: 1
+      },
+      {
+        name: 'Destroyed Armor',
+        image_name: 'ic-destroyed-armor.png',
+        quantity: 1
+      },
+      {
+        name: 'Worn-out Magic Scroll',
+        image_name: 'ic-worn-out-magic-scroll.png',
+        quantity: 1
+      }
+    ],
+  },
+  {
+    level: 9,
+    name: 'Verkana Runestone',
+    image_name: 'ic-verkana-runestone.png',
+    ingredients: [
+      {
+        name: 'Elder Branch',
+        image_name: 'ic-elder-branch.png',
+        quantity: 1
+      },
+      {
+        name: 'Armor Piece of Dullahan',
+        image_name: 'ic-armor-piece-of-dullahan.png',
+        quantity: 1
+      },
+    ],
+  },
+  {
+    level: 10,
+    name: 'Lux Anima Runestone',
+    image_name: 'ic-lux-anima-runestone.png',
+    ingredients: [
+      {
+        name: 'Elder Branch',
+        image_name: 'ic-elder-branch.png',
+        quantity: 1
+      },
+      {
+        name: 'Light Granule',
+        image_name: 'ic-light-granule.png',
+        quantity: 3
+      },
+      {
+        name: 'Gold',
+        image_name: 'ic-gold.png',
+        quantity: 3
+      },
+    ],
+  },
+]
 //#endregion refs
 
 //#region methods
@@ -304,5 +527,63 @@ function calculateSuccessRate() {
 
     </form>
     <!-- #endregion form -->
+
+    <!-- #region Runestone Ingredients -->
+    <div class="c-card my-4 mx-1">
+      <table class="c-table">
+        <thead>
+          <tr>
+            <th class="c-table-th">Level</th>
+            <th class="c-table-th">Runestone Name</th>
+            <th class="c-table-th">Ingredients</th>
+          </tr>
+        </thead>
+        <tbody>
+          <template v-for="runestone in runestones">
+            <tr>
+              <td class="c-table-td">{{ runestone.level }}</td>
+              <td class="c-table-td">
+                <div class="flex">
+                  <picture>
+                    <img 
+                      :src="`/images/runestones/${runestone.image_name}`"
+                      :alt="runestone.name"
+                      width="24px"
+                      height="24px"
+                      loading="lazy"
+                      class="mr-1"
+                    />
+                  </picture>
+                  {{ runestone.name }}
+                </div>
+              </td>
+              <td class="c-table-td">
+                <ul class="list-disc pl-6">
+                  <template v-for="ingredient in runestone.ingredients">
+                    <li>
+                      <div class="flex">
+                        {{ ingredient.quantity }} x 
+                        <picture>
+                          <img 
+                            :src="`/images/runestones/${ingredient.image_name}`"
+                            :alt="ingredient.name"
+                            width="24px"
+                            height="24px"
+                            loading="lazy"
+                            class="mx-1"
+                          />
+                        </picture>
+                        {{ ingredient.name }}
+                      </div>
+                    </li>
+                  </template>
+                </ul>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+    <!-- #endregion Runestone Ingredients -->
   </main>
 </template>
