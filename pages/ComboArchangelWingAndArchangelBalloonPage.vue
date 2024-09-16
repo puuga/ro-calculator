@@ -79,38 +79,38 @@ const enchantList = [
     <div>
       <!-- #region content-desc -->
       <div class="my-5">
-        <p>
+        <div>
           มาแล้ว กับ Combo Item ที่ (น่าจะ) เป็นที่นิยมมาก ๆ ในเกม Ragnarok Online
           คือ Combo Archangel Wing [1] and Archangel Balloon
           เนื่องจาก Combo นี้ ใช้งานได้ดีทั้งสายกายภาพ และสายเวทมนตร์
           เงื่อนไขการใช้งาน จะว่าง่ายก็ง่าย จะว่ายากก็ยาก
           และที่สำคัญคือใส่ได้ตั้งแต่เลเวล 1
-        </p>
+        </div>
         <h3 class="text-2xl font-bold">สายกายภาพ</h3>
-        <p>
+        <div>
           เด่นสุดก็ต้องเป็น <strong>เพิ่ม Damage ทางกายภาพระยะใกล้ 3% ทุก ๆ Base STR 20</strong>
           ก็ถ้าเรามี Base STR 120 ก็จะได้เพิ่ม Damage ทางกายภาพระยะใกล้ 18% อันนี้คือสุดมาก
-        </p>
-        <p>
+        </div>
+        <div>
           เด่นไม่แพ้กัน ก็คือ <strong>ลด Delay หลังใช้สกิล 3% ทุก ๆ Base DEX 20</strong>
           ก็ถ้าเรามี Base DEX 120 ก็จะลด Delay หลังใช้สกิล 18% หาแบบนี้ที่ไหนได้อีก
-        </p>
+        </div>
         <h3 class="text-2xl font-bold">สายกายภาพ</h3>
-        <p>
+        <div>
           เด่นสุดก็ต้องเป็น <strong>เพิ่ม Damage ทางเวทมนตร์ทุกธาตุ 3% ทุก ๆ Base INT 20</strong>
           ก็ถ้าเรามี Base ATR 120 ก็จะได้เพิ่ม Damage ทางเวทมนตร์ระยะใกล้ 18% อันนี้คือสุดมาก
-        </p>
+        </div>
         <h3 class="text-2xl font-bold">ดีไม่สุด</h3>
-        <p>
+        <div>
           ขาดลดร่าย และเพิ่ม ASPD ไป แต่ก็นะ เราพอจะไปหาจากอย่างอื่นได้ไม่ยากนัก
-        </p>
+        </div>
         <h3 class="text-2xl font-bold">Archangel Wing Enchant</h3>
-        <p>
+        <div>
           เนื่องจากความขาด ๆ เกิน ๆ ของ Combo นี้ สิ่งที่จะช่วยมาอุดในจุดนี้ก็คือ
           ตัว Archangel Wing สามารถนำไป Enchant ได้ !
           แต่ก็เป็น Enchant ที่ดูแล้วธรรมดามาก ๆ แต่ก็ยังมีประโยชน์อยู่
-        </p>
-        <p>
+        </div>
+        <div>
           Archangel Wing สามารถนำไป Enchant Option ได้ที่ NPC Artisan of Fallen Angel
           พิกัด <strong>/navi malangdo 238/149</strong> เงื่อนไขการ Enchant Option
           <ol class="list-decimal pl-6">
@@ -119,7 +119,7 @@ const enchantList = [
             <li>มีโอกาสเล็กน้อยที่จะทำให้ Archangel Wing สูญหายจากการ Enchant</li>
             <li>สามารถลบ Enchant ได้โดยการใช้ 3 Silvervine</li>
           </ol>
-        </p>
+        </div>
       </div>
       <!-- #endregion content-desc -->
 

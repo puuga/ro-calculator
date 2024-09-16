@@ -7,6 +7,8 @@ import {
   dataEXPs as tableEXPs, 
   dataJOBsHeader as tableJOBsHeader,
   dataJOBs as tableJOBs,
+  dataClass4JOBsHeader as tableClass4JOBsHeader,
+  dataClass4JOBs as tableClass4JOBs,
 } from '@/repositories/ExperienceAndJobExperienceTable.repo'
 
 //#region use...
@@ -15,14 +17,23 @@ useHead(getHead(RN_EXP_AND_JOB_EXP_TABLE))
 const { $firebaseApp } = useNuxtApp()
 //#endregion use...
 
+//#region refs
+const expRange = ref('all')
+//#endregion refs
+
 const chartEXPData = [[...tableEXPsHeader], ...tableEXPs]
 const chartEXPOptions = {
-  title: 'EXPs Chart',
+  title: 'Class 3-4 EXPs Chart',
   height: 800,
 }
 const chartJOBData = [[...tableJOBsHeader], ...tableJOBs]
 const chartJOBOptions = {
-  title: 'JOB EXPs Chart',
+  title: 'Class 3 JOB EXPs Chart',
+  height: 800,
+}
+const chartClass4JOBData = [[...tableClass4JOBsHeader], ...tableClass4JOBs]
+const chartClass4JOBOptions = {
+  title: 'Class 4 JOB EXPs Chart',
   height: 800,
 }
 
@@ -32,6 +43,11 @@ function formatNumber(num: number): string {
 function summaryEXP(data: number[][], columnIndex = 1): number {
   return data.reduce((acc, cur) => acc + cur[columnIndex], 0)
 }
+function getExpRange(data: number[][], range: string): (string[] | number[])[] {
+  if (range === 'all') return [[...tableEXPsHeader], ...data]
+  const [min, max] = range.split('-').map(Number)
+  return [[...tableEXPsHeader], ...data.filter((exp) => exp[0] >= min && exp[0] <= max)]
+}
 </script>
 
 <template>
@@ -40,11 +56,26 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
 
     <h3 class="">SEO: RO-GGT 2022 ตาราง EXP, RO-GGT 2022 ตาราง Job EXP</h3>
 
+    <!-- #region class 3-4 exp -->
     <div class="p-3">
       <div class="c-skill-card">
-        <h3 class="text-xl font-bold">EXP</h3>
+        <h3 class="text-xl font-bold">Class 3-4 EXP</h3>
 
-        <GChart type="ColumnChart" :data="chartEXPData" :options="chartEXPOptions" />
+        <div>
+          <div>
+            <label for="exp-range">Choose a range:</label>
+            <select id="exp-range" name="exp-range" v-model="expRange">
+              <option value="all" selected>All</option>
+              <option value="100-175">100-175</option>
+              <option value="175-185">175-185</option>
+              <option value="175-200">175-200</option>
+            </select>
+          </div>
+          <div>
+            <GChart type="ColumnChart" :data="getExpRange(tableEXPs, expRange)" :options="chartEXPOptions" />
+          </div>
+        </div>
+
 
         <table class="c-table">
           <thead>
@@ -53,6 +84,7 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
               <th class="c-table-th">EXP (old)</th>
               <th class="c-table-th">EXP (185/65)<br />2022-07-27</th>
               <th class="c-table-th">EXP (200/70)<br />????-??-??</th>
+              <th class="c-table-th">EXP (250/??)<br />????-??-??</th>
             </tr>
           </thead>
           <tbody>
@@ -69,6 +101,9 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
               <td class="c-table-td text-right tabular-nums">
                 {{ formatNumber(exp[3]) }}
               </td>
+              <td class="c-table-td text-right tabular-nums">
+                {{ formatNumber(exp[4]) }}
+              </td>
             </tr>
           </tbody>
           <tfoot>
@@ -77,15 +112,18 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 1)) }}</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 2)) }}</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 3)) }}</th>
+              <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 4)) }}</th>
             </tr>
           </tfoot>
         </table>
       </div>
     </div>
+    <!-- #endregion class 3-4 exp -->
 
+    <!-- #region job 3 exp -->
     <div class="p-3">
       <div class="c-skill-card">
-        <h3 class="text-xl font-bold">Job EXP</h3>
+        <h3 class="text-xl font-bold">Class 3 Job EXP</h3>
 
         <GChart type="ColumnChart" :data="chartJOBData" :options="chartJOBOptions" />
 
@@ -125,5 +163,41 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
         </table>
       </div>
     </div>
+    <!-- #endregion job 3 exp -->
+
+    <!-- #region job 4 exp -->
+    <div class="p-3">
+      <div class="c-skill-card">
+        <h3 class="text-xl font-bold">Class 4 Job EXP</h3>
+
+        <GChart type="ColumnChart" :data="chartClass4JOBData" :options="chartClass4JOBOptions" />
+
+        <table class="c-table">
+          <thead>
+            <tr>
+              <th class="c-table-th">Level</th>
+              <th class="c-table-th">Job (250/50)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="exp in tableClass4JOBs" :key="exp[0]">
+              <td class="c-table-td text-right tabular-nums">
+                {{ formatNumber(exp[0]) }}
+              </td>
+              <td class="c-table-td text-right tabular-nums">
+                {{ formatNumber(exp[1]) }}
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th class="c-table-th">Summary</th>
+              <th class="c-table-th">{{ formatNumber(summaryEXP(tableClass4JOBs, 1)) }}</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <!-- #endregion job 4 exp -->
   </main>
 </template>
