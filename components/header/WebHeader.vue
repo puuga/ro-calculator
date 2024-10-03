@@ -17,11 +17,16 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
         <div class="flex justify-start lg:w-0 lg:flex-1">
           <a href="#">
             <span class="sr-only">RO-Calculator</span>
-            <img
-              class="h-8 w-auto sm:h-10"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt="RO-Calculator"
-            />
+            <picture>
+              <source
+                srcset="/images/main/main-logo-small.avif"
+                type="image/avif">
+              <img
+                class="h-8 w-auto sm:h-10"
+                src="/images/main/main-logo-small.webp"
+                alt="RO-Calculator"
+              />
+            </picture>
           </a>
         </div>
         <div class="-my-2 -mr-2 md:hidden">
