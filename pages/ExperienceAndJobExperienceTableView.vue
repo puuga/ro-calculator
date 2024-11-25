@@ -69,6 +69,7 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
               <option value="100-175">100-175</option>
               <option value="175-185">175-185</option>
               <option value="175-200">175-200</option>
+              <option value="200-260">200-260</option>
             </select>
           </div>
           <div>
@@ -76,15 +77,15 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
           </div>
         </div>
 
-
         <table class="c-table">
-          <thead>
+          <thead class="bg-slate-100 sticky top-0">
             <tr>
               <th class="c-table-th">Level</th>
               <th class="c-table-th">EXP (old)</th>
               <th class="c-table-th">EXP (185/65)<br />2022-07-27</th>
               <th class="c-table-th">EXP (200/70)<br />????-??-??</th>
-              <th class="c-table-th">EXP (250/??)<br />????-??-??</th>
+              <th class="c-table-th">EXP (250/50)<br />2024-11-14</th>
+              <th class="c-table-th">EXP (260/??)<br />????-??-??</th>
             </tr>
           </thead>
           <tbody>
@@ -104,6 +105,9 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
               <td class="c-table-td text-right tabular-nums">
                 {{ formatNumber(exp[4]) }}
               </td>
+              <td class="c-table-td text-right tabular-nums">
+                {{ formatNumber(exp[5]) }}
+              </td>
             </tr>
           </tbody>
           <tfoot>
@@ -113,6 +117,7 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 2)) }}</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 3)) }}</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 4)) }}</th>
+              <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 5)) }}</th>
             </tr>
           </tfoot>
         </table>
@@ -128,7 +133,7 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
         <GChart type="ColumnChart" :data="chartJOBData" :options="chartJOBOptions" />
 
         <table class="c-table">
-          <thead>
+          <thead class="bg-slate-100 sticky top-0">
             <tr>
               <th class="c-table-th">Level</th>
               <th class="c-table-th">Job (old)</th>
@@ -173,7 +178,7 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
         <GChart type="ColumnChart" :data="chartClass4JOBData" :options="chartClass4JOBOptions" />
 
         <table class="c-table">
-          <thead>
+          <thead class="bg-slate-100 sticky top-0">
             <tr>
               <th class="c-table-th">Level</th>
               <th class="c-table-th">Job (250/50)</th>
