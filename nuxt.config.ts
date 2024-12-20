@@ -13,13 +13,16 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   css: ['~/assets/css/main.css'],
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   nitro: {
     prerender: {
       crawlLinks: true,
@@ -40,4 +43,6 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  compatibilityDate: '2024-12-20',
 })
