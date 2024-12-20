@@ -7,6 +7,7 @@ const links: Link[] = [
   { group: 'Battle Pass', title: 'Battle Pass Season 3', path: 'https://ro.gnjoy.in.th/battlepass-ss3/', tags: ['BP'] },
   { group: 'Battle Pass', title: 'Battle Pass Season 4', path: 'https://ro.gnjoy.in.th/battle-pass-iv-edda-somatology-laboratory/', tags: ['BP'] },
   { group: 'Battle Pass', title: 'Battle Pass Season 5', path: 'https://ro.gnjoy.in.th/RO_Battle_Pass_ss5/', tags: ['BP'] },
+  { group: 'Battle Pass', title: 'Battle Pass Season 6', path: 'https://ro.gnjoy.in.th/battle-pass-season-vi-welcome-4th-world/', tags: ['BP'] },
 
   { group: 'Quest Board', title: 'New Eden Group Update Quest', path: 'https://ro.gnjoy.in.th/new-eden-group-update-quest/', tags: ['Quest'] },
 
@@ -27,6 +28,11 @@ const links: Link[] = [
   { group: 'Dungeon', title: 'Laboratory Waste Disposal Plant 4F', path: 'https://ro.gnjoy.in.th/laboratory-waste-disposal-plant-4f/', tags: ['Dungeon'] },
   { group: 'Dungeon', title: 'Nifflheim Dungeon Floor 1-2', path: 'https://ro.gnjoy.in.th/nifflheim-dungeon-floor-1-2/', tags: ['Dungeon'] },
   { group: 'Dungeon', title: 'Abandoned Lab Amicitia Floor 1-2', path: 'https://ro.gnjoy.in.th/abandoned-lab-amicitia-floor-1-2/', tags: ['Dungeon'] },
+  { group: 'Dungeon', title: 'Abyss Lake Dungeon 4F', path: 'https://ro.gnjoy.in.th/abyss-lake-dungeon-4f/', tags: ['Dungeon', 'LV190+'] },
+  { group: 'Dungeon', title: 'Ancient Odin\'s Temple (Odin\'s Temple 4F)', path: 'https://ro.gnjoy.in.th/ancient-odins-temple-4f/', tags: ['Dungeon', 'LV180+'] },
+  { group: 'Dungeon', title: 'Einbech Mine Dungeon 3F', path: 'https://ro.gnjoy.in.th/einbech-mine-dungeon-3f/', tags: ['Dungeon', 'LV180+'] },
+  { group: 'Dungeon', title: 'Abyss Glastheim 1st Floor', path: 'https://ro.gnjoy.in.th/abyss-glastheim-1st-floor/', tags: ['Dungeon', 'LV175+'] },
+  { group: 'Dungeon', title: 'Magma Dungeon 3rd Floor : Nogg Road', path: 'https://ro.gnjoy.in.th/magma-dungeon-3rd-floor-nogg-road/', tags: ['Dungeon', 'LV175+'] },
 
   { group: '4th Classes', title: '4th Classes', path: 'https://ro.gnjoy.in.th/4th_classes/characters/index.html', tags: ['Story', 'Quest'] },
 ];
