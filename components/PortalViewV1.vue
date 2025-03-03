@@ -74,7 +74,7 @@ function getTagsText(tags: string[]): string {
             
             <div class="flex flex-wrap gap-1">
               <template v-for="tag in link.tags" :key="link.title">
-                <div class="px-1.5 bg-slate-100 ring-1 ring-slate-200 rounded">{{ tag }}</div>
+                <div class="px-1.5 bg-slate-100 ring-1 ring-slate-200 rounded-sm">{{ tag }}</div>
               </template>
             </div>
           </div>
