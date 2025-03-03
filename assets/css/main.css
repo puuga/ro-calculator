@@ -1,49 +1,71 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer components {
-  .c-skill-card {
-    @apply container p-3 bg-slate-100 rounded-xl divide-y divide-solid shadow-xl;
-  }
+@theme {
+  --list-style-type-none: none;
+  --list-style-type-disc: disc;
+  --list-style-type-decimal: decimal;
+  --list-style-type-circle: circle;
+  --list-style-type-square: square;
+}
 
-  .c-card {
-    @apply container p-3 bg-slate-100 rounded-xl shadow-xl;
-  }
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
 
-  .c-btn-primary {
-    @apply inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
   }
+}
 
-  .c-btn-secondary {
-    @apply inline-flex justify-center rounded-md border border-transparent bg-slate-300 py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-slate-500 focus:outline-none focus:ring-2 focus:bg-slate-700 focus:ring-offset-2;
-  }
+@utility c-skill-card {
+  @apply container p-3 bg-slate-100 rounded-xl divide-y divide-solid shadow-xl;
+}
 
-  .c-btn-disabled {
-    @apply inline-flex justify-center rounded-md border border-transparent bg-gray-300 py-2 px-4 text-sm font-medium text-black shadow-sm cursor-not-allowed;
-  }
+@utility c-card {
+  @apply container p-3 bg-slate-100 rounded-xl shadow-xl;
+}
 
-  .c-input-number {
-    @apply block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500;
-  }
+@utility c-btn-primary {
+  @apply inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-xs hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+}
 
-  .c-input-label {
-    @apply block text-sm font-medium text-gray-700;
-  }
+@utility c-btn-secondary {
+  @apply inline-flex justify-center rounded-md border border-transparent bg-slate-300 py-2 px-4 text-sm font-medium text-black shadow-xs hover:bg-slate-500 focus:outline-hidden focus:ring-2 focus:bg-slate-700 focus:ring-offset-2;
+}
 
-  .c-table {
-    @apply table-fixed border-collapse border border-slate-500;
-  }
+@utility c-btn-disabled {
+  @apply inline-flex justify-center rounded-md border border-transparent bg-gray-300 py-2 px-4 text-sm font-medium text-black shadow-xs cursor-not-allowed;
+}
 
-  .c-table-th {
-    @apply p-2 border border-slate-600;
-  }
+@utility c-input-number {
+  @apply block rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500;
+}
 
-  .c-table-td {
-    @apply p-2 border border-slate-700;
-  }
+@utility c-input-label {
+  @apply block text-sm font-medium text-gray-700;
+}
 
-  .c-badge {
-    @apply bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300;
-  }
+@utility c-table {
+  @apply table-fixed border-collapse border border-slate-500;
+}
+
+@utility c-table-th {
+  @apply p-2 border border-slate-600;
+}
+
+@utility c-table-td {
+  @apply p-2 border border-slate-700;
+}
+
+@utility c-badge {
+  @apply bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-sm dark:bg-gray-700 dark:text-gray-300;
 }
