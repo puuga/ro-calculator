@@ -18,6 +18,7 @@ export const RN_CRAFTING_NFS_ITEMS = 'crafting-nfs-items'
 export const RN_COMBO_ARCHANGEL_WING_AND_ARCHANGEL_BALLOON = 'combo-archangel-wing-and-archangel-balloon'
 export const RN_PATENT_WEAPON_ENCHANTMENT = 'patent-weapon-enchantment'
 export const RN_TOOL_BUILD_RUNE_SUCCESS_RATE = 'tool-build-rune-success-rate'
+export const RN_TOOL_ETEL_DUST_CALCULATOR = 'tool-etel-dust-calculator'
 
 export const routeData = [
   {
@@ -111,6 +112,13 @@ export const routeData = [
     title: 'Build Rune Success Rate | RO-Calculator',
     description: 'Build Rune Success Rate Tool',
     component: () => import('@/pages/ToolBuildRuneSuccessRateView.vue'),
+  },
+  {
+    path: '/tool-etel-dust-calculator',
+    name: RN_TOOL_ETEL_DUST_CALCULATOR,
+    title: 'Etel Dust Calculator | RO-Calculator',
+    description: 'Etel Dust Calculator',
+    component: () => import('@/pages/EtelDustCalculator.vue'),
   },
 ]
 

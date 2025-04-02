@@ -35,6 +35,7 @@ export default defineNuxtConfig({
         '/PatentWeaponEnchantmentView',
         '/RuneKnightView',
         '/ToolBuildRuneSuccessRateView',
+        '/EtelDustCalculator',
       ],
     },
   },

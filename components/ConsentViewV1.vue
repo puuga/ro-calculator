@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="mt-4 py-4 bg-slate-400">
+  <div class="sticky bottom-0 mt-4 py-4 bg-slate-400">
     <div class="container mx-auto">
       <h1 class="text-2xl font-bold">Consent</h1>
       <div>
