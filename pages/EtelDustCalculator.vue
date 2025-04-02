@@ -7,7 +7,7 @@ useHead(getHead(RN_TOOL_ETEL_DUST_CALCULATOR))
 
 
 //#region data...
-const priceEtelDust = ref(1)
+const priceEtelDust = ref(150_000) // default value
 
 const tableEtelDust = {
   name: "Etel Dust",
@@ -63,8 +63,8 @@ function formatNumber(value: number): string {
           min="1" 
           step="1" 
           placeholder="Enter Etel Dust Price"
-          class="border-2 border-gray-300 rounded-md p-3"
-          v-model="priceEtelDust"
+          class="border-2 border-gray-500 rounded-md p-3"
+          v-model.number="priceEtelDust"
         />
       </div>
 
@@ -89,7 +89,7 @@ function formatNumber(value: number): string {
             <td class="border border-gray-300 p-2 text-center">{{ formatNumber(+row[6]) }}</td>
             <td class="border border-gray-300 p-2 text-center">{{ formatNumber(priceEtelDust) }}</td>
             <td class="border border-gray-300 p-2 text-center">
-              {{ formatNumber(totalCost(+row[6], priceEtelDust, +row[3])) }}
+              <strong>{{ formatNumber(totalCost(+row[6], priceEtelDust, +row[3])) }}</strong>
             </td>
           </tr>
         </tbody>
