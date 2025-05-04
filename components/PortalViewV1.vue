@@ -23,6 +23,8 @@ const links: Link[] = [
   { group: 'Episode 16.2', title: 'Episode 16.2', path: 'https://ro.gnjoy.in.th/ep16-2-terra-gloria-quest/', tags: ['Story', 'Quest'] },
   { group: 'Episode 16.1', title: 'Episode 16.1', path: 'https://ro.gnjoy.in.th/ep-16-1-banquet-for-heroes/', tags: ['Story', 'Quest'] },
   
+  { group: 'Memorial Dungeon', title: 'Constellation Tower Guide', path: 'https://ro.gnjoy.in.th/constellation-tower-guide/', tags: ['Dungeon', 'Guide'] },
+  { group: 'Memorial Dungeon', title: 'Constellation Tower', path: 'https://ro.gnjoy.in.th/constellation-tower/', tags: ['Dungeon'] },
   { group: 'Memorial Dungeon', title: 'Villa of Deception (Guide)', path: 'https://ro.gnjoy.in.th/episode-18-villa-of-deception', tags: ['Dungeon', 'Guide'] },
   { group: 'Memorial Dungeon', title: 'Airship Crash (Guide)', path: 'https://ro.gnjoy.in.th/airship-crash-guide', tags: ['Dungeon', 'Guide'] },
   { group: 'Memorial Dungeon', title: 'Airship Crash', path: 'https://ro.gnjoy.in.th/episode18DirectionPrayer/AirshipCrash.html', tags: ['Dungeon'] },
@@ -34,6 +36,7 @@ const links: Link[] = [
   { group: 'Memorial Dungeon', title: 'Old Glast Heim Challenge (Guide)', path: 'https://ro.gnjoy.in.th/guide-old-glastheim-challenge', tags: ['Dungeon', 'Memorial Dungeon', 'Guide'] },
   { group: 'Memorial Dungeon', title: 'New Thanatos Tower (Guide)', path: 'https://ro.gnjoy.in.th/new-thanatos-tower-guide', tags: ['Dungeon', 'Memorial Dungeon', 'Guide'] },
 
+  { group: 'Dungeon', title: 'Clock Tower Unknown Basement', path: 'https://ro.gnjoy.in.th/clock-tower-unknown-basement/', tags: ['Dungeon'] },
   { group: 'Dungeon', title: 'Laboratory Waste Disposal Plant 4F', path: 'https://ro.gnjoy.in.th/laboratory-waste-disposal-plant-4f/', tags: ['Dungeon'] },
   { group: 'Dungeon', title: 'Nifflheim Dungeon Floor 1-2', path: 'https://ro.gnjoy.in.th/nifflheim-dungeon-floor-1-2/', tags: ['Dungeon'] },
   { group: 'Dungeon', title: 'Abandoned Lab Amicitia Floor 1-2', path: 'https://ro.gnjoy.in.th/abandoned-lab-amicitia-floor-1-2/', tags: ['Dungeon'] },
