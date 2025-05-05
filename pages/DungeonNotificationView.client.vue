@@ -23,6 +23,7 @@ import {
 } from 'firebase/firestore'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import { getAnalytics, logEvent } from 'firebase/analytics'
 
 dayjs.extend(relativeTime)
 
@@ -157,8 +158,8 @@ async function fetchAllCharactersForUser() {
     return
   }
 
-  const db = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
-  const charactersRef = collection(db, '/characters')
+  const firestoreDB = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
+  const charactersRef = collection(firestoreDB, '/characters')
   const q = query(charactersRef, where('uid', '==', user.uid), orderBy('created_at', 'desc'))
 
   isApiWorking.value = true
@@ -197,8 +198,8 @@ async function addCharacter() {
     return
   }
 
-  const db = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
-  const charactersRef = collection(db, '/characters')
+  const firestoreDB = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
+  const charactersRef = collection(firestoreDB, '/characters')
 
   isApiWorking.value = true
 
@@ -214,6 +215,11 @@ async function addCharacter() {
   await fetchAllCharactersForUser()
 
   isApiWorking.value = false
+
+  const analytics = getAnalytics(useNuxtApp().$firebaseApp())
+  logEvent(analytics, 'add_character', {
+    name: formCharacterName.value,
+  })
 }
 
 async function deleteCharacter(RefId: string | undefined) {
@@ -234,15 +240,20 @@ async function deleteCharacter(RefId: string | undefined) {
     return
   }
 
-  const db = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
-
   isApiWorking.value = true
-  const docRef = doc(db, '/characters', RefId)
+
+  const firestoreDB = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
+  const docRef = doc(firestoreDB, '/characters', RefId)
   await deleteDoc(docRef)
 
   await fetchAllCharactersForUser()
 
   isApiWorking.value = false
+
+  const analytics = getAnalytics(useNuxtApp().$firebaseApp())
+  logEvent(analytics, 'remove_character', {
+    name: formCharacterName.value,
+  })
 }
 
 async function checkinDungeon(dungeonName: DungeonName, characterId: string | undefined) {
@@ -257,11 +268,10 @@ async function checkinDungeon(dungeonName: DungeonName, characterId: string | un
     return
   }
 
-  const db = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
-
   isApiWorking.value = true
 
-  const docRef = doc(db, '/characters', characterId)
+  const firestoreDB = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
+  const docRef = doc(firestoreDB, '/characters', characterId)
   const docData: any = {}
   docData[`checkin_${dungeonName}_at`] = serverTimestamp()
 
@@ -269,6 +279,11 @@ async function checkinDungeon(dungeonName: DungeonName, characterId: string | un
 
   await fetchAllCharactersForUser()
   isApiWorking.value = false
+
+  const analytics = getAnalytics(useNuxtApp().$firebaseApp())
+  logEvent(analytics, "checkin_dungeon", {
+    name: dungeonName,
+  })
 }
 
 function formatDateWithTimestamp(date: Timestamp | undefined) {
