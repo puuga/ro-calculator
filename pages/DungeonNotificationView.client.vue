@@ -23,6 +23,7 @@ import {
 } from 'firebase/firestore'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import { getAnalytics, logEvent } from 'firebase/analytics'
 
 dayjs.extend(relativeTime)
 
@@ -214,6 +215,11 @@ async function addCharacter() {
   await fetchAllCharactersForUser()
 
   isApiWorking.value = false
+
+  const analytics = getAnalytics(useNuxtApp().$firebaseApp())
+  logEvent(analytics, 'add_character', {
+    name: formCharacterName.value,
+  })
 }
 
 async function deleteCharacter(RefId: string | undefined) {
@@ -243,6 +249,11 @@ async function deleteCharacter(RefId: string | undefined) {
   await fetchAllCharactersForUser()
 
   isApiWorking.value = false
+
+  const analytics = getAnalytics(useNuxtApp().$firebaseApp())
+  logEvent(analytics, 'remove_character', {
+    name: formCharacterName.value,
+  })
 }
 
 async function checkinDungeon(dungeonName: DungeonName, characterId: string | undefined) {
@@ -269,6 +280,11 @@ async function checkinDungeon(dungeonName: DungeonName, characterId: string | un
 
   await fetchAllCharactersForUser()
   isApiWorking.value = false
+
+  const analytics = getAnalytics(useNuxtApp().$firebaseApp())
+  logEvent(analytics, "checkin_dungeon", {
+    name: dungeonName,
+  })
 }
 
 function formatDateWithTimestamp(date: Timestamp | undefined) {
