@@ -57,9 +57,6 @@ const formErrorMessage = ref('')
 const formCharacterName = ref('')
 
 const characters = ref<Character[]>([])
-
-const firestoreDB = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
-const analytics = getAnalytics(useNuxtApp().$firebaseApp())
 // #endregion data
 
 // #region hooks
@@ -161,6 +158,7 @@ async function fetchAllCharactersForUser() {
     return
   }
 
+  const firestoreDB = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
   const charactersRef = collection(firestoreDB, '/characters')
   const q = query(charactersRef, where('uid', '==', user.uid), orderBy('created_at', 'desc'))
 
@@ -200,6 +198,7 @@ async function addCharacter() {
     return
   }
 
+  const firestoreDB = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
   const charactersRef = collection(firestoreDB, '/characters')
 
   isApiWorking.value = true
@@ -217,6 +216,7 @@ async function addCharacter() {
 
   isApiWorking.value = false
 
+  const analytics = getAnalytics(useNuxtApp().$firebaseApp())
   logEvent(analytics, 'add_character', {
     name: formCharacterName.value,
   })
@@ -240,8 +240,9 @@ async function deleteCharacter(RefId: string | undefined) {
     return
   }
 
-
   isApiWorking.value = true
+
+  const firestoreDB = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
   const docRef = doc(firestoreDB, '/characters', RefId)
   await deleteDoc(docRef)
 
@@ -249,6 +250,7 @@ async function deleteCharacter(RefId: string | undefined) {
 
   isApiWorking.value = false
 
+  const analytics = getAnalytics(useNuxtApp().$firebaseApp())
   logEvent(analytics, 'remove_character', {
     name: formCharacterName.value,
   })
@@ -268,6 +270,7 @@ async function checkinDungeon(dungeonName: DungeonName, characterId: string | un
 
   isApiWorking.value = true
 
+  const firestoreDB = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
   const docRef = doc(firestoreDB, '/characters', characterId)
   const docData: any = {}
   docData[`checkin_${dungeonName}_at`] = serverTimestamp()
@@ -277,6 +280,7 @@ async function checkinDungeon(dungeonName: DungeonName, characterId: string | un
   await fetchAllCharactersForUser()
   isApiWorking.value = false
 
+  const analytics = getAnalytics(useNuxtApp().$firebaseApp())
   logEvent(analytics, "checkin_dungeon", {
     name: dungeonName,
   })
