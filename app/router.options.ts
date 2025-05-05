@@ -19,7 +19,7 @@ export const RN_COMBO_ARCHANGEL_WING_AND_ARCHANGEL_BALLOON = 'combo-archangel-wi
 export const RN_PATENT_WEAPON_ENCHANTMENT = 'patent-weapon-enchantment'
 export const RN_TOOL_BUILD_RUNE_SUCCESS_RATE = 'tool-build-rune-success-rate'
 export const RN_TOOL_ETEL_DUST_CALCULATOR = 'tool-etel-dust-calculator'
-export const RN_DUNGEON_NOTIFIICATION = 'dungeon-notification'
+export const RN_DUNGEON_NOTIFICATION = 'dungeon-notification'
 
 export const routeData = [
   {
@@ -123,7 +123,7 @@ export const routeData = [
   },
   {
     path: '/dungeon-notification',
-    name: RN_DUNGEON_NOTIFIICATION,
+    name: RN_DUNGEON_NOTIFICATION,
     title: 'Dungeon Notification | RO-Calculator',
     description: 'Dungeon Notification',
     component: () => import('~/pages/DungeonNotificationView.client.vue'),
