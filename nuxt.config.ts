@@ -7,8 +7,8 @@ export default defineNuxtConfig({
       title: 'RO-Calculator',
       meta: [
         // <meta name="description" content="My amazing site">
-        { hid: 'description', name: 'description', content: 'My amazing site.' },
-        { hid: 'google-site-verification', name: 'google-site-verification', content: 'kXt8f679wMbmWGxorwLli467A1-wSC9nbi0aX3wIQNs' },
+        { name: 'description', content: 'My amazing site.' },
+        { name: 'google-site-verification', content: 'kXt8f679wMbmWGxorwLli467A1-wSC9nbi0aX3wIQNs' },
       ],
       script: [
         { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6174292774814788', async: true, crossorigin: 'anonymous' },
@@ -27,6 +27,7 @@ export default defineNuxtConfig({
         '/BuffCooldownCounterView',
         '/ComboArchangelWingAndArchangelBalloonPage',
         '/CraftingNotForSaleItemsView',
+        '/DungeonNotificationView',
         '/EnchantmentsView',
         '/Episode171Enchantment',
         '/Episode172Enchantment',
