@@ -45,6 +45,12 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
             Home
           </NuxtLink>
           <NuxtLink
+            to="/dungeon-notification"
+            class="text-base font-medium text-gray-500 hover:text-gray-900"
+          >
+            Dungeon Notification
+          </NuxtLink>
+          <NuxtLink
             to="/rune-knight"
             class="text-base font-medium text-gray-500 hover:text-gray-900"
           >
@@ -119,6 +125,12 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
                 class="text-base font-medium text-gray-900 hover:text-gray-700"
               >
                 Home
+              </NuxtLink>
+              <NuxtLink
+                to="/dungeon-notification"
+                class="text-base font-medium text-gray-900 hover:text-gray-700"
+              >
+                Dungeon Notification
               </NuxtLink>
               <NuxtLink
                 to="/rune-knight"

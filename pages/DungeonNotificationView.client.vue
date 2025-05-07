@@ -483,6 +483,7 @@ function formatDateAsFromNowOrToNow(date: dayjs.Dayjs | undefined) {
                     Check In
                   </button>
                 </div>
+                <div>Quest: ผลกระทบจากการเข้าไปในหอคอย</div>
                 <div v-if="character.checkin_constellation_tower_at">
                   Last time: {{ formatDateWithTimestamp(character.checkin_constellation_tower_at) }}
                 </div>
@@ -508,6 +509,7 @@ function formatDateAsFromNowOrToNow(date: dayjs.Dayjs | undefined) {
                     Check In
                   </button>
                 </div>
+                <div>Quest:</div>
                 <div v-if="character.checkin_old_glast_heim_challenge_at">
                   Last time: {{ formatDateWithTimestamp(character.checkin_old_glast_heim_challenge_at) }}
                 </div>
@@ -533,6 +535,7 @@ function formatDateAsFromNowOrToNow(date: dayjs.Dayjs | undefined) {
                     Check In
                   </button>
                 </div>
+                <div>Quest: เวลาระบายน้ำ</div>
                 <div v-if="character.checkin_sunken_tower_at">
                   Last time: {{ formatDateWithTimestamp(character.checkin_sunken_tower_at) }}
                 </div>
@@ -558,6 +561,7 @@ function formatDateAsFromNowOrToNow(date: dayjs.Dayjs | undefined) {
                     Check In
                   </button>
                 </div>
+                <div>Quest: [Waiting] วันนี้ไม่มีการแข่งขัน</div>
                 <div v-if="character.checkin_geffen_night_arena_at">
                   Last time: {{ formatDateWithTimestamp(character.checkin_geffen_night_arena_at) }}
                 </div>
