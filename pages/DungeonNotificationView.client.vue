@@ -330,16 +330,10 @@ function formatDateAsFromNowOrToNow(date: dayjs.Dayjs | undefined) {
     return ''
   }
 
-  consola.log('formatDateAsFromNowOrToNow dayjs(date)', dayjs(date))
-  consola.log('formatDateAsFromNowOrToNow dayjs()', dayjs())
-  consola.log('formatDateAsFromNowOrToNow dayjs().isSameOrBefore(date)', dayjs().isSameOrBefore(date))
-
   if (dayjs().isSameOrBefore(dayjs(date))) {
     return `in ${dayjs(date).toNow(true)}`
-    // return date.tz('Asia/Bangkok').toNow()
   } else {
     return `${dayjs(date).fromNow(true)} ago`
-    // return date.tz('Asia/Bangkok').fromNow()
   }
 }
 // #endregion methods
