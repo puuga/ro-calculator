@@ -21,11 +21,17 @@ import {
   updateDoc,
   Timestamp,
 } from 'firebase/firestore'
+import { getAnalytics, logEvent } from 'firebase/analytics'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import { getAnalytics, logEvent } from 'firebase/analytics'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 
 dayjs.extend(relativeTime)
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.extend(isSameOrBefore)
 
 
 enum DungeonName {
@@ -290,14 +296,14 @@ function formatDateWithTimestamp(date: Timestamp | undefined) {
   if (!date) {
     return ''
   }
-  return dayjs(date.toDate()).format('YYYY-MM-DD HH:mm:ss')
+  return dayjs(date.toDate()).tz('Asia/Bangkok').format('YYYY-MM-DD HH:mm:ss')
 }
 
 function formatDateWithDayjs(date: dayjs.Dayjs | undefined) {
   if (!date) {
     return ''
   }
-  return dayjs(date).format('YYYY-MM-DD HH:mm:ss')
+  return date.format('YYYY-MM-DD HH:mm:ss')
 }
 
 function getNextTime(dungeonName: DungeonName, lastDate: Timestamp | undefined) {
@@ -324,10 +330,17 @@ function formatDateAsFromNowOrToNow(date: dayjs.Dayjs | undefined) {
     return ''
   }
 
-  if (dayjs().isBefore(dayjs(date.toDate()))) {
-    return dayjs(date.toDate()).fromNow()
+  consola.log('formatDateAsFromNowOrToNow dayjs(date)', dayjs(date))
+  consola.log('formatDateAsFromNowOrToNow dayjs()', dayjs())
+  consola.log('formatDateAsFromNowOrToNow dayjs().isSameOrBefore(date)', dayjs().isSameOrBefore(date))
+
+  if (dayjs().isSameOrBefore(dayjs(date))) {
+    return `in ${dayjs(date).toNow(true)}`
+    // return date.tz('Asia/Bangkok').toNow()
+  } else {
+    return `${dayjs(date).fromNow(true)} ago`
+    // return date.tz('Asia/Bangkok').fromNow()
   }
-  return dayjs(date.toDate()).toNow()
 }
 // #endregion methods
 </script>
