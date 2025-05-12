@@ -22,35 +22,8 @@ import {
   Timestamp,
 } from 'firebase/firestore'
 import { getAnalytics, logEvent } from 'firebase/analytics'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 
-dayjs.extend(relativeTime)
-dayjs.extend(utc)
-dayjs.extend(timezone)
-dayjs.extend(isSameOrBefore)
-
-
-enum DungeonName {
-  ConstellationTower = 'constellation_tower',
-  OldGlastHeimChallenge = 'old_glast_heim_challenge',
-  SunkenTower = 'sunken_tower',
-  GeffenNightArena = 'geffen_night_arena',
-}
-
-type Character = {
-  docId?: string;
-  uid: string;
-  name: string;
-  created_at?: Timestamp;
-  checkin_constellation_tower_at?: Timestamp;
-  checkin_old_glast_heim_challenge_at?: Timestamp;
-  checkin_sunken_tower_at?: Timestamp;
-  checkin_geffen_night_arena_at?: Timestamp;
-}
+import { type Character, DungeonName } from '@/model/DungeonLog'
 
 
 // #region data
@@ -292,49 +265,34 @@ async function checkinDungeon(dungeonName: DungeonName, characterId: string | un
   })
 }
 
-function formatDateWithTimestamp(date: Timestamp | undefined) {
-  if (!date) {
-    return ''
+async function checkinDungeonAt(dungeonName: DungeonName, characterId: string | undefined, checkinAt: string) {
+  if (!characterId) {
+    consola.error('No characterId provided')
+    return
   }
-  return dayjs(date.toDate()).tz('Asia/Bangkok').format('YYYY-MM-DD HH:mm:ss')
-}
-
-function formatDateWithDayjs(date: dayjs.Dayjs | undefined) {
-  if (!date) {
-    return ''
-  }
-  return date.format('YYYY-MM-DD HH:mm:ss')
-}
-
-function getNextTime(dungeonName: DungeonName, lastDate: Timestamp | undefined) {
-  if (!lastDate) {
-    return undefined
-  }
-  
-  switch (dungeonName) {
-    case DungeonName.ConstellationTower:
-      return dayjs(lastDate.toDate()).add(3, 'day').set('hour', 4).set('minute', 0).set('second', 0)
-    case DungeonName.OldGlastHeimChallenge:
-      return dayjs(lastDate.toDate()).add(3, 'day').set('hour', 4).set('minute', 0).set('second', 0)
-    case DungeonName.SunkenTower:
-      return dayjs(lastDate.toDate()).add(3, 'day').set('hour', 4).set('minute', 0).set('second', 0)
-    case DungeonName.GeffenNightArena:
-      return dayjs(lastDate.toDate()).add(3, 'day').set('hour', 4).set('minute', 0).set('second', 0)
-    default:
-      return undefined
-  }
-}
-
-function formatDateAsFromNowOrToNow(date: dayjs.Dayjs | undefined) {
-  if (!date) {
-    return ''
+  const auth = getAuth(useNuxtApp().$firebaseApp())
+  const user = auth.currentUser
+  if (!user) {
+    consola.error('No user is signed in')
+    return
   }
 
-  if (dayjs().isSameOrBefore(dayjs(date))) {
-    return `in ${dayjs(date).toNow(true)}`
-  } else {
-    return `${dayjs(date).fromNow(true)} ago`
-  }
+  isApiWorking.value = true
+
+  const firestoreDB = getFirestore(useNuxtApp().$firebaseApp(), 'ro-dungeon-notification')
+  const docRef = doc(firestoreDB, '/characters', characterId)
+  const docData: any = {}
+  docData[`checkin_${dungeonName}_at`] = Timestamp.fromDate(new Date(checkinAt))
+
+  await updateDoc(docRef, docData)
+
+  await fetchAllCharactersForUser()
+  isApiWorking.value = false
+
+  const analytics = getAnalytics(useNuxtApp().$firebaseApp())
+  logEvent(analytics, "checkin_at_dungeon", {
+    name: dungeonName,
+  })
 }
 // #endregion methods
 </script>
@@ -456,131 +414,13 @@ function formatDateAsFromNowOrToNow(date: dayjs.Dayjs | undefined) {
         <!-- #region character cards -->
         <template v-for="character in characters" :key="character.uid">
           <!-- #region character card -->
-          <div class="ring rounded-md p-3 shadow-md">
-            <!-- #region card header -->
-            <div class="flex flex-row justify-between gap-3">
-              <h3 class="text-xl">{{ character.name }}</h3>
-              <button 
-                type="button"
-                class="bg-red-500 text-white p-3 rounded cursor-pointer float-right"
-                :disabled="isApiWorking"
-                @click="deleteCharacter(character.docId)"
-              >
-                Remove this character
-              </button>
-            </div>
-            <!-- #region card header -->
-
-            <!-- #region card body -->
-            <div class="flex flex-col gap-3">
-              <div>Dungeon Logs</div>
-
-              <!-- #region ConstellationTower -->
-              <div class="bg-gray-200 p-3 rounded-md">
-                <div class="flex flex-row justify-between items-center">
-                  <span class="font-bold">
-                    Constellation Tower - Betelguese (cooldown 3 days)
-                  </span>
-                  <button 
-                    type="button"
-                    class="bg-blue-500 text-white px-2 py-1 rounded cursor-pointer"
-                    :disabled="isApiWorking"
-                    @click="checkinDungeon(DungeonName.ConstellationTower, character.docId)"
-                  >
-                    Check In
-                  </button>
-                </div>
-                <div>Quest: ผลกระทบจากการเข้าไปในหอคอย</div>
-                <div v-if="character.checkin_constellation_tower_at">
-                  Last time: {{ formatDateWithTimestamp(character.checkin_constellation_tower_at) }}
-                </div>
-                <div v-if="character.checkin_constellation_tower_at">
-                  Next time: {{ formatDateWithDayjs(getNextTime(DungeonName.ConstellationTower, character.checkin_constellation_tower_at)) }}
-                  ({{ formatDateAsFromNowOrToNow(getNextTime(DungeonName.ConstellationTower, character.checkin_constellation_tower_at)) }})
-                </div>
-              </div>
-              <!-- #endregion ConstellationTower -->
-
-              <!-- #region OldGlastHeimChallenge -->
-              <div class="bg-gray-200 p-3 rounded-md">
-                <div class="flex flex-row justify-between items-center">
-                  <span class="font-bold">
-                    Old Glast Heim Challenge - OGHC (cooldown 3 days)
-                  </span>
-                  <button 
-                    type="button"
-                    class="bg-blue-500 text-white px-2 py-1 rounded cursor-pointer"
-                    :disabled="isApiWorking"
-                    @click="checkinDungeon(DungeonName.OldGlastHeimChallenge, character.docId)"
-                  >
-                    Check In
-                  </button>
-                </div>
-                <div>Quest:</div>
-                <div v-if="character.checkin_old_glast_heim_challenge_at">
-                  Last time: {{ formatDateWithTimestamp(character.checkin_old_glast_heim_challenge_at) }}
-                </div>
-                <div v-if="character.checkin_old_glast_heim_challenge_at">
-                  Next time: {{ formatDateWithDayjs(getNextTime(DungeonName.OldGlastHeimChallenge, character.checkin_old_glast_heim_challenge_at)) }}
-                  ({{ formatDateAsFromNowOrToNow(getNextTime(DungeonName.OldGlastHeimChallenge, character.checkin_old_glast_heim_challenge_at)) }})
-                </div>
-              </div>
-              <!-- #endregion OldGlastHeimChallenge -->
-
-              <!-- #region SunkenTower -->
-              <div class="bg-gray-200 p-3 rounded-md">
-                <div class="flex flex-row justify-between items-center">
-                  <span class="font-bold">
-                    Sunken Tower - น้ำแตก (cooldown 3 days)
-                  </span>
-                  <button 
-                    type="button"
-                    class="bg-blue-500 text-white px-2 py-1 rounded cursor-pointer"
-                    :disabled="isApiWorking"
-                    @click="checkinDungeon(DungeonName.SunkenTower, character.docId)"
-                  >
-                    Check In
-                  </button>
-                </div>
-                <div>Quest: เวลาระบายน้ำ</div>
-                <div v-if="character.checkin_sunken_tower_at">
-                  Last time: {{ formatDateWithTimestamp(character.checkin_sunken_tower_at) }}
-                </div>
-                <div v-if="character.checkin_sunken_tower_at">
-                  Next time: {{ formatDateWithDayjs(getNextTime(DungeonName.SunkenTower, character.checkin_sunken_tower_at)) }}
-                  ({{ formatDateAsFromNowOrToNow(getNextTime(DungeonName.SunkenTower, character.checkin_sunken_tower_at)) }})
-                </div>
-              </div>
-              <!-- #endregion SunkenTower -->
-
-              <!-- #region GeffenNightArena -->
-              <div class="bg-gray-200 p-3 rounded-md">
-                <div class="flex flex-row justify-between items-center">
-                  <span class="font-bold">
-                    Geffen Night Arena (cooldown 3 days)
-                  </span>
-                  <button 
-                    type="button"
-                    class="bg-blue-500 text-white px-2 py-1 rounded cursor-pointer"
-                    :disabled="isApiWorking"
-                    @click="checkinDungeon(DungeonName.GeffenNightArena, character.docId)"
-                  >
-                    Check In
-                  </button>
-                </div>
-                <div>Quest: [Waiting] วันนี้ไม่มีการแข่งขัน</div>
-                <div v-if="character.checkin_geffen_night_arena_at">
-                  Last time: {{ formatDateWithTimestamp(character.checkin_geffen_night_arena_at) }}
-                </div>
-                <div v-if="character.checkin_geffen_night_arena_at">
-                  Next time: {{ formatDateWithDayjs(getNextTime(DungeonName.GeffenNightArena, character.checkin_geffen_night_arena_at)) }}
-                  ({{ formatDateAsFromNowOrToNow(getNextTime(DungeonName.GeffenNightArena, character.checkin_geffen_night_arena_at)) }})
-                </div>
-              </div>
-              <!-- #endregion GeffenNightArena -->
-            </div>
-            <!-- #endregion card body -->
-          </div>
+          <LazyComplexDungeonLoginCardViewV1 
+            :character="character"
+            :isApiWorking="isApiWorking"
+            @checkinDungeon="checkinDungeon"
+            @checkinDungeonAt="checkinDungeonAt"
+            @deleteCharacter="deleteCharacter"
+          />
           <!-- #endregion character card -->
         </template>
         <!-- #endregion character cards -->
