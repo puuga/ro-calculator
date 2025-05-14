@@ -7,7 +7,7 @@ useHead(getHead(RN_TOOL_ETEL_DUST_CALCULATOR))
 
 
 //#region data...
-const priceEtelDust = ref(150_000) // default value
+const priceEtelDust = ref(25_000) // default value
 
 const tableEtelDust = {
   name: "Etel Dust",
@@ -63,7 +63,7 @@ function formatNumber(value: number): string {
           min="1" 
           step="1" 
           placeholder="Enter Etel Dust Price"
-          class="border-2 border-gray-500 rounded-md p-3"
+          class="border-2 border-gray-500 rounded-md p-3 w-60"
           v-model.number="priceEtelDust"
         />
       </div>
@@ -93,6 +93,25 @@ function formatNumber(value: number): string {
             </td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr class="bg-gray-100">
+            <td colspan="2" class="border border-gray-300 p-2 text-center">Total</td>
+            <td class="border border-gray-300 p-2 text-center">
+              {{ formatNumber(tableEtelDust.table.rows.reduce((acc, row) => acc + +row[2], 0)) }}
+            </td>
+            <td class="border border-gray-300 p-2 text-center">
+              {{ formatNumber(tableEtelDust.table.rows.reduce((acc, row) => acc + +row[3], 0)) }}
+            </td>
+            <td colspan="2" class="border border-gray-300 p-2 text-center"></td>
+            <td class="border border-gray-300 p-2 text-center">
+              {{ formatNumber(tableEtelDust.table.rows.reduce((acc, row) => acc + +row[6], 0)) }}
+            </td>
+            <td class="border border-gray-300 p-2 text-center"></td>
+            <td class="border border-gray-300 p-2 text-center">
+              <strong>{{ formatNumber(totalCost(tableEtelDust.table.rows.reduce((acc, row) => acc + +row[6], 0), priceEtelDust, tableEtelDust.table.rows.reduce((acc, row) => acc + +row[3], 0))) }}</strong>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
 
