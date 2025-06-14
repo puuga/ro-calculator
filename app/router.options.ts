@@ -20,6 +20,7 @@ export const RN_PATENT_WEAPON_ENCHANTMENT = 'patent-weapon-enchantment'
 export const RN_TOOL_BUILD_RUNE_SUCCESS_RATE = 'tool-build-rune-success-rate'
 export const RN_TOOL_ETEL_DUST_CALCULATOR = 'tool-etel-dust-calculator'
 export const RN_DUNGEON_NOTIFICATION = 'dungeon-notification'
+export const RN_REFINE_SIMULATOR = 'refine-simulator'
 
 export const routeData = [
   {
@@ -127,6 +128,13 @@ export const routeData = [
     title: 'Dungeon Notification | RO-Calculator',
     description: 'Dungeon Notification',
     component: () => import('~/pages/DungeonNotificationView.client.vue'),
+  },
+  {
+    path: '/refine-simulator',
+    name: RN_REFINE_SIMULATOR,
+    title: 'Refine Simulator | RO-Calculator',
+    description: 'Refine Simulator',
+    component: () => import('~/pages/RefineSimulatorView.vue'),
   },
 ]
 
