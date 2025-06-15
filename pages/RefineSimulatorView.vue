@@ -6,6 +6,9 @@ import { getAnalytics, logEvent } from 'firebase/analytics'
 import { RN_REFINE_SIMULATOR, getHead } from '@/app/router.options'
 
 // #region data
+const soundRefineSuccess = '/sounds/ro-blacksmith-refine-success.mp3'
+const soundRefineFail = '/sounds/ro-blacksmith-refine-failed.mp3'
+
 enum Ore {
   Normal = 'Normal',
   Cash = 'Cash',
@@ -459,12 +462,18 @@ function refine() {
   const randomValue = Math.random()
   const isSuccess = randomValue < successRate
 
+  refineLog.value += `Refine from Level [${currentRefine.value}] to Level [${currentRefine.value + 1}] at ${Math.trunc(successRate * 100)}% success rate.\n`
+  refineLog.value += `Random = ${randomValue}\n`
+
   if (isSuccess) {
-    refineLog.value += `Refine successful! Level ${currentRefine.value} at ${successRate}% success rate (${randomValue}).\n`
+    refineLog.value += `Refine successful!\n`
     currentRefine.value += 1
     refineLog.value += `You got Level ${currentRefine.value}.\n`
+
+    const audio = new Audio(soundRefineSuccess)
+    audio.play()
   } else {
-    refineLog.value += `Refine failed! Level ${currentRefine.value} at ${successRate}% success rate (${randomValue}).\n`
+    refineLog.value += `Refine failed!\n`
     if (isUseBlacksmithBlessing.value === true) {
       refineLog.value += 'Using Blacksmith Blessing to keep the current level.\n'
     } else if (selectedEquipment.value.equipmentType === equipmentType.Armor 
@@ -514,12 +523,17 @@ function refine() {
     } else {
       refineLog.value += `You got Level ${currentRefine.value}.\n`
     }
+
+    const audio = new Audio(soundRefineFail)
+    audio.play()
   }
 
   refineLog.value += `\n`
   const textarea = document.getElementById('refineLog')
   if (textarea) {
-    textarea.scrollTop = textarea.scrollHeight
+    nextTick(() => {
+      textarea.scrollTop = textarea.scrollHeight
+    })
   }
   
 }
@@ -547,58 +561,70 @@ function canRefine() {
   <main class="container mx-auto px-3 md:px-0">
     <h1 class="text-4xl font-bold">Refine Simulator | RO-Calculator</h1>
 
-    <!-- #region form -->
-    <div class="my-3">
-      <div class="">
-        <label for="equipment" class="block font-medium text-gray-700">Equipment</label>
-        <select 
-          id="equipment" 
-          v-model="selectedEquipment" 
-          class="my-1 p-3 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-        >
-          <option v-for="option in equipmentOptions" :key="option.label" :value="option.value">{{ option.label }}</option>
-        </select>
-      </div>
-    </div>
-    <!-- #endregion form -->
-
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-3">
       <!-- #region simalator -->
       <div class="flex flex-col gap-4">
         <h2 class="text-4xl font-semibold">Simalator</h2>
 
-        <div>
-          <div>
-            <div>Ore</div>
-            <div>
-              <input type="radio" id="useNormalOre" v-model="selectedOre" :value="Ore.Normal" class="mr-2">
-              <label for="useNormalOre" class="font-medium text-gray-700">Use Normal Ore</label>
-              <input type="radio" id="useCashOre" v-model="selectedOre" :value="Ore.Cash" class="ml-4 mr-2">
-              <label for="useCashOre" class="font-medium text-gray-700">Use Cash Ore</label>
+        <div class="flex flex-col gap-4">
+          <div class="grid grid-cols-2 gap-4">
+            <!-- #region Equipment -->
+            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white">
+              <label for="equipment" class="block font-medium text-gray-700">Equipment</label>
+              <select 
+                id="equipment" 
+                v-model="selectedEquipment" 
+                class="my-1 p-3 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              >
+                <option v-for="option in equipmentOptions" :key="option.label" :value="option.value">{{ option.label }}</option>
+              </select>
             </div>
+            <!-- #endregion Equipment -->
+
+            <!-- #region Ore -->
+            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white">
+              <div>Ore</div>
+              <div>
+                <input type="radio" id="useNormalOre" v-model="selectedOre" :value="Ore.Normal" class="mr-2">
+                <label for="useNormalOre" class="font-medium text-gray-700">Use Normal Ore</label>
+              </div>
+              <div>
+                <input type="radio" id="useCashOre" v-model="selectedOre" :value="Ore.Cash" class="mr-2">
+                <label for="useCashOre" class="font-medium text-gray-700">Use Cash Ore</label>
+              </div>
+            </div>
+            <!-- #endregion Ore -->
+
+            <!-- #region Event / Not Event -->
+            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white">
+              <div>Event / Not Event</div>
+              <div>
+                <input type="radio" id="inEvent" v-model="selectedEvent" :value="true" class="mr-2">
+                <label for="inEvent" class="font-medium text-gray-700">In Event</label>
+              </div>
+              <div>
+                <input type="radio" id="notInEvent" v-model="selectedEvent" :value="false" class="mr-2">
+                <label for="notInEvent" class="font-medium text-gray-700">Not In Event</label>
+              </div>
+            </div>
+            <!-- #endregion Event / Not Event -->
+
+            <!-- #region Blacksmith Blessing -->
+            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white">
+              <div>Blacksmith Blessing</div>
+              <div>
+                <input type="radio" id="useBlacksmithBlessing" v-model="isUseBlacksmithBlessing" :value="true" class="mr-2">
+                <label for="useBlacksmithBlessing" class="font-medium text-gray-700">Use Blacksmith Blessing</label>
+              </div>
+              <div>
+                <input type="radio" id="noBlacksmithBlessing" v-model="isUseBlacksmithBlessing" :value="false" class="mr-2">
+                <label for="noBlacksmithBlessing" class="font-medium text-gray-700">No Blacksmith Blessing</label>
+              </div>
+            </div>
+            <!-- #endregion Blacksmith Blessing -->
           </div>
 
-          <div>
-            <div>Event / Not Event</div>
-            <div>
-              <input type="radio" id="inEvent" v-model="selectedEvent" :value="true" class="mr-2">
-              <label for="inEvent" class="font-medium text-gray-700">In Event</label>
-              <input type="radio" id="notInEvent" v-model="selectedEvent" :value="false" class="ml-4 mr-2">
-              <label for="notInEvent" class="font-medium text-gray-700">Not In Event</label>
-            </div>
-          </div>
-
-          <div>
-            <div>Blacksmith Blessing</div>
-            <div>
-              <input type="radio" id="useBlacksmithBlessing" v-model="isUseBlacksmithBlessing" :value="true" class="mr-2">
-              <label for="useBlacksmithBlessing" class="font-medium text-gray-700">Use Blacksmith Blessing</label>
-              <input type="radio" id="noBlacksmithBlessing" v-model="isUseBlacksmithBlessing" :value="false" class="ml-4 mr-2">
-              <label for="noBlacksmithBlessing" class="font-medium text-gray-700">No Blacksmith Blessing</label>
-            </div>
-          </div>
-
-          <div>
+          <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white text-3xl">
             Current Refine Level: {{ currentRefine }}
           </div>
 
@@ -606,7 +632,7 @@ function canRefine() {
             <button
               type="button"
               @click="refine"
-              class="mt-3 px-4 py-2 bg-indigo-600 disabled:bg-indigo-200 text-white rounded-md shadow-sm hover:bg-indigo-700 disabled:hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="px-4 py-2 bg-indigo-600 disabled:bg-indigo-200 text-white rounded-md shadow-sm hover:bg-indigo-700 disabled:hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               :disabled="!canRefine()"
             >
               Refine
@@ -615,7 +641,7 @@ function canRefine() {
             <button 
               type="button"
               @click="reset"
-              class="mt-3 ml-2 px-4 py-2 bg-gray-300 text-gray-800 rounded-md shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+              class="ml-2 px-4 py-2 bg-gray-300 text-gray-800 rounded-md shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
             >
               Reset
             </button>
@@ -642,11 +668,21 @@ function canRefine() {
           <table class="table-auto border-collapse w-full">
             <thead>
               <tr>
-                <th class="border border-gray-300 bg-gray-50">Refine</th>
-                <th class="border border-gray-300 bg-gray-100">Normal - Not Event</th>
-                <th class="border border-gray-300 bg-gray-100">Normal - Event</th>
-                <th class="border border-gray-300 bg-gray-200">Cash - Not Event</th>
-                <th class="border border-gray-300 bg-gray-200">Cash - Event</th>
+                <th class="border border-gray-300 bg-gray-50">
+                  Refine
+                </th>
+                <th class="border border-gray-300 bg-gray-100">
+                  Normal Ore<br>Not Event
+                </th>
+                <th class="border border-gray-300 bg-gray-100">
+                  Normal Ore<br>Event
+                </th>
+                <th class="border border-gray-300 bg-gray-200">
+                  Cash Ore<br>Not Event
+                </th>
+                <th class="border border-gray-300 bg-gray-200">
+                  Cash Ore<br>Event
+                </th>
               </tr>
             </thead>
 
