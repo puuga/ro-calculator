@@ -37,6 +37,7 @@ export default defineNuxtConfig({
         '/RuneKnightView',
         '/ToolBuildRuneSuccessRateView',
         '/EtelDustCalculator',
+        '/RefineSimulator'
       ],
     },
   },
