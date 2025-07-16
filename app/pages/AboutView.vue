@@ -3,7 +3,7 @@
     <h1 class="text-4xl font-bold">Siwawes Wongcharoen</h1>
 
     <div>
-      <a target="_blank" href="https://nuxt.com/" rel="noopener noreferrer">Nuxt 3</a>
+      <a target="_blank" href="https://nuxt.com/" rel="noopener noreferrer">Nuxt 4</a>
     </div>
 
     <div>

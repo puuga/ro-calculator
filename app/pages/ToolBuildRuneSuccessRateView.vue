@@ -2,7 +2,7 @@
 import { consola } from 'consola'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
-import { RN_TOOL_BUILD_RUNE_SUCCESS_RATE, getHead } from '@/app/router.options'
+import { RN_TOOL_BUILD_RUNE_SUCCESS_RATE, getHead } from '@/router.options'
 
 //#region use...
 useHead(getHead(RN_TOOL_BUILD_RUNE_SUCCESS_RATE))

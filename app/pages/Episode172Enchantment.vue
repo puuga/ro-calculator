@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RN_EPISODE_172_ENCHANTMENT, getHead } from '@/app/router.options'
+import { RN_EPISODE_172_ENCHANTMENT, getHead } from '@/router.options'
 
 import AutomaticArmorAtypeViewV1 from "@/components/equipments/illusion172/AutomaticArmorAtypeViewV1.vue";
 import AutomaticArmorBtypeViewV1 from "@/components/equipments/illusion172/AutomaticArmorBtypeViewV1.vue";

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { routeData as links } from '@/app/router.options';
+import { routeData as links } from '@/router.options';
 
 </script>
 

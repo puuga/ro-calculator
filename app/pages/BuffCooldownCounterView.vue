@@ -2,7 +2,7 @@
 import { consola } from 'consola'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
-import { RN_BUFF_COOLDOWN_COUNTER_TOOL, getHead } from '@/app/router.options'
+import { RN_BUFF_COOLDOWN_COUNTER_TOOL, getHead } from '@/router.options'
 
 //#region use...
 useHead(getHead(RN_BUFF_COOLDOWN_COUNTER_TOOL))

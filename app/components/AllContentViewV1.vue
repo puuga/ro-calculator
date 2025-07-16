@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { routeData } from '@/app/router.options'
+import { routeData } from '@/router.options'
 
 const links = routeData.filter((link) => !['/', '/about'].includes(link.path))
 </script>

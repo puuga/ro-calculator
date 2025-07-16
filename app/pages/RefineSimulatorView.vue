@@ -3,7 +3,7 @@ import { consola } from 'consola'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
 
-import { RN_REFINE_SIMULATOR, getHead } from '@/app/router.options'
+import { RN_REFINE_SIMULATOR, getHead } from '@/router.options'
 
 // #region data
 const soundRefineSuccess = '/sounds/ro-blacksmith-refine-success.mp3'

@@ -2,7 +2,7 @@
 import { consola } from 'consola'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
-import { RN_CRAFTING_NFS_ITEMS, getHead } from '@/app/router.options'
+import { RN_CRAFTING_NFS_ITEMS, getHead } from '@/router.options'
 import { 
   items, 
   getZelumium, 

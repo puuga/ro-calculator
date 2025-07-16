@@ -2,7 +2,7 @@
 import { consola } from 'consola'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
-import { RN_COMBO_ARCHANGEL_WING_AND_ARCHANGEL_BALLOON, getHead } from '@/app/router.options'
+import { RN_COMBO_ARCHANGEL_WING_AND_ARCHANGEL_BALLOON, getHead } from '@/router.options'
 
 //#region use...
 useHead(getHead(RN_COMBO_ARCHANGEL_WING_AND_ARCHANGEL_BALLOON))

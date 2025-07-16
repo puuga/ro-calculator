@@ -38,14 +38,14 @@ function checkinDungeonAt(dungeonNameEnum: DungeonName, characterDocId: string |
   <div class="ring rounded-md p-3 shadow-md">
     <!-- #region card header -->
     <div class="flex flex-row justify-between gap-3">
-      <h3 class="text-xl">{{ character.name }}</h3>
+      <h3 class="text-2xl">{{ character.name }}</h3>
       <button 
         type="button"
         class="flex gap-1 bg-red-500 text-white p-3 rounded cursor-pointer float-right"
         :disabled="isApiWorking"
         @click="$emit('deleteCharacter', character.docId)"
       >
-        <TrashIcon class="h-5 w-5" aria-hidden="true"/> Remove this character
+        <TrashIcon class="h-5 w-5" aria-hidden="true"/> Remove
       </button>
     </div>
     <!-- #region card header -->
@@ -85,7 +85,7 @@ function checkinDungeonAt(dungeonNameEnum: DungeonName, characterDocId: string |
       <LazyComplexDungeonLoginCardBodySlotDungeonViewV1
         :dungeonName="'Sunken Tower - น้ำแตก (cooldown 3 days)'"
         :dungeonNameEnum="DungeonName.SunkenTower"
-        :dungeonDescription="'Quest: เวลารบายน้ำ'"
+        :dungeonDescription="'Quest: เวลาระบายน้ำ'"
         :characterDocId="character.docId"
         :characterCheckinAt="character.checkin_sunken_tower_at"
         :isApiWorking="isApiWorking"

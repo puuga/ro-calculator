@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { GChart } from 'vue-google-charts'
 
-import { RN_EXP_AND_JOB_EXP_TABLE, getHead } from '@/app/router.options'
+import { RN_EXP_AND_JOB_EXP_TABLE, getHead } from '@/router.options'
 import { 
   dataEXPsHeader as tableEXPsHeader,
   dataEXPs as tableEXPs, 

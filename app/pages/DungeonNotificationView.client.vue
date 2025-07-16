@@ -410,7 +410,7 @@ async function checkinDungeonAt(dungeonName: DungeonName, characterId: string | 
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <!-- #region character cards -->
         <template v-for="character in characters" :key="character.uid">
           <!-- #region character card -->

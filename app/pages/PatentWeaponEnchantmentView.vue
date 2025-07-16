@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RN_PATENT_WEAPON_ENCHANTMENT, getHead } from '@/app/router.options'
+import { RN_PATENT_WEAPON_ENCHANTMENT, getHead } from '@/router.options'
 
 //#region use...
 useHead(getHead(RN_PATENT_WEAPON_ENCHANTMENT))

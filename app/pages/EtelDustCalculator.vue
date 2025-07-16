@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RN_TOOL_ETEL_DUST_CALCULATOR, getHead } from '@/app/router.options'
+import { RN_TOOL_ETEL_DUST_CALCULATOR, getHead } from '@/router.options'
 
 //#region use...
 useHead(getHead(RN_TOOL_ETEL_DUST_CALCULATOR))

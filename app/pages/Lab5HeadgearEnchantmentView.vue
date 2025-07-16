@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RN_LAB_5_HEADGEAR_ENCHANTMENT, getHead } from '@/app/router.options'
+import { RN_LAB_5_HEADGEAR_ENCHANTMENT, getHead } from '@/router.options'
 
 //#region use...
 useHead(getHead(RN_LAB_5_HEADGEAR_ENCHANTMENT))

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RN_ENCHANTMENTS, getHead } from '@/app/router.options'
+import { RN_ENCHANTMENTS, getHead } from '@/router.options'
 
 //#region use...
 useHead(getHead(RN_ENCHANTMENTS))
