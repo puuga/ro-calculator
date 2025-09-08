@@ -7,8 +7,12 @@ useHead(getHead(RN_TOOL_ETEL_DUST_CALCULATOR))
 
 
 //#region data...
-const priceEtelDust = ref(25_000) // default value
+const feeShadowdeconToLowGrade = 20_000
+const feeLowGradeToMedium = 10_000
+const feeMediumToHighGrade = 20_000
+const feeHighGradeToSupreme = 50_000
 
+const priceEtelDust = ref(25_000) // default value
 const tableEtelDust = {
   name: "Etel Dust",
   table: {
@@ -31,7 +35,6 @@ const tableEtelDust = {
     ],
   },
 }
-
 const priceShadowdecon = ref(50_000)
 const tableShadowdecon = {
   name: "Shadowdecon",
@@ -52,6 +55,7 @@ const countSupreme = ref(0)
 const countHigh = ref(0)
 const countMedium = ref(0)
 const countLow = ref(0)
+
 const totalShadowdecon = computed(() => {
   return countLow.value
 })
@@ -120,6 +124,17 @@ function onCountLowInput(value: number | null) {
   countHigh.value = 0
   countMedium.value = 0
 }
+
+function totalShadowdeconPrice(): number {
+  return totalShadowdecon.value * priceShadowdecon.value
+}
+
+function totalFeePrice(): number {
+  return (countLow.value * feeShadowdeconToLowGrade) +
+         (countMedium.value * feeLowGradeToMedium) +
+         (countHigh.value * feeMediumToHighGrade) +
+         (countSupreme.value * feeHighGradeToSupreme)
+}
 //#endregion methods...
 </script>
 
@@ -130,8 +145,10 @@ function onCountLowInput(value: number | null) {
       {{ getHead(RN_TOOL_ETEL_DUST_CALCULATOR).title }}
     </h1>
 
+    <!-- #region etel dust -->
     <div class="flex flex-col gap-3 my-5">
       <h3 class="text-2xl">Etel Dust Calculator</h3>
+      <a id="etel-dust-calculator"></a>
 
       <div class="flex flex-col gap-1">
         <label for="iEtelDustPrice">Current Etel Dust Price (Zeny)</label>
@@ -192,11 +209,14 @@ function onCountLowInput(value: number | null) {
         </tfoot>
       </table>
     </div>
+    <!-- #endregion etel dust -->
 
     <hr class="my-10">
 
+    <!-- #region shadowdecon -->
     <div class="flex flex-col gap-3 my-5">
       <h3 class="text-2xl">Shadowdecon Calculator</h3>
+      <a id="shadowdecon-calculator"></a>
 
       <div class="flex flex-col gap-1">
         <label for="iShadowdeconPrice">Current Shadowdecon Dust Price (Zeny)</label>
@@ -206,9 +226,18 @@ function onCountLowInput(value: number | null) {
           min="1" 
           step="1" 
           placeholder="Enter Shadowdecon Dust Price"
-          class="border-2 border-gray-500 rounded-md p-3 w-60"
+          list="shadowdeconPriceOptions"
+          class="border-2 border-gray-500 rounded-md p-3 w-80"
           v-model.number="priceShadowdecon"
         />
+        <datalist id="shadowdeconPriceOptions">
+          <option value="50000">50,000</option>
+          <option value="60000">60,000</option>
+          <option value="70000">70,000</option>
+          <option value="80000">80,000</option>
+          <option value="90000">90,000</option>
+          <option value="100000">100,000</option>
+        </datalist>
       </div>
 
       <table class="table-fixed border-collapse border border-gray-300 ">
@@ -230,9 +259,13 @@ function onCountLowInput(value: number | null) {
                 min="0" 
                 step="1" 
                 v-model.number="countSupreme"
-                class="border-2 border-gray-500 rounded-md p-2 w-20 text-center"
+                class="border-2 border-gray-500 rounded-md p-2 w-32 text-center"
+                list="supremeOptions"
                 @input="onCountSupremeInput(+($event.target as HTMLInputElement).value)"
               />
+              <datalist id="supremeOptions">
+                <option value="100">100</option>
+              </datalist>
             </td>
             <td class="border border-gray-300 p-2 text-center">
               <input 
@@ -240,9 +273,14 @@ function onCountLowInput(value: number | null) {
                 min="0" 
                 step="1" 
                 v-model.number="countHigh"
-                class="border-2 border-gray-500 rounded-md p-2 w-20 text-center"
+                class="border-2 border-gray-500 rounded-md p-2 w-32 text-center"
+                list="highOptions"
                 @input="onCountHighInput(+($event.target as HTMLInputElement).value)"
               />
+              <datalist id="highOptions">
+                <option value="100">100</option>
+                <option value="300">300</option>
+              </datalist>
             </td>
             <td class="border border-gray-300 p-2 text-center">
               <input 
@@ -250,9 +288,15 @@ function onCountLowInput(value: number | null) {
                 min="0" 
                 step="1" 
                 v-model.number="countMedium"
-                class="border-2 border-gray-500 rounded-md p-2 w-20 text-center"
+                class="border-2 border-gray-500 rounded-md p-2 w-32 text-center"
+                list="mediumOptions"
                 @input="onCountMediumInput(+($event.target as HTMLInputElement).value)"
               />
+              <datalist id="mediumOptions">
+                <option value="100">100</option>
+                <option value="300">300</option>
+                <option value="900">900</option>
+              </datalist>
             </td>
             <td class="border border-gray-300 p-2 text-center">
               <input 
@@ -260,9 +304,15 @@ function onCountLowInput(value: number | null) {
                 min="0" 
                 step="1" 
                 v-model.number="countLow"
-                class="border-2 border-gray-500 rounded-md p-2 w-20 text-center"
+                class="border-2 border-gray-500 rounded-md p-2 w-32 text-center"
                 @input="onCountLowInput(+($event.target as HTMLInputElement).value)"
               />
+              <datalist id="lowOptions">
+                <option value="100">100</option>
+                <option value="300">300</option>
+                <option value="900">900</option>
+                <option value="2700">2,700</option>
+              </datalist>
             </td>
             <td class="border border-gray-300 p-2 text-center">
               <strong>{{ totalShadowdecon }}</strong>
@@ -272,16 +322,34 @@ function onCountLowInput(value: number | null) {
         <tfoot>
           <tr class="bg-gray-100">
             <td colspan="5" class="border border-gray-300 p-2 text-center">
-              Total Price
-              <span class="italic">*** Not including trade fees</span>
+              Total Shadowdecon Price
             </td>
             <td class="border border-gray-300 p-2 text-center">
-              <strong>{{ formatNumber(totalShadowdecon * priceShadowdecon) }}</strong>
+              <strong>{{ formatNumber(totalShadowdeconPrice()) }}</strong>
+            </td>
+          </tr>
+
+          <tr class="bg-gray-100">
+            <td colspan="5" class="border border-gray-300 p-2 text-center">
+              Total Fee Price
+            </td>
+            <td class="border border-gray-300 p-2 text-center">
+              <strong>{{ formatNumber(totalFeePrice()) }}</strong>
+            </td>
+          </tr>
+
+          <tr class="bg-gray-100">
+            <td colspan="5" class="border border-gray-300 p-2 text-center">
+              Total Price
+            </td>
+            <td class="border border-gray-300 p-2 text-center">
+              <strong>{{ formatNumber(totalShadowdeconPrice() + totalFeePrice()) }}</strong>
             </td>
           </tr>
         </tfoot>
       </table>
     </div>
+    <!-- #endregion shadowdecon -->
 
     <hr class="my-10">
 
