@@ -303,6 +303,7 @@ function onCountLowInput(value: number | null) {
                 step="1" 
                 v-model.number="countLow"
                 class="border-2 border-gray-500 rounded-md p-2 w-32 text-center"
+                list="lowOptions"
                 @input="onCountLowInput(+($event.target as HTMLInputElement).value)"
               />
               <datalist id="lowOptions">
