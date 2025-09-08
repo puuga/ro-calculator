@@ -59,6 +59,15 @@ const countLow = ref(0)
 const totalShadowdecon = computed(() => {
   return countLow.value
 })
+const totalShadowdeconPrice = computed(() => {
+  return totalShadowdecon.value * priceShadowdecon.value
+})
+const totalFeePrice = computed(() => {
+  return (countLow.value * feeShadowdeconToLowGrade) +
+         (countMedium.value * feeLowGradeToMedium) +
+         (countHigh.value * feeMediumToHighGrade) +
+         (countSupreme.value * feeHighGradeToSupreme)
+})
 //#endregion data...
 
 
@@ -123,17 +132,6 @@ function onCountLowInput(value: number | null) {
   countSupreme.value = 0
   countHigh.value = 0
   countMedium.value = 0
-}
-
-function totalShadowdeconPrice(): number {
-  return totalShadowdecon.value * priceShadowdecon.value
-}
-
-function totalFeePrice(): number {
-  return (countLow.value * feeShadowdeconToLowGrade) +
-         (countMedium.value * feeLowGradeToMedium) +
-         (countHigh.value * feeMediumToHighGrade) +
-         (countSupreme.value * feeHighGradeToSupreme)
 }
 //#endregion methods...
 </script>
@@ -325,7 +323,7 @@ function totalFeePrice(): number {
               Total Shadowdecon Price
             </td>
             <td class="border border-gray-300 p-2 text-center">
-              <strong>{{ formatNumber(totalShadowdeconPrice()) }}</strong>
+              <strong>{{ formatNumber(totalShadowdeconPrice) }}</strong>
             </td>
           </tr>
 
@@ -334,7 +332,7 @@ function totalFeePrice(): number {
               Total Fee Price
             </td>
             <td class="border border-gray-300 p-2 text-center">
-              <strong>{{ formatNumber(totalFeePrice()) }}</strong>
+              <strong>{{ formatNumber(totalFeePrice) }}</strong>
             </td>
           </tr>
 
@@ -343,7 +341,7 @@ function totalFeePrice(): number {
               Total Price
             </td>
             <td class="border border-gray-300 p-2 text-center">
-              <strong>{{ formatNumber(totalShadowdeconPrice() + totalFeePrice()) }}</strong>
+              <strong>{{ formatNumber(totalShadowdeconPrice + totalFeePrice) }}</strong>
             </td>
           </tr>
         </tfoot>
