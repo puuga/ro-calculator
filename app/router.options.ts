@@ -14,6 +14,7 @@ export const RN_ENCHANTMENTS = 'enchantments'
 export const RN_EPISODE_171_ENCHANTMENT = 'episode-171-enchantment'
 export const RN_EPISODE_172_ENCHANTMENT = 'episode-172-enchantment'
 export const RN_BUFF_COOLDOWN_COUNTER_TOOL = 'buff-cooldown-counter-tool'
+export const RN_BUFF_NOTIFICATION = 'buff-notification'
 export const RN_CRAFTING_NFS_ITEMS = 'crafting-nfs-items'
 export const RN_COMBO_ARCHANGEL_WING_AND_ARCHANGEL_BALLOON = 'combo-archangel-wing-and-archangel-balloon'
 export const RN_PATENT_WEAPON_ENCHANTMENT = 'patent-weapon-enchantment'
@@ -86,6 +87,13 @@ export const routeData = [
     title: 'Cooldown Counter | RO-Calculator',
     description: 'Cooldown Counter Tool',
     component: () => import('@/pages/BuffCooldownCounterView.vue'),
+  },
+  {
+    path: '/buff-notification',
+    name: RN_BUFF_NOTIFICATION,
+    title: 'Buff Notification | RO-Calculator',
+    description: 'Buff Notification Tool',
+    component: () => import('@/pages/BuffNotificationView.vue'),
   },
   {
     path: '/crafting-nfs-items',

@@ -9,6 +9,8 @@ const links: Link[] = [
   { group: 'Battle Pass', title: 'Battle Pass Season 5', path: 'https://ro.gnjoy.in.th/RO_Battle_Pass_ss5/', tags: ['BP'] },
   { group: 'Battle Pass', title: 'Battle Pass Season 6', path: 'https://ro.gnjoy.in.th/battle-pass-season-vi-welcome-4th-world/', tags: ['BP'] },
   { group: 'Battle Pass', title: 'Battle Pass Season 7', path: 'https://ro.gnjoy.in.th/battlepass_7/', tags: ['BP'] },
+  
+  { group: 'Mystical Pass', title: 'Mystical Pass 1', path: 'https://ro.gnjoy.in.th/mystical-pass-constellation-tower-main/', tags: ['BP', 'MP'] },
 
   { group: 'Quest Board', title: 'New Eden Group Update Quest', path: 'https://ro.gnjoy.in.th/new-eden-group-update-quest/', tags: ['Quest'] },
 
