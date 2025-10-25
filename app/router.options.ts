@@ -91,7 +91,7 @@ export const routeData = [
   {
     path: '/buff-notification',
     name: RN_BUFF_NOTIFICATION,
-    title: 'Buff Notification | RO-Calculator',
+    title: 'Buff Notification | RO-Calculator [Beta]',
     description: 'Buff Notification Tool',
     component: () => import('@/pages/BuffNotificationView.vue'),
   },

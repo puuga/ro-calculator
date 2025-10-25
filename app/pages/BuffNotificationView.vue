@@ -183,7 +183,7 @@ function getImageDataBuffer(imgElement: HTMLImageElement) {
 
 <template>
   <main class="container mx-auto">
-    <h1 class="text-4xl font-bold">Buff Notification | RO-Calculator</h1>
+    <h1 class="text-4xl font-bold">Buff Notification | RO-Calculator [Beta]</h1>
 
     <div>SEO: Buff Notification</div>
 
