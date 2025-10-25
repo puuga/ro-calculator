@@ -211,7 +211,7 @@ function getImageDataBuffer(imgElement: HTMLImageElement) {
         Log:
         <pre id="log" ref="log"></pre>
         Preview Screenshot (Every 1 second):
-        <canvas id="screenshot" ref="screenshot" alt="" class="max-w-full"></canvas>
+        <canvas id="screenshot" ref="screenshot" class="max-w-full"></canvas>
       </div>
     </div>
     <!-- #endregion content -->
