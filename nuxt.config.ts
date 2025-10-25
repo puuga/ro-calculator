@@ -25,6 +25,7 @@ export default defineNuxtConfig({
       ignore: [
         '/AboutView',
         '/BuffCooldownCounterView',
+        '/BuffNotificationView',
         '/ComboArchangelWingAndArchangelBalloonPage',
         '/CraftingNotForSaleItemsView',
         '/DungeonNotificationView',
