@@ -12,6 +12,8 @@ const links: Link[] = [
   
   { group: 'Mystical Pass', title: 'Mystical Pass 1', path: 'https://ro.gnjoy.in.th/mystical-pass-constellation-tower-main/', tags: ['BP', 'MP'] },
 
+  { group: 'Long Event', title: 'STARHALL MISSION', path: 'https://ro.gnjoy.in.th/ragnarok-starhall-mission/', tags: [] },
+
   { group: 'Quest Board', title: 'New Eden Group Update Quest', path: 'https://ro.gnjoy.in.th/new-eden-group-update-quest/', tags: ['Quest'] },
 
   { group: 'System', title: 'Geffen Magic Tournament Enchant System Update!', path: 'https://ro.gnjoy.in.th/geffen-magic-tournament-enchant-system-update/', tags: ['Enchant', 'Geffen Magic Accessory', 'Geffen Magic Armor', 'Thanos Weapon'] },
