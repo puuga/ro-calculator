@@ -19,6 +19,8 @@ const links: Link[] = [
   { group: 'System', title: 'Geffen Magic Tournament Enchant System Update!', path: 'https://ro.gnjoy.in.th/geffen-magic-tournament-enchant-system-update/', tags: ['Enchant', 'Geffen Magic Accessory', 'Geffen Magic Armor', 'Thanos Weapon'] },
   { group: 'System', title: 'Item Grade&Reform System', path: 'https://ro.gnjoy.in.th/item-gradereform/', tags: ['Item Grade', 'Reform System'] },
   
+  { group: 'Episode 19', title: 'Episode 19 : Issgard, Land of Snow Flowers', path: 'https://ro.gnjoy.in.th/episode-19-issgard-land-of-snow-flowers-main/', tags: ['Quest', 'Guide'] },
+  { group: 'Episode 19', title: 'Episode 19 : Issgard, Land of Snow Flowers', path: 'https://ro.gnjoy.in.th/event/ep19/index.html', tags: [] },
   { group: 'Episode 18', title: 'Episode 18 : Quest Guide', path: 'https://ro.gnjoy.in.th/episode-18-quest-guide/', tags: ['Quest', 'Guide'] },
   { group: 'Episode 18', title: 'Episode 18', path: 'https://ro.gnjoy.in.th/episode18DirectionPrayer/Patch.html', tags: ['Story', 'Quest'] },
   { group: 'Episode 17.2', title: 'Episode 17.2 : Daily Quest', path: 'https://ro.gnjoy.in.th/daily-quest-ep-17-2/', tags: ['Story', 'Quest'] },
