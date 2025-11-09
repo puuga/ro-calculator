@@ -9,17 +9,17 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
-    "nuxt": "^4.2.0"
+    "nuxt": "^4.2.1"
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
-    "@tailwindcss/vite": "^4.1.16",
+    "@tailwindcss/vite": "^4.1.17",
     "consola": "^3.4.0",
-    "dayjs": "^1.11.18",
-    "firebase": "^12.4.0",
+    "dayjs": "^1.11.19",
+    "firebase": "^12.5.0",
     "heroicons": "^2.2.0",
-    "tailwindcss": "^4.1.16",
+    "tailwindcss": "^4.1.17",
     "vue-google-charts": "^1.1.0"
   }
 }
