@@ -8,6 +8,27 @@
   --list-style-type-square: square;
 }
 
+/* Dark mode variables */
+:root {
+  --color-bg: #f8fafc;
+  --color-text: #1e293b;
+  --color-card: #f1f5f9;
+  --color-btn-primary: #4f46e5;
+  --color-btn-primary-text: #fff;
+  --color-btn-secondary: #e2e8f0;
+  --color-btn-secondary-text: #000;
+}
+
+[data-theme="dark"] {
+  --color-bg: #18181b;
+  --color-text: #f1f5f9;
+  --color-card: #27272a;
+  --color-btn-primary: #6366f1;
+  --color-btn-primary-text: #fff;
+  --color-btn-secondary: #334155;
+  --color-btn-secondary-text: #fff;
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -27,19 +48,33 @@
 }
 
 @utility c-skill-card {
-  @apply container p-3 bg-slate-100 rounded-xl divide-y divide-solid shadow-xl;
+  @apply container p-3 rounded-xl divide-y divide-solid shadow-xl;
+  background-color: var(--color-card);
+  color: var(--color-text);
 }
 
 @utility c-card {
-  @apply container p-3 bg-slate-100 rounded-xl shadow-xl;
+  @apply container p-3 rounded-xl shadow-xl;
+  background-color: var(--color-card);
+  color: var(--color-text);
 }
 
 @utility c-btn-primary {
-  @apply inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-xs hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+  @apply inline-flex justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium shadow-xs focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+  background-color: var(--color-btn-primary);
+  color: var(--color-btn-primary-text);
+  &:hover {
+    background-color: #6366f1;
+  }
 }
 
 @utility c-btn-secondary {
-  @apply inline-flex justify-center rounded-md border border-transparent bg-slate-300 py-2 px-4 text-sm font-medium text-black shadow-xs hover:bg-slate-500 focus:outline-hidden focus:ring-2 focus:bg-slate-700 focus:ring-offset-2;
+  @apply inline-flex justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium shadow-xs focus:outline-hidden focus:ring-2 focus:bg-slate-700 focus:ring-offset-2;
+  background-color: var(--color-btn-secondary);
+  color: var(--color-btn-secondary-text);
+  &:hover {
+    background-color: #64748b;
+  }
 }
 
 @utility c-btn-disabled {
@@ -51,7 +86,8 @@
 }
 
 @utility c-input-label {
-  @apply block text-sm font-medium text-gray-700;
+  @apply block text-sm font-medium;
+  color: var(--color-text);
 }
 
 @utility c-table {
