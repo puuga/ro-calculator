@@ -8,15 +8,25 @@
 
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, onBeforeUnmount } from 'vue';
+
+let mediaQuery;
+
+const handleColorSchemeChange = (e) => {
+  document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+};
 
 onMounted(() => {
-  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  document.documentElement.setAttribute('data-theme', mediaQuery.matches ? 'dark' : 'light');
 
   // Listen for changes in system preference
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-  });
+  mediaQuery.addEventListener('change', handleColorSchemeChange);
+});
+
+onBeforeUnmount(() => {
+  if (mediaQuery) {
+    mediaQuery.removeEventListener('change', handleColorSchemeChange);
+  }
 });
 </script>
