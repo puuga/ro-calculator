@@ -8,25 +8,15 @@
 
 
 <script setup>
-import { onMounted, onBeforeUnmount } from 'vue';
-
-let mediaQuery;
-
-const handleColorSchemeChange = (e) => {
-  document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-};
+import { onMounted } from 'vue';
 
 onMounted(() => {
-  mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  document.documentElement.setAttribute('data-theme', mediaQuery.matches ? 'dark' : 'light');
+  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
 
   // Listen for changes in system preference
-  mediaQuery.addEventListener('change', handleColorSchemeChange);
-});
-
-onBeforeUnmount(() => {
-  if (mediaQuery) {
-    mediaQuery.removeEventListener('change', handleColorSchemeChange);
-  }
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+  });
 });
 </script>
