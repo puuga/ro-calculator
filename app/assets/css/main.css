@@ -51,7 +51,7 @@
 }
 
 @utility c-input-label {
-  @apply block text-sm font-medium text-gray-700;
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300;
 }
 
 @utility c-table {
