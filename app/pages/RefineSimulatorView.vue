@@ -569,12 +569,12 @@ function canRefine() {
         <div class="flex flex-col gap-4">
           <div class="grid grid-cols-2 gap-4">
             <!-- #region Equipment -->
-            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white">
-              <label for="equipment" class="block font-medium text-gray-700">Equipment</label>
+            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white dark:bg-gray-800">
+              <label for="equipment" class="block font-medium text-gray-700 dark:text-gray-300">Equipment</label>
               <select 
                 id="equipment" 
                 v-model="selectedEquipment" 
-                class="my-1 p-3 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                class="my-1 p-3 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
               >
                 <option v-for="option in equipmentOptions" :key="option.label" :value="option.value">{{ option.label }}</option>
               </select>
@@ -582,49 +582,49 @@ function canRefine() {
             <!-- #endregion Equipment -->
 
             <!-- #region Ore -->
-            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white">
+            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white dark:bg-gray-800">
               <div>Ore</div>
               <div>
                 <input type="radio" id="useNormalOre" v-model="selectedOre" :value="Ore.Normal" class="mr-2">
-                <label for="useNormalOre" class="font-medium text-gray-700">Use Normal Ore</label>
+                <label for="useNormalOre" class="font-medium text-gray-700 dark:text-gray-300">Use Normal Ore</label>
               </div>
               <div>
                 <input type="radio" id="useCashOre" v-model="selectedOre" :value="Ore.Cash" class="mr-2">
-                <label for="useCashOre" class="font-medium text-gray-700">Use Cash Ore</label>
+                <label for="useCashOre" class="font-medium text-gray-700 dark:text-gray-300">Use Cash Ore</label>
               </div>
             </div>
             <!-- #endregion Ore -->
 
             <!-- #region Event / Not Event -->
-            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white">
+            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white dark:bg-gray-800">
               <div>Event / Not Event</div>
               <div>
                 <input type="radio" id="inEvent" v-model="selectedEvent" :value="true" class="mr-2">
-                <label for="inEvent" class="font-medium text-gray-700">In Event</label>
+                <label for="inEvent" class="font-medium text-gray-700 dark:text-gray-300">In Event</label>
               </div>
               <div>
                 <input type="radio" id="notInEvent" v-model="selectedEvent" :value="false" class="mr-2">
-                <label for="notInEvent" class="font-medium text-gray-700">Not In Event</label>
+                <label for="notInEvent" class="font-medium text-gray-700 dark:text-gray-300">Not In Event</label>
               </div>
             </div>
             <!-- #endregion Event / Not Event -->
 
             <!-- #region Blacksmith Blessing -->
-            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white">
+            <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white dark:bg-gray-800">
               <div>Blacksmith Blessing</div>
               <div>
                 <input type="radio" id="useBlacksmithBlessing" v-model="isUseBlacksmithBlessing" :value="true" class="mr-2">
-                <label for="useBlacksmithBlessing" class="font-medium text-gray-700">Use Blacksmith Blessing</label>
+                <label for="useBlacksmithBlessing" class="font-medium text-gray-700 dark:text-gray-300">Use Blacksmith Blessing</label>
               </div>
               <div>
                 <input type="radio" id="noBlacksmithBlessing" v-model="isUseBlacksmithBlessing" :value="false" class="mr-2">
-                <label for="noBlacksmithBlessing" class="font-medium text-gray-700">No Blacksmith Blessing</label>
+                <label for="noBlacksmithBlessing" class="font-medium text-gray-700 dark:text-gray-300">No Blacksmith Blessing</label>
               </div>
             </div>
             <!-- #endregion Blacksmith Blessing -->
           </div>
 
-          <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white text-3xl">
+          <div class="ring-1 ring-gray-200 p-4 rounded-md shadow-sm bg-white dark:bg-gray-800 text-3xl">
             Current Refine Level: {{ currentRefine }}
           </div>
 
@@ -652,7 +652,7 @@ function canRefine() {
           <textarea
             id="refineLog"
             v-model="refineLog"
-            class="w-full h-64 p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            class="w-full h-64 p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-800 dark:text-white"
             placeholder="Refine log will appear here..."
             readonly
           ></textarea>
@@ -668,19 +668,19 @@ function canRefine() {
           <table class="table-auto border-collapse w-full">
             <thead>
               <tr>
-                <th class="border border-gray-300 bg-gray-50">
+                <th class="border border-gray-300 bg-gray-50 dark:bg-gray-700">
                   Refine
                 </th>
-                <th class="border border-gray-300 bg-gray-100">
+                <th class="border border-gray-300 bg-gray-100 dark:bg-gray-600">
                   Normal Ore<br>Not Event
                 </th>
-                <th class="border border-gray-300 bg-gray-100">
+                <th class="border border-gray-300 bg-gray-100 dark:bg-gray-600">
                   Normal Ore<br>Event
                 </th>
-                <th class="border border-gray-300 bg-gray-200">
+                <th class="border border-gray-300 bg-gray-200 dark:bg-gray-700">
                   Cash Ore<br>Not Event
                 </th>
-                <th class="border border-gray-300 bg-gray-200">
+                <th class="border border-gray-300 bg-gray-200 dark:bg-gray-700">
                   Cash Ore<br>Event
                 </th>
               </tr>
@@ -688,17 +688,17 @@ function canRefine() {
 
             <tbody>
               <tr v-for="i in 20">
-                <td class="border border-gray-300 bg-gray-50 text-center">{{ i }}</td>
-                <td class="border border-gray-300 bg-gray-100 text-center">
+                <td class="border border-gray-300 bg-gray-50 dark:bg-gray-600 text-center">{{ i }}</td>
+                <td class="border border-gray-300 bg-gray-100 dark:bg-gray-500 text-center">
                   {{ Math.trunc(getRefineRates(selectedEquipment.level, false, Ore.Normal, selectedEquipment.equipmentType)[i-1].rate * 100) }}%
                 </td>
-                <td class="border border-gray-300 bg-gray-100 text-center">
+                <td class="border border-gray-300 bg-gray-100 dark:bg-gray-500 text-center">
                   {{ Math.trunc(getRefineRates(selectedEquipment.level, true, Ore.Normal, selectedEquipment.equipmentType)[i-1].rate * 100) }}%
                 </td>
-                <td class="border border-gray-300 bg-gray-200 text-center">
+                <td class="border border-gray-300 bg-gray-200 dark:bg-gray-500 text-center">
                   {{ Math.trunc(getRefineRates(selectedEquipment.level, false, Ore.Cash, selectedEquipment.equipmentType)[i-1].rate * 100) }}%
                 </td>
-                <td class="border border-gray-300 bg-gray-200 text-center">
+                <td class="border border-gray-300 bg-gray-200 dark:bg-gray-500 text-center">
                   {{ Math.trunc(getRefineRates(selectedEquipment.level, true, Ore.Cash, selectedEquipment.equipmentType)[i-1].rate * 100) }}%
                 </td>
               </tr>

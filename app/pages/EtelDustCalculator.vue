@@ -156,14 +156,14 @@ function onCountLowInput(value: number | null) {
           min="1" 
           step="1" 
           placeholder="Enter Etel Dust Price"
-          class="border-2 border-gray-500 rounded-md p-3 w-60"
+          class="border-2 border-gray-500 bg-gray-100 dark:bg-gray-700 rounded-md p-3 w-60"
           v-model.number="priceEtelDust"
         />
       </div>
 
       <table class="table-auto border-collapse border border-gray-300 ">
         <thead>
-          <tr class="bg-gray-100">
+          <tr class="bg-gray-100 dark:bg-gray-800">
             <template v-for="column in tableEtelDust.table.columnHeaders">
               <th class="border border-gray-300 p-2 text-center">
                 {{ column }}
@@ -187,7 +187,7 @@ function onCountLowInput(value: number | null) {
           </tr>
         </tbody>
         <tfoot>
-          <tr class="bg-gray-100">
+          <tr class="bg-gray-100 dark:bg-gray-800">
             <td colspan="2" class="border border-gray-300 p-2 text-center">Total</td>
             <td class="border border-gray-300 p-2 text-center">
               {{ formatNumber(tableEtelDust.table.rows.reduce((acc, row) => acc + +(row[2] || 0), 0)) }}
@@ -225,7 +225,7 @@ function onCountLowInput(value: number | null) {
           step="1" 
           placeholder="Enter Shadowdecon Dust Price"
           list="shadowdeconPriceOptions"
-          class="border-2 border-gray-500 rounded-md p-3 w-80"
+          class="border-2 border-gray-500 bg-gray-100 dark:bg-gray-700 rounded-md p-3 w-80"
           v-model.number="priceShadowdecon"
         />
         <datalist id="shadowdeconPriceOptions">
@@ -240,7 +240,7 @@ function onCountLowInput(value: number | null) {
 
       <table class="table-fixed border-collapse border border-gray-300 ">
         <thead>
-          <tr class="bg-gray-100">
+          <tr class="bg-gray-100 dark:bg-gray-800">
             <template v-for="column in tableShadowdecon.table.columnHeaders">
               <th class="border border-gray-300 p-2 text-center">
                 {{ column }}
@@ -257,7 +257,7 @@ function onCountLowInput(value: number | null) {
                 min="0" 
                 step="1" 
                 v-model.number="countSupreme"
-                class="border-2 border-gray-500 rounded-md p-2 w-32 text-center"
+                class="border-2 border-gray-500 bg-gray-100 dark:bg-gray-700 rounded-md p-2 w-32 text-center"
                 list="supremeOptions"
                 @input="onCountSupremeInput(+($event.target as HTMLInputElement).value)"
               />
@@ -271,7 +271,7 @@ function onCountLowInput(value: number | null) {
                 min="0" 
                 step="1" 
                 v-model.number="countHigh"
-                class="border-2 border-gray-500 rounded-md p-2 w-32 text-center"
+                class="border-2 border-gray-500 bg-gray-100 dark:bg-gray-700 rounded-md p-2 w-32 text-center"
                 list="highOptions"
                 @input="onCountHighInput(+($event.target as HTMLInputElement).value)"
               />
@@ -286,7 +286,7 @@ function onCountLowInput(value: number | null) {
                 min="0" 
                 step="1" 
                 v-model.number="countMedium"
-                class="border-2 border-gray-500 rounded-md p-2 w-32 text-center"
+                class="border-2 border-gray-500 bg-gray-100 dark:bg-gray-700 rounded-md p-2 w-32 text-center"
                 list="mediumOptions"
                 @input="onCountMediumInput(+($event.target as HTMLInputElement).value)"
               />
@@ -302,7 +302,7 @@ function onCountLowInput(value: number | null) {
                 min="0" 
                 step="1" 
                 v-model.number="countLow"
-                class="border-2 border-gray-500 rounded-md p-2 w-32 text-center"
+                class="border-2 border-gray-500 bg-gray-100 dark:bg-gray-700 rounded-md p-2 w-32 text-center"
                 list="lowOptions"
                 @input="onCountLowInput(+($event.target as HTMLInputElement).value)"
               />
@@ -319,7 +319,7 @@ function onCountLowInput(value: number | null) {
           </tr>
         </tbody>
         <tfoot>
-          <tr class="bg-gray-100">
+          <tr class="bg-gray-100 dark:bg-gray-800">
             <td colspan="5" class="border border-gray-300 p-2 text-center">
               Total Shadowdecon Price
             </td>
@@ -328,7 +328,7 @@ function onCountLowInput(value: number | null) {
             </td>
           </tr>
 
-          <tr class="bg-gray-100">
+          <tr class="bg-gray-100 dark:bg-gray-800">
             <td colspan="5" class="border border-gray-300 p-2 text-center">
               Total Fee Price
             </td>
@@ -337,7 +337,7 @@ function onCountLowInput(value: number | null) {
             </td>
           </tr>
 
-          <tr class="bg-gray-100">
+          <tr class="bg-gray-100 dark:bg-gray-800">
             <td colspan="5" class="border border-gray-300 p-2 text-center">
               Total Price
             </td>

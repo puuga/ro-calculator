@@ -9,7 +9,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 </script>
 
 <template>
-  <Popover class="relative bg-white">
+  <Popover class="relative bg-white dark:bg-stone-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div
         class="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10"
@@ -29,54 +29,56 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
             </picture>
           </a>
         </div>
+
         <div class="-my-2 -mr-2 md:hidden">
           <PopoverButton
-            class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            class="inline-flex items-center justify-center rounded-md bg-white dark:bg-stone-800 p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-indigo-500"
           >
             <span class="sr-only">Open menu</span>
             <Bars3Icon class="h-6 w-6" aria-hidden="true" />
           </PopoverButton>
         </div>
+        
         <PopoverGroup as="nav" class="hidden space-x-10 md:flex">
           <NuxtLink
             to="/"
-            class="text-base font-medium text-gray-500 hover:text-gray-900"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             Home
           </NuxtLink>
           <NuxtLink
             to="/dungeon-notification"
-            class="text-base font-medium text-gray-500 hover:text-gray-900"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             Dungeon Notification
           </NuxtLink>
           <NuxtLink
             to="/rune-knight"
-            class="text-base font-medium text-gray-500 hover:text-gray-900"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             Rune Knight
           </NuxtLink>
           <NuxtLink
             to="/exp-and-job-exp-table"
-            class="text-base font-medium text-gray-500 hover:text-gray-900"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             EXP &amp; Job EXP
           </NuxtLink>
           <NuxtLink
             to="/lab-5-headgear-enchantment"
-            class="text-base font-medium text-gray-500 hover:text-gray-900"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             Lab 5 Headgear Enchantment
           </NuxtLink>
           <NuxtLink
             to="/enchantments"
-            class="text-base font-medium text-gray-500 hover:text-gray-900"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             Enchantment
           </NuxtLink>
           <NuxtLink
             to="/about"
-            class="text-base font-medium text-gray-500 hover:text-gray-900"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             About
           </NuxtLink>
@@ -110,7 +112,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
               </div>
               <div class="-mr-2">
                 <PopoverButton
-                  class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                  class="inline-flex items-center justify-center rounded-md bg-white dark:bg-stone-800 p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                 >
                   <span class="sr-only">Close menu</span>
                   <XMarkIcon class="h-6 w-6" aria-hidden="true" />
@@ -122,25 +124,25 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
             <div class="grid grid-cols-2 gap-y-4 gap-x-8">
               <NuxtLink
                 to="/"
-                class="text-base font-medium text-gray-900 hover:text-gray-700"
+                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"
               >
                 Home
               </NuxtLink>
               <NuxtLink
                 to="/dungeon-notification"
-                class="text-base font-medium text-gray-900 hover:text-gray-700"
+                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"
               >
                 Dungeon Notification
               </NuxtLink>
               <NuxtLink
                 to="/rune-knight"
-                class="text-base font-medium text-gray-900 hover:text-gray-700"
+                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"
               >
                 Rune Knight
               </NuxtLink>
               <NuxtLink
                 to="/about"
-                class="text-base font-medium text-gray-900 hover:text-gray-700"
+                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"
               >
                 About
               </NuxtLink>
