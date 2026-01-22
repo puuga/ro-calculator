@@ -11,6 +11,8 @@ const links: Link[] = [
   { group: 'Battle Pass', title: 'Battle Pass Season 7', path: 'https://ro.gnjoy.in.th/battlepass_7/', tags: ['BP'] },
   
   { group: 'Mystical Pass', title: 'Mystical Pass 1', path: 'https://ro.gnjoy.in.th/mystical-pass-constellation-tower-main/', tags: ['BP', 'MP'] },
+  { group: 'Mystical Pass', title: 'Mystical Pass 2', path: 'https://ro.gnjoy.in.th/mystical-pass-land-of-snow-flowers-main/', tags: ['BP', 'MP'] },
+
 
   { group: 'Long Event', title: 'STARHALL MISSION', path: 'https://ro.gnjoy.in.th/ragnarok-starhall-mission/', tags: [] },
 
@@ -82,14 +84,14 @@ function getTagsText(tags: string[]): string {
 
       <template v-for="link in getLinksByGroup(group)" :key="link.title">
         <div class="m-1">
-          <div class="flex gap-1 hover:bg-sky-100">
-            <a :href="link.path" class="text-blue-600" target="_blank">
+          <div class="flex gap-1 hover:bg-sky-100 dark:hover:bg-sky-900">
+            <a :href="link.path" class="text-blue-600 dark:text-blue-400" target="_blank">
               {{ link.title }}
             </a>
             
             <div class="flex flex-wrap gap-1">
               <template v-for="tag in link.tags" :key="link.title">
-                <div class="px-1.5 bg-slate-100 ring-1 ring-slate-200 rounded-sm">{{ tag }}</div>
+                <div class="c-badge">{{ tag }}</div>
               </template>
             </div>
           </div>

@@ -27,11 +27,11 @@
 }
 
 @utility c-skill-card {
-  @apply container p-3 bg-slate-100 rounded-xl divide-y divide-solid shadow-xl;
+  @apply p-3 bg-slate-100 dark:bg-slate-800 dark:text-white rounded-xl divide-y divide-solid shadow-xl;
 }
 
 @utility c-card {
-  @apply container p-3 bg-slate-100 rounded-xl shadow-xl;
+  @apply p-3 bg-slate-100 dark:bg-slate-800 dark:text-white rounded-xl shadow-xl;
 }
 
 @utility c-btn-primary {
@@ -55,15 +55,15 @@
 }
 
 @utility c-table {
-  @apply table-fixed border-collapse border border-slate-500;
+  @apply table-fixed border-collapse border border-slate-500 dark:border-slate-300;
 }
 
 @utility c-table-th {
-  @apply p-2 border border-slate-600;
+  @apply p-2 border border-slate-600 dark:border-slate-400;
 }
 
 @utility c-table-td {
-  @apply p-2 border border-slate-700;
+  @apply p-2 border border-slate-700 dark:border-slate-500;
 }
 
 @utility c-badge {
