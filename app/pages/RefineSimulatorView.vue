@@ -574,7 +574,7 @@ function canRefine() {
               <select 
                 id="equipment" 
                 v-model="selectedEquipment" 
-                class="my-1 p-3 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-400 dark:text-white"
+                class="my-1 p-3 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
               >
                 <option v-for="option in equipmentOptions" :key="option.label" :value="option.value">{{ option.label }}</option>
               </select>
