@@ -42,43 +42,43 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
         <PopoverGroup as="nav" class="hidden space-x-10 md:flex">
           <NuxtLink
             to="/"
-            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 hover:dark:text-white"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             Home
           </NuxtLink>
           <NuxtLink
             to="/dungeon-notification"
-            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 hover:dark:text-white"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             Dungeon Notification
           </NuxtLink>
           <NuxtLink
             to="/rune-knight"
-            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 hover:dark:text-white"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             Rune Knight
           </NuxtLink>
           <NuxtLink
             to="/exp-and-job-exp-table"
-            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 hover:dark:text-white"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             EXP &amp; Job EXP
           </NuxtLink>
           <NuxtLink
             to="/lab-5-headgear-enchantment"
-            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 hover:dark:text-white"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             Lab 5 Headgear Enchantment
           </NuxtLink>
           <NuxtLink
             to="/enchantments"
-            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 hover:dark:text-white"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             Enchantment
           </NuxtLink>
           <NuxtLink
             to="/about"
-            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 hover:dark:text-white"
+            class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white"
           >
             About
           </NuxtLink>
@@ -124,25 +124,25 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
             <div class="grid grid-cols-2 gap-y-4 gap-x-8">
               <NuxtLink
                 to="/"
-                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 hover:dark:text-white"
+                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"
               >
                 Home
               </NuxtLink>
               <NuxtLink
                 to="/dungeon-notification"
-                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 hover:dark:text-white"
+                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"
               >
                 Dungeon Notification
               </NuxtLink>
               <NuxtLink
                 to="/rune-knight"
-                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 hover:dark:text-white"
+                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"
               >
                 Rune Knight
               </NuxtLink>
               <NuxtLink
                 to="/about"
-                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 hover:dark:text-white"
+                class="text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"
               >
                 About
               </NuxtLink>
