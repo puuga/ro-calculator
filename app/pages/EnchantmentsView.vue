@@ -118,6 +118,111 @@ const tableEnchantments = [
       ],
     },
   },
+  // #region Star of Mettle
+  {
+    name: "Star of Mettle",
+    table: {
+      columnHeaders: ["Enchant Type", "Enchant Description"],
+      rows: [
+        ["Lv 1", "ATK + 3%, HIT + 10"],
+        ["Lv 2", "ATK + 5%, HIT + 15"],
+        ["Lv 3", "ATK + 7%, HIT + 20, P.ATK + 1"],
+        ["Lv 4", "ATK + 10%, HIT + 25, P.ATK + 2"],
+        ["Lv 5", "ATK + 15%, HIT + 30, P.ATK + 5"],
+      ],
+    },
+  },
+  // #endregion Star of Mettle
+  // #region Star of Master Archer
+  {
+    name: "Star of Master Archer",
+    table: {
+      columnHeaders: ["Enchant Type", "Enchant Description"],
+      rows: [
+        ["Lv 1", "เพิ่ม Damage ทางกายภาพระยะไกล 2%, ATK + 2%"],
+        ["Lv 2", "เพิ่ม Damage ทางกายภาพระยะไกล 3%, ATK + 3%"],
+        ["Lv 3", "เพิ่ม Damage ทางกายภาพระยะไกล 5%, ATK + 5%, P.ATK + 1"],
+        ["Lv 4", "เพิ่ม Damage ทางกายภาพระยะไกล 7%, ATK + 6%, P.ATK + 2"],
+        ["Lv 5", "เพิ่ม Damage ทางกายภาพระยะไกล 10%, ATK + 7%, P.ATK + 4"],
+      ],
+    },
+  },
+  // #endregion Star of Master Archer
+  // #region Star of Sharp
+  {
+    name: "Star of Sharp",
+    table: {
+      columnHeaders: ["Enchant Type", "Enchant Description"],
+      rows: [
+        ["Lv 1", "CRI + 2, เพิ่ม Critical Damage 2%"],
+        ["Lv 2", "CRI + 3, เพิ่ม Critical Damage 3%"],
+        ["Lv 3", "CRI + 5, เพิ่ม Critical Damage 5%, P.ATK + 1"],
+        ["Lv 4", "CRI + 6, เพิ่ม Critical Damage 10%, P.ATK + 2"],
+        ["Lv 5", "CRI + 8, เพิ่ม Critical Damage 15%, P.ATK + 2, C.Rate + 1"],
+      ],
+    },
+  },
+  // #endregion Star of Sharp
+  // #region Star of Spell
+  {
+    name: "Star of Spell",
+    table: {
+      columnHeaders: ["Enchant Type", "Enchant Description"],
+      rows: [
+        ["Lv 1", "MATK + 5, ลดระยะเวลาร่ายแบบแปรผัน 5%"],
+        ["Lv 2", "MATK + 7, ลดระยะเวลาร่ายแบบแปรผัน 5%"],
+        ["Lv 3", "MATK + 11, ลดระยะเวลาร่ายแบบแปรผัน 7%, S.MATK + 1"],
+        ["Lv 4", "MATK + 17, ลดระยะเวลาร่ายแบบแปรผัน 10%, S.MATK + 2"],
+        ["Lv 5", "MATK + 25, ลดระยะเวลาร่ายแบบแปรผัน 15%, S.MATK + 4"],
+      ],
+    },
+  },
+  // #endregion Star of Spell
+  // #region Star of Speed
+  {
+    name: "Star of Speed",
+    table: {
+      columnHeaders: ["Enchant Type", "Enchant Description"],
+      rows: [
+        ["Lv 1", "FLEE + 5, ASPD +5%"],
+        ["Lv 2", "FLEE + 10, ASPD + 7%"],
+        ["Lv 3", "FLEE + 15, ASPD + 7%"],
+        ["Lv 4", "FLEE + 20, ASPD + 10%, ASPD + 1"],
+        ["Lv 5", "FLEE + 30, ASPD + 15%, ASPD + 2"],
+      ],
+    },
+  },
+  // #endregion Star of Speed
+  // #region Star of Vital
+  {
+    name: "Star of Vital",
+    table: {
+      columnHeaders: ["Enchant Type", "Enchant Description"],
+      rows: [
+        ["Lv 1", "MHP + 2%, RES + 1, MRES + 1"],
+        ["Lv 2", "MHP + 3%, RES + 2, MRES + 2"],
+        ["Lv 3", "MHP + 5%, RES + 4, MRES + 4"],
+        ["Lv 4", "MHP + 7%, RES + 6, MRES + 6"],
+        ["Lv 5", "MHP + 10%, RES + 10, MRES + 10"],
+      ],
+    },
+  },
+  // #endregion Star of Vital
+  // #region Star of Spirit
+  {
+    name: "Star of Spirit",
+    table: {
+      columnHeaders: ["Enchant Type", "Enchant Description"],
+      rows: [
+        ["Lv 1", "เพิ่มปริมาณ Heal 5%, MSP + 3%, เพิ่มพลังฟื้นฟู SP 10%"],
+        ["Lv 2", "เพิ่มปริมาณ Heal 7%, MSP + 5%, เพิ่มพลังฟื้นฟู SP 15%"],
+        ["Lv 3", "เพิ่มปริมาณ Heal 10%, MSP + 5%, เพิ่มพลังฟื้นฟู SP 15%, H.PLUS + 1"],
+        ["Lv 4", "เพิ่มปริมาณ Heal 10%, MSP + 7%, เพิ่มพลังฟื้นฟู SP 15%, H.PLUS + 3"],
+        ["Lv 5", "เพิ่มปริมาณ Heal 15%, MSP + 10%, เพิ่มพลังฟื้นฟู SP 20%, H.PLUS + 5"],
+      ],
+    },
+  },
+  // #endregion Star of Spirit
 ];
 </script>
 
