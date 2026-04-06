@@ -41,12 +41,12 @@ function formatNumber(num: number): string {
   return new Intl.NumberFormat().format(num);
 }
 function summaryEXP(data: number[][], columnIndex = 1): number {
-  return data.reduce((acc, cur) => acc + cur[columnIndex], 0)
+  return data.reduce((acc, cur) => acc + (cur[columnIndex] || 0), 0)
 }
 function getExpRange(data: number[][], range: string): (string[] | number[])[] {
   if (range === 'all') return [[...tableEXPsHeader], ...data]
   const [min, max] = range.split('-').map(Number)
-  return [[...tableEXPsHeader], ...data.filter((exp) => exp[0] >= min && exp[0] <= max)]
+  return [[...tableEXPsHeader], ...data.filter((exp) => (exp[0] || 0) >= min && (exp[0] || 0) <= max)]
 }
 </script>
 
@@ -91,22 +91,22 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
           <tbody>
             <tr v-for="exp in tableEXPs" :key="exp[0]">
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[0]) }}
+                {{ formatNumber(exp[0] || 0) }}
               </td>
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[1]) }}
+                {{ formatNumber(exp[1] || 0) }}
               </td>
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[2]) }}
+                {{ formatNumber(exp[2] || 0) }}
               </td>
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[3]) }}
+                {{ formatNumber(exp[3] || 0) }}
               </td>
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[4]) }}
+                {{ formatNumber(exp[4] || 0) }}
               </td>
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[5]) }}
+                {{ formatNumber(exp[5] || 0) }}
               </td>
             </tr>
           </tbody>
@@ -144,16 +144,16 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
           <tbody>
             <tr v-for="exp in tableJOBs" :key="exp[0]">
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[0]) }}
+                {{ formatNumber(exp[0] || 0) }}
               </td>
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[1]) }}
+                {{ formatNumber(exp[1] || 0) }}
               </td>
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[2]) }}
+                {{ formatNumber(exp[2] || 0) }}
               </td>
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[3]) }}
+                {{ formatNumber(exp[3] || 0) }}
               </td>
             </tr>
           </tbody>
@@ -182,15 +182,19 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
             <tr>
               <th class="c-table-th">Level</th>
               <th class="c-table-th">Job (250/50)</th>
+              <th class="c-table-th">Job (260/55)</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="exp in tableClass4JOBs" :key="exp[0]">
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[0]) }}
+                {{ formatNumber(exp[0] || 0) }}
               </td>
               <td class="c-table-td text-right tabular-nums">
-                {{ formatNumber(exp[1]) }}
+                {{ formatNumber(exp[1] || 0) }}
+              </td>
+              <td class="c-table-td text-right tabular-nums">
+                {{ formatNumber(exp[2] || 0) }}
               </td>
             </tr>
           </tbody>
@@ -198,6 +202,7 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
             <tr>
               <th class="c-table-th">Summary</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableClass4JOBs, 1)) }}</th>
+              <th class="c-table-th">{{ formatNumber(summaryEXP(tableClass4JOBs, 2)) }}</th>
             </tr>
           </tfoot>
         </table>
