@@ -12,6 +12,7 @@ const links: Link[] = [
   
   { group: 'Mystical Pass', title: 'Mystical Pass 1', path: 'https://ro.gnjoy.in.th/mystical-pass-constellation-tower-main/', tags: ['BP', 'MP'] },
   { group: 'Mystical Pass', title: 'Mystical Pass 2', path: 'https://ro.gnjoy.in.th/mystical-pass-land-of-snow-flowers-main/', tags: ['BP', 'MP'] },
+  { group: 'Mystical Pass', title: 'Mystical Pass 3', path: 'https://ro.gnjoy.in.th/mystical-pass-varmundts-biosphere-main/', tags: ['BP', 'MP'] },
 
 
   { group: 'Long Event', title: 'STARHALL MISSION', path: 'https://ro.gnjoy.in.th/ragnarok-starhall-mission/', tags: [] },
