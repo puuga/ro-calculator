@@ -47,6 +47,16 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        'firebase/app',
+        'firebase/analytics',
+        '@headlessui/vue',
+        '@heroicons/vue/24/outline',
+      ]
+    },
   },
 
   compatibilityDate: '2024-12-20',
