@@ -58,6 +58,8 @@ const links: Link[] = [
   { group: '4th Classes', title: '4th Classes', path: 'https://ro.gnjoy.in.th/4th_classes/characters/index.html', tags: ['Story', 'Quest'] },
   
   { group: '2nd High Extended Classes', title: '2nd High Extended Classes', path: 'https://ro.gnjoy.in.th/episode18DirectionPrayer/', tags: ['Story', 'Quest'] },
+
+  { group: 'Anniversary', title: '6th Anniversary', path: 'https://ro.gnjoy.in.th/6th-anniversary-sunset-of-ayothaya-main/', tags: ['Anniversary'] },
 ];
 
 const groups: string[] = links.reduce((acc: string[], link) => {
