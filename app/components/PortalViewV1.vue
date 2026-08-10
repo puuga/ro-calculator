@@ -90,9 +90,9 @@ function getTagsText(tags: string[]): string {
       <template v-for="link in getLinksByGroup(group)" :key="link.title">
         <div class="m-1">
           <div class="flex gap-1 hover:bg-sky-100 dark:hover:bg-sky-900">
-            <a :href="link.path" class="text-blue-600 dark:text-blue-400" target="_blank">
+            <NuxtLink :to="link.path" class="text-blue-600 dark:text-blue-400" target="_blank" external>
               {{ link.title }}
-            </a>
+            </NuxtLink>
             
             <div class="flex flex-wrap gap-1">
               <template v-for="tag in link.tags" :key="link.title">
