@@ -21,7 +21,9 @@ const links: Link[] = [
 
   { group: 'System', title: 'Geffen Magic Tournament Enchant System Update!', path: 'https://ro.gnjoy.in.th/geffen-magic-tournament-enchant-system-update/', tags: ['Enchant', 'Geffen Magic Accessory', 'Geffen Magic Armor', 'Thanos Weapon'] },
   { group: 'System', title: 'Item Grade&Reform System', path: 'https://ro.gnjoy.in.th/item-gradereform/', tags: ['Item Grade', 'Reform System'] },
-  
+
+  { group: 'Episode 20', title: 'Episode 20 : The Immortal', path: 'https://ro.gnjoy.in.th/episode-20-the-immortal-main', tags: ['Quest', 'Guide'] },
+  { group: 'Episode 20', title: 'Episode 20 : The Immortal', path: 'https://ro.gnjoy.in.th/landingpage/ep20/index.html', tags: [] },
   { group: 'Episode 19', title: 'Episode 19 : Issgard, Land of Snow Flowers', path: 'https://ro.gnjoy.in.th/episode-19-issgard-land-of-snow-flowers-main/', tags: ['Quest', 'Guide'] },
   { group: 'Episode 19', title: 'Episode 19 : Issgard, Land of Snow Flowers', path: 'https://ro.gnjoy.in.th/event/ep19/index.html', tags: [] },
   { group: 'Episode 18', title: 'Episode 18 : Quest Guide', path: 'https://ro.gnjoy.in.th/episode-18-quest-guide/', tags: ['Quest', 'Guide'] },
@@ -85,12 +87,12 @@ function getTagsText(tags: string[]): string {
         {{ group }}
       </div>
 
-      <template v-for="link in getLinksByGroup(group)" :key="link.title">
+      <template v-for="link in getLinksByGroup(group)" :key="link.path">
         <div class="m-1">
           <div class="flex gap-1 hover:bg-sky-100 dark:hover:bg-sky-900">
-            <a :href="link.path" class="text-blue-600 dark:text-blue-400" target="_blank">
+            <NuxtLink :to="link.path" class="text-blue-600 dark:text-blue-400" target="_blank" rel="noopener noreferrer" external>
               {{ link.title }}
-            </a>
+            </NuxtLink>
             
             <div class="flex flex-wrap gap-1">
               <template v-for="tag in link.tags" :key="link.title">
