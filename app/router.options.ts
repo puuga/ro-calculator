@@ -22,6 +22,7 @@ export const RN_TOOL_BUILD_RUNE_SUCCESS_RATE = 'tool-build-rune-success-rate'
 export const RN_TOOL_ETEL_DUST_CALCULATOR = 'tool-etel-dust-calculator'
 export const RN_DUNGEON_NOTIFICATION = 'dungeon-notification'
 export const RN_REFINE_SIMULATOR = 'refine-simulator'
+export const RN_DOZE_OFF_DETECTION = 'doze-off-detection'
 
 export const routeData = [
   {
@@ -144,6 +145,13 @@ export const routeData = [
     description: 'Refine Simulator',
     component: () => import('~/pages/RefineSimulatorView.vue'),
   },
+  {
+    path: '/doze-off-detection',
+    name: RN_DOZE_OFF_DETECTION,
+    title: 'Doze Off Detection | RO-Calculator',
+    description: 'Doze Off Detection',
+    component: () => import('~/pages/DozeOffDetection.vue'),
+  }
 ]
 
 export function findRouteByName(name: string) {
