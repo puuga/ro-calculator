@@ -46,6 +46,9 @@ function summaryEXP(data: number[][], columnIndex = 1): number {
 function getExpRange(data: number[][], range: string): (string[] | number[])[] {
   if (range === 'all') return [[...tableEXPsHeader], ...data]
   const [min, max] = range.split('-').map(Number)
+  if (min === undefined || max === undefined) {
+    throw new RangeError(`Invalid EXP range: ${range}`)
+  }
   return [[...tableEXPsHeader], ...data.filter((exp) => (exp[0] || 0) >= min && (exp[0] || 0) <= max)]
 }
 </script>
@@ -70,6 +73,7 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
               <option value="175-185">175-185</option>
               <option value="175-200">175-200</option>
               <option value="200-260">200-260</option>
+              <option value="260-275">260-275</option>
             </select>
           </div>
           <div>
@@ -86,6 +90,7 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
               <th class="c-table-th">EXP (200/70)<br />????-??-??</th>
               <th class="c-table-th">EXP (250/50)<br />2024-11-14</th>
               <th class="c-table-th">EXP (260/??)<br />????-??-??</th>
+              <th class="c-table-th">EXP (275/60)</th>
             </tr>
           </thead>
           <tbody>
@@ -108,6 +113,9 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
               <td class="c-table-td text-right tabular-nums">
                 {{ formatNumber(exp[5] || 0) }}
               </td>
+              <td class="c-table-td text-right tabular-nums">
+                {{ formatNumber(exp[6] || 0) }}
+              </td>
             </tr>
           </tbody>
           <tfoot>
@@ -118,6 +126,7 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 3)) }}</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 4)) }}</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 5)) }}</th>
+              <th class="c-table-th">{{ formatNumber(summaryEXP(tableEXPs, 6)) }}</th>
             </tr>
           </tfoot>
         </table>
@@ -183,6 +192,7 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
               <th class="c-table-th">Level</th>
               <th class="c-table-th">Job (250/50)</th>
               <th class="c-table-th">Job (260/55)</th>
+              <th class="c-table-th">Job (275/60)</th>
             </tr>
           </thead>
           <tbody>
@@ -196,6 +206,9 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
               <td class="c-table-td text-right tabular-nums">
                 {{ formatNumber(exp[2] || 0) }}
               </td>
+              <td class="c-table-td text-right tabular-nums">
+                {{ formatNumber(exp[3] || 0) }}
+              </td>
             </tr>
           </tbody>
           <tfoot>
@@ -203,6 +216,7 @@ function getExpRange(data: number[][], range: string): (string[] | number[])[] {
               <th class="c-table-th">Summary</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableClass4JOBs, 1)) }}</th>
               <th class="c-table-th">{{ formatNumber(summaryEXP(tableClass4JOBs, 2)) }}</th>
+              <th class="c-table-th">{{ formatNumber(summaryEXP(tableClass4JOBs, 3)) }}</th>
             </tr>
           </tfoot>
         </table>
