@@ -1,3 +1,9 @@
+type BaseExpRow = [level: number, oldExp: number, exp185: number, exp200: number, exp250: number, exp260: number]
+type ExpRow = [level: number, oldExp: number, exp185: number, exp200: number, exp250: number, exp260: number, exp275: number]
+type JobExpRow = [level: number, oldExp: number, exp185: number, exp200: number]
+type BaseClass4JobRow = [level: number, job250: number, job260: number]
+type Class4JobRow = [level: number, job250: number, job260: number, job275: number]
+
 export const dataEXPsHeader = [
   'Level',
   'EXP (old)',
@@ -5,8 +11,9 @@ export const dataEXPsHeader = [
   'EXP (200/70) ????-??-??',
   'EXP (250/50) 2024-11-14',
   'EXP (260/??) ????-??-??',
+  'EXP (275/60)',
 ]
-export const dataEXPs = [
+const baseEXPs: BaseExpRow[] = [
   [100, 7_070_000, 1_272_747, 1_272_747, 1_272_747, 1_272_747],
   [101, 7_400_000, 1_354_980, 1_354_202, 1_354_202, 1_354_202],
   [102, 7_770_000, 1_442_526, 1_440_870, 1_440_870, 1_440_870],
@@ -169,6 +176,32 @@ export const dataEXPs = [
   [259, 0, 0, 0, 0, 220_405_397_781],
   [260, 0, 0, 0, 0, 270_217_017_679],
 ]
+export const dataEXPs: ExpRow[] = [
+  ...baseEXPs.map((exp): ExpRow => [
+    exp[0],
+    exp[1],
+    exp[2],
+    exp[3],
+    exp[4],
+    exp[5],
+    exp[0] >= 201 ? exp[5] : 0,
+  ]),
+  [261, 0, 0, 0, 0, 0, 283_727_868_563],
+  [262, 0, 0, 0, 0, 0, 297_914_261_991],
+  [263, 0, 0, 0, 0, 0, 312_809_975_091],
+  [264, 0, 0, 0, 0, 0, 328_450_473_846],
+  [265, 0, 0, 0, 0, 0, 344_872_997_538],
+  [266, 0, 0, 0, 0, 0, 353_494_822_476],
+  [267, 0, 0, 0, 0, 0, 362_332_193_038],
+  [268, 0, 0, 0, 0, 0, 371_390_497_864],
+  [269, 0, 0, 0, 0, 0, 380_675_260_310],
+  [270, 0, 0, 0, 0, 0, 390_192_141_818],
+  [271, 0, 0, 0, 0, 0, 397_995_984_654],
+  [272, 0, 0, 0, 0, 0, 405_955_904_347],
+  [273, 0, 0, 0, 0, 0, 414_075_022_434],
+  [274, 0, 0, 0, 0, 0, 422_356_522_883],
+  [275, 0, 0, 0, 0, 0, 430_803_653_340],
+]
 
 export const dataJOBsHeader = [
   'Level',
@@ -176,7 +209,7 @@ export const dataJOBsHeader = [
   'Job (185/65) 2022-07-27',
   'EXP (200/70) ????-??-??',
 ]
-export const dataJOBs = [
+export const dataJOBs: JobExpRow[] = [
   [1, 106_000, 10_000, 10_000],
   [2, 112_000, 12_800, 12_800],
   [3, 355_000, 16_384, 16_384],
@@ -253,8 +286,9 @@ export const dataClass4JOBsHeader = [
   'Level',
   'Job (250/50)',
   'Job (260/55)',
+  'Job (275/60)',
 ]
-export const dataClass4JOBs = [
+const baseClass4JOBs: BaseClass4JobRow[] = [
   [1, 0, 0],
   [2, 4700000, 4700000],
   [3, 5522500, 5522500],
@@ -310,4 +344,83 @@ export const dataClass4JOBs = [
   [53, 0, 5421356072],
   [54, 0, 5963491679],
   [55, 0, 6559840847],
+]
+const class4JOBs275: number[] = [
+  0,
+  4_700_000,
+  5_522_500,
+  6_488_938,
+  7_624_502,
+  8_958_789,
+  10_526_577,
+  12_368_729,
+  14_533_256,
+  17_076_576,
+  20_064_977,
+  23_576_347,
+  27_702_208,
+  32_550_075,
+  38_246_361,
+  44_939_475,
+  52_803_883,
+  62_044_562,
+  72_902_360,
+  85_660_274,
+  100_650_821,
+  118_264_715,
+  138_961_040,
+  163_279_222,
+  191_853_086,
+  216_793_987,
+  244_977_206,
+  276_824_243,
+  312_811_394,
+  353_476_875,
+  399_428_869,
+  451_354_622,
+  510_030_723,
+  576_334_717,
+  651_258_230,
+  735_921_800,
+  831_591_634,
+  939_698_547,
+  1_061_859_358,
+  1_199_901_074,
+  1_355_888_214,
+  1_532_153_682,
+  1_731_333_660,
+  1_956_407_036,
+  2_210_739_951,
+  2_498_036_145,
+  2_822_893_843,
+  3_189_870_043,
+  3_604_553_149,
+  4_073_145_058,
+  4_480_459_564,
+  4_928_505_520,
+  5_421_356_072,
+  5_963_491_679,
+  6_559_840_847,
+  7_543_816_974,
+  8_675_389_520,
+  9_976_697_948,
+  11_473_202_640,
+  13_194_183_036,
+]
+function getClass4JobExp275(level: number): number {
+  const exp = class4JOBs275[level - 1]
+  if (exp === undefined) {
+    throw new RangeError(`Missing Class 4 job EXP for level ${level}`)
+  }
+  return exp
+}
+
+export const dataClass4JOBs: Class4JobRow[] = [
+  ...baseClass4JOBs.map((exp): Class4JobRow => [
+    exp[0],
+    exp[1],
+    exp[2],
+    getClass4JobExp275(exp[0]),
+  ]),
+  ...class4JOBs275.slice(55).map((exp, index): Class4JobRow => [index + 56, 0, 0, exp]),
 ]
