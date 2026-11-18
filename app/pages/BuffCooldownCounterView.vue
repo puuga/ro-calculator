@@ -17,7 +17,14 @@ let synth: SpeechSynthesis | undefined = undefined
 const notification = ref(false)
 
 const sound = ref('')
-const soundOptions = [
+
+interface SoundOption {
+  id: string
+  title: string
+  value: string
+}
+
+const soundOptions: SoundOption[] = [
   {
     id: 'sound_1',
     title: 'Sound 1',
@@ -45,8 +52,16 @@ const soundOptions = [
   },
 ]
 
-const buffs = ref([])
-const buffsOptions = [
+const buffs = ref<string[]>([])
+
+interface BuffOption {
+  id: string
+  title: string
+  value: string
+  max: number
+}
+
+const buffsOptions: BuffOption[] = [
   {
     id: 'buff_30s',
     title: 'Cooldown 30 s (0:30 m)',
@@ -157,6 +172,20 @@ const clockCooldownCountdownInterval: Record<string, number | undefined> = {
   '1800': undefined,
 }
 
+const clockCooldownDeadline: Record<string, number | undefined> = {
+  '30': undefined,
+  '60': undefined,
+  '90': undefined,
+  '120': undefined,
+  '180': undefined,
+  '300': undefined,
+  '500': undefined,
+  '600': undefined,
+  '900': undefined,
+  '1200': undefined,
+  '1800': undefined,
+}
+
 const btnRequestPIPDisable = ref(true)
 //#endregion refs
 
@@ -177,12 +206,11 @@ function onFormSubmit(event: Event) {
   consola.log('BuffCooldownCounterView onFormSubmit notification', notification.value)
   consola.log('BuffCooldownCounterView onFormSubmit buffs', buffs.value)
 
-  const _buffs = buffs.value as string[]
+  const _buffs = buffs.value
   for (const buff of _buffs) { // buff_30s, buff_60s
     const buffsOption = buffsOptions.find((option) => option.value === buff)
     if (buffsOption) {
       consola.log('BuffCooldownCounterView onFormSubmit clockCooldown', buffsOption.max)
-      clockCooldown[`${buffsOption.max}`].value = true
       clockCooldownCountdown(sound.value, buffsOption.max)
     }
   }
@@ -230,7 +258,7 @@ function previewSound(soundPath: string) {
 
     synth.speak(utterThis)
   } else {
-    const audio = new Audio(soundOptions[0].value)
+    const audio = new Audio(soundPath)
     audio.play()
   }
 }
@@ -259,9 +287,17 @@ function playSound(soundPath: string, value?: number) {
 
     synth.speak(utterThis)
   } else {
-    const audio = new Audio(soundOptions[0].value)
+    const audio = new Audio(soundPath)
     audio.play()
   }
+}
+
+function getClockCooldown(second: number): globalThis.Ref<boolean> | undefined {
+  return clockCooldown[second.toString()]
+}
+
+function getClockCooldownInterval(second: number): globalThis.Ref<string> | undefined {
+  return clockCooldownInterval[second.toString()]
 }
 
 function fireNotification(title: string, message: string) {
@@ -288,37 +324,72 @@ function fireNotification(title: string, message: string) {
 function stopCountdown() {
   consola.log('BuffCooldownCounterView stopCountdown')
   for (const key in clockCooldownCountdownInterval) {
-    clearInterval(clockCooldownCountdownInterval[key])
+    const interval = clockCooldownCountdownInterval[key]
+    if (interval !== undefined) {
+      clearInterval(interval)
+    }
     clockCooldownCountdownInterval[key] = undefined
+    clockCooldownDeadline[key] = undefined
   }
   for (const key in clockCooldown) {
-    clockCooldown[key].value = false
+    const cooldown = clockCooldown[key]
+    if (cooldown) {
+      cooldown.value = false
+    }
   }
   for (const key in clockCooldownInterval) {
-    clockCooldownInterval[key].value = ''
+    const interval = clockCooldownInterval[key]
+    if (interval) {
+      interval.value = ''
+    }
   }
 
   btnRequestPIPDisable.value = true
 }
 
 function clockCooldownCountdown(soundPath: string, second: number) {
-  clockCooldown[`${second}`].value = true
-  let countdownSecond = second
-  clockCooldownCountdownInterval[`${second}`] = window.setInterval(() => {
-    countdownSecond--
-    consola.log('BuffCooldownCounterView clockCooldownCountdown', countdownSecond)
-    clockCooldownInterval[`${second}`].value = countdownSecond.toString()
-    if (countdownSecond <= 0) {
-      clearInterval(clockCooldownCountdownInterval[`${second}`])
-      clockCooldown[`${second}`].value = false
+  const key = second.toString()
+  const cooldown = getClockCooldown(second)
+  const countdownInterval = getClockCooldownInterval(second)
+  if (!cooldown || !countdownInterval || !(key in clockCooldownCountdownInterval)) {
+    return
+  }
+
+  const existingInterval = clockCooldownCountdownInterval[key]
+  if (existingInterval !== undefined) {
+    clearInterval(existingInterval)
+  }
+
+  const duration = second * 1000
+  let deadline = Date.now() + duration
+  clockCooldownDeadline[key] = deadline
+  cooldown.value = true
+  countdownInterval.value = second.toString()
+
+  clockCooldownCountdownInterval[key] = window.setInterval(() => {
+    const now = Date.now()
+    const currentDeadline = clockCooldownDeadline[key]
+    if (currentDeadline === undefined) {
+      return
+    }
+
+    if (now >= currentDeadline) {
       playSound(soundPath, second)
       if (notification.value) {
         fireNotification('Buff Cooldown', `${second}s Cooldown is ready`)
       }
 
-      clockCooldownCountdown(soundPath, second)
+      deadline = currentDeadline + duration
+      while (deadline <= now) {
+        deadline += duration
+      }
+      clockCooldownDeadline[key] = deadline
     }
-  }, 1000)
+
+    const remainingSeconds = Math.ceil((deadline - now) / 1000)
+    countdownInterval.value = remainingSeconds.toString()
+    consola.log('BuffCooldownCounterView clockCooldownCountdown', remainingSeconds)
+  }, 100)
 }
 
 async function requestPIP() {
@@ -461,13 +532,13 @@ async function requestPIP() {
         </button>
         <div id="documentPIPContainer">
           <div id="documentPIP">
-            <template v-for="(cooldown, key, index) in clockCooldown">
-              <LazyBuffCooldownCounterClockTextViewV1 
-                v-if="clockCooldown[key].value"
-                :badge-text="buffsOptions[index].title" 
-                :counter-text="clockCooldownInterval[key].value"
-                :max="buffsOptions[index].max"
-                :value="+clockCooldownInterval[key].value"
+            <template v-for="buff in buffsOptions" :key="buff.id">
+              <LazyBuffCooldownCounterClockTextViewV1
+                v-if="getClockCooldown(buff.max)?.value"
+                :badge-text="buff.title"
+                :counter-text="getClockCooldownInterval(buff.max)?.value"
+                :max="buff.max"
+                :value="+(getClockCooldownInterval(buff.max)?.value ?? '0')"
               />
             </template>
           </div>
